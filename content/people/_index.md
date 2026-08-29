@@ -2,7 +2,7 @@
 title: People
 pi:
   name: "Zhuocheng Hou, PhD"
-  photo: "/uploads/people/houzhuocheng.png"
+  photo: "uploads/people/houzhuocheng.png"
   roles:
     - "Professor, College of Animal Science and Technology, China Agricultural University"
     - "Executive Deputy Director, National Engineering Laboratory for Animal Breeding"
@@ -41,7 +41,7 @@ groups:
         slug: "lincanping"
         title: "Ph.D. Student"
         email: "penn0422@cau.edu.cn"
-        photo: "/uploads/people/lincanping.jpg"
+        photo: "uploads/people/lincanping.jpg"
         bio: "Research interests include poultry genetics, breeding, and bioinformatics."
       - name: "Liu Yongtong"
         slug: "liu-yongtong"

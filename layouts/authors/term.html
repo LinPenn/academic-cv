@@ -79,9 +79,9 @@
             {{ $display := .display | default .label | default .url }}
             <a href="{{ .url | safeURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-300 hover:text-primary-700 dark:hover:text-primary-400 transition">
               {{ if eq .icon "github" }}
-                <img src="/uploads/people/github-mark.webp" alt="GitHub" class="h-5 w-5" />
+                <img src="{{ "uploads/people/github-mark.webp" | absURL }}" alt="GitHub" class="h-5 w-5" />
               {{ else if eq .icon "orcid" }}
-                <img src="/uploads/people/orcid-mark.png" alt="ORCID" class="h-5 w-5" />
+                <img src="{{ "uploads/people/orcid-mark.png" | absURL }}" alt="ORCID" class="h-5 w-5" />
               {{ else }}
                 <span class="w-5 h-5 inline-flex items-center justify-center">{{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height:1em;\"") }}</span>
               {{ end }}

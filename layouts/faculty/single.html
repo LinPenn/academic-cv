@@ -6,7 +6,7 @@
   <section class="mb-16 flex flex-col md:flex-row gap-10 items-start">
     <div class="md:w-1/4 w-full shrink-0">
       {{ with .Params.photo }}
-      <img src="{{ . | relURL }}" alt="{{ $.Params.title }}" class="w-full rounded-sm" />
+      <img src="{{ . | absURL }}" alt="{{ $.Params.title }}" class="w-full rounded-sm" />
       {{ else }}
       <div class="w-full aspect-[4/3] rounded-sm bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
         <span class="text-6xl text-white font-bold">{{ substr $.Params.title 0 1 }}</span>

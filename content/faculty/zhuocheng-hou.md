@@ -1,7 +1,7 @@
 ---
 title: "Zhuocheng Hou, PhD"
 type: faculty
-photo: "/uploads/people/houzhuocheng.png"
+photo: "uploads/people/houzhuocheng.png"
 bio: >-
   Zhuocheng Hou, Ph.D. is a professor at the College of Animal Science and Technology, China Agricultural University. A non-partisan scholar, he was selected as a Leading Talent in Scientific and Technological Innovation under the National High-Level Talent Special Support Program. He concurrently serves as Executive Deputy Director of the National Engineering Laboratory for Animal Breeding; a member of the National Livestock and Poultry Genetic Resources Committee and Deputy Head of its Poultry Group II; Special-Task Scientist for the National Waterfowl Industry System; an expert on the National Waterfowl Genetic Improvement Plan Committee; President of the Poultry Science Branch of the Chinese Association of Animal Science and Veterinary Medicine and Vice President of its Information Technology Branch; Deputy Secretary-General of the Livestock and Poultry Genetic Technology Innovation Alliance under the Ministry of Science and Technology; and Chief Scientist for duck breeding at Beijing Capital Agribusiness Co., Ltd.
 
