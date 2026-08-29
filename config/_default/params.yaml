@@ -6,7 +6,7 @@ hugoblox:
     tagline: "AI and Computer Vision Research"
     description: "HZ Lab is dedicated to cutting-edge research in AI, computer vision, and machine learning."
   theme:
-    mode: dark
+    mode: light
     pack: contrast
     colors:
       primary: ""
