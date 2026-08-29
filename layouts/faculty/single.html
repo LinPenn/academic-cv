@@ -1,0 +1,65 @@
+{{ define "main" }}
+{{ $page := . }}
+<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
+
+  <!-- ============ Photo + Bio ============ -->
+  <section class="mb-16 flex flex-col md:flex-row gap-10 items-start">
+    <div class="md:w-1/4 w-full shrink-0">
+      {{ with .Params.photo }}
+      <img src="{{ . | relURL }}" alt="{{ $.Params.title }}" class="w-full rounded-sm" />
+      {{ else }}
+      <div class="w-full aspect-[4/3] rounded-sm bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+        <span class="text-6xl text-white font-bold">{{ substr $.Params.title 0 1 }}</span>
+      </div>
+      {{ end }}
+    </div>
+    <div class="md:w-3/4">
+      <h1 class="text-3xl font-bold mb-4">{{ $.Params.title }}</h1>
+      <div class="prose dark:prose-invert max-w-none">{{ .Params.bio | markdownify }}</div>
+    </div>
+  </section>
+
+  <!-- ============ Collapsible sections ============ -->
+  {{ with .Params.sections }}
+  <section class="space-y-4">
+    {{ range . }}
+    <details class="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <summary class="flex items-center justify-between cursor-pointer select-none px-6 py-4 bg-gray-50 dark:bg-gray-800 font-semibold text-lg">
+        <span>{{ .title }}</span>
+        <span class="accordion-icon text-gray-400">
+          <span class="icon-plus">＋</span>
+          <span class="icon-minus">−</span>
+        </span>
+      </summary>
+      <div class="px-6 py-5">
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          {{ range .items }}
+            {{ if reflect.IsMap . }}
+              {{ if .subheading }}
+                <li class="mt-5 mb-1 font-semibold text-neutral-700 dark:text-neutral-200" style="list-style:none;"><span>{{ .subheading }}</span></li>
+              {{ else if .url }}
+                <li class="flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span><span><a href="{{ .url }}" target="_blank" rel="noopener" class="hover:text-primary-700 dark:hover:text-primary-400 underline">{{ .text }}</a></span></li>
+              {{ else }}
+                <li class="flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span><span>{{ .text | default . }}</span></li>
+              {{ end }}
+            {{ else }}
+              <li class="flex items-start gap-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></span><span>{{ . }}</span></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+    </details>
+    {{ end }}
+  </section>
+  {{ end }}
+
+</div>
+<style>
+  details summary{ list-style:none; }
+  details summary::-webkit-details-marker{ display:none; }
+  details summary .icon-plus{ display:inline; }
+  details summary .icon-minus{ display:none; }
+  details[open] summary .icon-plus{ display:none; }
+  details[open] summary .icon-minus{ display:inline; }
+</style>
+{{ end }}

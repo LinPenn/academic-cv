@@ -1,9 +1,4 @@
----
-# To publish author profile pages, remove all the `build` and `cascade` settings below.
-build:
-  render: never
-cascade:
-  build:
-    render: never
-    list: always
+﻿---
+# To publish author profile pages, remove all the uild and cascade settings below.
+# Author pages are now enabled for individual member profiles.
 ---

@@ -67,3 +67,10 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Local tooling / caches
+.bin/
+.pnpm-store/
+
+# Local design artifacts
+/design/

@@ -1,0 +1,11 @@
+schema: "hugoblox/author/v1"
+slug: "zhu-feng"
+is_owner: false
+name:
+  display: "Zhu Feng"
+role: "Associate Professor"
+bio: ""
+interests: []
+links: []
+affiliations: []
+education: []

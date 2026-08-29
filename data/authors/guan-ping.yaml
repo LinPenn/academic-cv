@@ -1,0 +1,11 @@
+schema: "hugoblox/author/v1"
+slug: "guan-ping"
+is_owner: false
+name:
+  display: "Guan Ping"
+role: "Ph.D. Student"
+bio: ""
+interests: []
+links: []
+affiliations: []
+education: []

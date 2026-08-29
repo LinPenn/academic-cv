@@ -1,0 +1,11 @@
+schema: "hugoblox/author/v1"
+slug: "li-pan"
+is_owner: false
+name:
+  display: "Li Pan"
+role: "Ph.D. Student"
+bio: ""
+interests: []
+links: []
+affiliations: []
+education: []

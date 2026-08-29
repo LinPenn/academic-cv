@@ -1,0 +1,33 @@
+schema: "hugoblox/author/v1"
+slug: "lincanping"
+is_owner: false
+name:
+  display: "Canping Lin"
+role: "Ph.D. Student"
+bio: "Graduate student working on AI protein design, bioinformatics, and computational biology."
+interests:
+  - "AI Protein Design"
+  - "Bioinformatics"
+  - "Computational Biology"
+links:
+  - icon: "envelope"
+    url: "mailto:penn0422@cau.edu.cn"
+    label: "E-mail"
+    display: "penn0422@cau.edu.cn"
+  - icon: "github"
+    url: "https://github.com/LinPenn"
+    label: "GitHub"
+    display: "LinPenn"
+  - icon: "orcid"
+    url: "https://orcid.org/0009-0009-2015-6460"
+    label: "ORCID"
+    display: "0009-0009-2015-6460"
+affiliations:
+  - name: "College of Animal Science and Technology, China Agricultural University"
+education:
+  - degree: "Bachelor of Agriculture"
+    institution: "South China Agricultural University, College of Animal Science"
+    year: "2019 - 2023"
+  - degree: "Ph.D."
+    institution: "China Agricultural University, College of Animal Science and Technology"
+    year: "2024 - Present"
