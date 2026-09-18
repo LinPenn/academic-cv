@@ -28,6 +28,7 @@ groups:
         slug: "yin-zhongtao"
         title: "Associate Professor"
         email: yinzhongtao@cau.edu.cn
+        photo: uploads/yin-zhongtao.jpg
       - name: "Zhu Feng"
         slug: "zhu-feng"
         title: "Associate Professor"
