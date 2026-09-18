@@ -1,0 +1,21 @@
+{{/*
+  读取一个数字型布局参数，非法值（空 / 非数字 / 越界）回退到默认值。
+
+  用法：
+    {{ $gap := partial "functions/layout_num.html" (dict "v" (index $home "top_gap") "def" 8 "min" 0 "max" 400) }}
+
+  为什么需要：这些数字来自 data/layout.yaml，用户可能在编辑器里填成空或乱字符，
+  模板里直接 int 转换会报错导致整站构建失败，所以统一走这里兜底。
+*/}}
+{{ $def := .def | default 0 }}
+{{ $min := .min | default 0 }}
+{{ $max := .max | default 100000 }}
+{{ $out := $def }}
+{{ with .v }}
+  {{ $r := try (int .) }}
+  {{ if not $r.Err }}
+    {{ $n := $r.Value }}
+    {{ if and (ge $n $min) (le $n $max) }}{{ $out = $n }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ return $out }}

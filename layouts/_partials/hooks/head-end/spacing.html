@@ -1,0 +1,41 @@
+{{/*
+  首页 / 研究页：把布局参数（data/layout.yaml，由编辑器「页面布局」模块维护）写进样式。
+  ------------------------------------------------------------------
+  为什么这么做：主题给每个区块默认加了 6rem 上下留白，research-areas 区块又自带 py-16/20/24，
+  两段叠加会让页面顶部空出近 200px。与其在正文里塞一堆工具类，不如把间距集中成几个数字，
+  在编辑器里就能调。
+
+  只影响首页与研究页，其它页面保持主题默认；缺省或非法值走默认值。
+*/}}
+{{ $layout := site.Data.layout | default dict }}
+{{ $home := index $layout "home" | default dict }}
+{{ $research := index $layout "research" | default dict }}
+
+{{ $homeTop := partial "functions/layout_num.html" (dict "v" (index $home "top_gap") "def" 8 "min" 0 "max" 400) }}
+{{ $titleTop := partial "functions/layout_num.html" (dict "v" (index $home "title_gap_top") "def" 8 "min" 0 "max" 400) }}
+{{ $titleBottom := partial "functions/layout_num.html" (dict "v" (index $home "title_gap_bottom") "def" 8 "min" 0 "max" 400) }}
+{{ $imgMax := partial "functions/layout_num.html" (dict "v" (index $home "image_max_width") "def" 1200 "min" 200 "max" 4000) }}
+{{ $imgTextGap := partial "functions/layout_num.html" (dict "v" (index $home "image_text_gap") "def" 24 "min" 0 "max" 400) }}
+{{ $textMax := partial "functions/layout_num.html" (dict "v" (index $home "text_max_width") "def" 1100 "min" 200 "max" 4000) }}
+
+{{ $resTop := partial "functions/layout_num.html" (dict "v" (index $research "top_gap") "def" 24 "min" 0 "max" 400) }}
+{{ $cardsTop := partial "functions/layout_num.html" (dict "v" (index $research "cards_gap_top") "def" 8 "min" 0 "max" 400) }}
+
+{{ $path := "" }}
+{{ with .File }}{{ $path = replace (.Path | default "") "\\" "/" }}{{ end }}
+
+{{ if eq $path "_index.md" }}
+<style>
+  /* 首页（数值来自 data/layout.yaml → 编辑器「页面布局」） */
+  .page-body > .hbb-section { padding-top: {{ $homeTop }}px; }
+  .home-hero-title { padding-top: {{ $titleTop }}px; padding-bottom: {{ $titleBottom }}px; }
+  .home-hero-image { width: min(92vw, {{ $imgMax }}px); }
+  .home-hero-text { width: min(92vw, {{ $textMax }}px); padding-top: {{ $imgTextGap }}px; padding-bottom: 2rem; }
+</style>
+{{ else if eq $path "research/_index.md" }}
+<style>
+  /* 研究页（数值来自 data/layout.yaml → 编辑器「页面布局」） */
+  .page-body > .hbb-section { padding-top: {{ $resTop }}px; }
+  #section-research-areas > div[class*="py-16"] { padding-top: {{ $cardsTop }}px; }
+</style>
+{{ end }}

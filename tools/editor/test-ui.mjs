@@ -225,7 +225,7 @@ async function main() {
   const origError = console.error;
   console.error = (...args) => { errors.push(args.map(String).join(' ')); origError(...args); };
 
-  const mods = ['dashboard', 'people', 'profiles', 'faculty', 'news', 'publications', 'pages', 'media', 'settings', 'publish', 'advanced'];
+  const mods = ['dashboard', 'people', 'profiles', 'faculty', 'news', 'publications', 'pages', 'media', 'settings', 'layout', 'publish', 'advanced'];
   const mounted = {};
   for (const id of mods) {
     const mod = (await import(`./public/js/modules/${id}.js`)).default;

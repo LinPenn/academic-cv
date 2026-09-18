@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 import * as site from './lib/site.mjs';
 import * as profiles from './lib/profiles.mjs';
+import * as layout from './lib/layout.mjs';
 import * as store from './lib/store.mjs';
 import * as git from './lib/git.mjs';
 import * as hugo from './lib/hugo.mjs';
@@ -176,6 +177,9 @@ const routes = {
     const res = site.saveFaculty({ path: rel, sections });
     return { ...res, imported: items.length };
   },
+
+  'GET /api/layout': () => layout.loadLayout(),
+  'POST /api/layout/save': async (req) => layout.saveLayout(await readJson(req)),
 
   'GET /api/pages': () => ({ pages: site.listPages() }),
   'GET /api/pages/doc': (req, res, url) => site.loadPage(url.searchParams.get('path')),

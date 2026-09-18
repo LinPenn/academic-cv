@@ -26,12 +26,14 @@ export const TRASH_DIR = path.join(EDITOR_DIR, 'trash');
  * 允许写入的目录前缀（相对站点根目录）
  * data/authors      —— 成员个人资料（主题实际读取的就是这里）
  * assets/media/authors —— 成员头像（主题用 resources.GetMatch 从这里取）
+ * data/layout.yaml —— 页面布局参数（编辑器「页面布局」模块维护）
  */
 export const WRITABLE_ROOTS = [
   'content',
   'config/_default',
   'static/uploads',
   'data/authors',
+  'data/layout.yaml',
   'assets/media/authors',
 ];
 /** 允许读取的目录前缀 */

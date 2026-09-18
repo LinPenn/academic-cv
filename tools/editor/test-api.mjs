@@ -343,6 +343,43 @@ async function main() {
     fs.rmSync(path.join(ROOT, 'content/publications/zz-test-paper'), { recursive: true, force: true });
   }
 
+  /* ---------- 6.5 页面布局：间距数字写入 data/layout.yaml ---------- */
+  {
+    const rel = 'data/layout.yaml';
+    const snap = snapshot(rel);
+    const before = readFile(rel);
+
+    const d = (await api('/api/layout')).data;
+    check('读取页面布局参数', d.fields?.length >= 6 && d.values, `fields=${d.fields?.length}`);
+    check('首页顶部留白不再是主题默认的 96px', Number(d.values['home.top_gap']) < 96,
+      `top_gap=${d.values['home.top_gap']}`);
+
+    const values = { ...d.values, 'home.image_max_width': 1000 };
+    const dry = await api('/api/layout/save', { method: 'POST', body: { values, dryRun: true } });
+    check('布局 dry-run 返回 diff', dry.status === 200 && dry.data.changed, JSON.stringify(dry.data).slice(0, 160));
+    check('布局 dry-run 不写盘', readFile(rel) === before);
+
+    const saved = await api('/api/layout/save', { method: 'POST', body: { values } });
+    check('布局保存成功', saved.status === 200 && saved.data.changed, JSON.stringify(saved.data).slice(0, 160));
+    const after = readFile(rel);
+    check('布局写入正确', /image_max_width:\s*1000/.test(after),
+      after.split(LF).filter((l) => l.includes('image_max_width')).join(' | '));
+    const dd = diffStat(before, after);
+    check('布局 diff 最小化（只改 1 行）', dd.added === 1 && dd.removed === 1, JSON.stringify(dd));
+
+    const clamp = (await api('/api/layout/save', {
+      method: 'POST', body: { values: { 'home.top_gap': 99999 }, dryRun: true },
+    })).data;
+    check('越界数值被夹到上限', clamp.intended['home.top_gap'] === 400, String(clamp.intended['home.top_gap']));
+    const bad = (await api('/api/layout/save', {
+      method: 'POST', body: { values: { 'home.top_gap': 'abc' }, dryRun: true },
+    })).data;
+    check('非法数值回退默认值', bad.intended['home.top_gap'] === 8, String(bad.intended['home.top_gap']));
+
+    restore(snap, rel);
+    check('已还原布局文件', readFile(rel) === before);
+  }
+
   /* ---------- 7. 图片上传（GitHub 文件名规范化） ---------- */
   {
     const png = Buffer.from(
