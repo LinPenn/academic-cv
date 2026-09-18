@@ -143,28 +143,38 @@ async function main() {
     check('已还原文件', readFile(rel) === before);
   }
 
-  /* ---------- 2. 导师主页：论文插入 → 语义与 diff 校验 ---------- */
+  /* ---------- 2. 导师主页：条目插入 → 语义与 diff 校验 ---------- */
   {
     const rel = 'content/faculty/zhuocheng-hou.md';
     const snap = snapshot(rel);
     const before = readFile(rel);
     const doc = (await api(`/api/faculty/doc?path=${encodeURIComponent(rel)}`)).data;
-    check('读取导师主页', doc.sections?.length === 4, `sections=${doc.sections?.length}`);
+    const titles = (doc.sections ?? []).map((s) => s.title);
+    /*
+     * 导师的论文已经迁到 publications 板块（每篇一个页面），导师页只剩职务/成果/获奖，
+     * 所以这里不再假设有 Publications 分区，改为按标题找「第一个带条目的分区」来测插入。
+     */
+    check('读取导师主页', Array.isArray(doc.sections) && doc.sections.length >= 3, `sections=${doc.sections?.length}`);
+    check('导师页不再重复放论文清单', !titles.some((t) => /publication/i.test(t ?? '')), titles.join(' / '));
+
+    const idx = doc.sections.findIndex((s) => Array.isArray(s.items) && s.items.length > 0);
+    check('导师页存在带条目的分区', idx >= 0, `idx=${idx}`);
 
     const sections = doc.sections.map((s) => ({ title: s.title, items: structuredClone(s.items) }));
-    sections[1].items.unshift('Test et al. 2026. A brand new paper. TEST JOURNAL.');
+    sections[idx].items.unshift('Test et al. 2026. A brand new entry. TEST JOURNAL.');
     const saved = await api('/api/faculty/save', { method: 'POST', body: { path: rel, sections } });
     check('导师主页保存成功', saved.status === 200 && saved.data.changed, JSON.stringify(saved.data).slice(0, 200));
 
     const after = readFile(rel);
-    check('新论文已插入', after.includes('A brand new paper'));
+    check('新条目已插入', after.includes('A brand new entry'));
     const dd = diffStat(before, after);
-    check('diff 最小化：插入 1 篇论文只新增 1 行', dd.added === 1 && dd.removed === 0, JSON.stringify(dd));
+    check('diff 最小化：插入 1 条只新增 1 行', dd.added === 1 && dd.removed === 0, JSON.stringify(dd));
     const reread = (await api(`/api/faculty/doc?path=${encodeURIComponent(rel)}`)).data;
-    check('论文条目数 +1（语义校验）', reread.sections[1].items.length === doc.sections[1].items.length + 1,
-      `${doc.sections[1].items.length} -> ${reread.sections[1].items.length}`);
-    check('原有论文逐条内容不变', doc.sections[1].items.every((t, k) => reread.sections[1].items[k + 1] === t));
-    check('其它分区（软著/获奖）内容不变', JSON.stringify(doc.sections[2].items) === JSON.stringify(reread.sections[2].items));
+    check('条目数 +1（语义校验）', reread.sections[idx].items.length === doc.sections[idx].items.length + 1,
+      `${doc.sections[idx].items.length} -> ${reread.sections[idx].items.length}`);
+    check('原有条目逐条内容不变', doc.sections[idx].items.every((t, k) => reread.sections[idx].items[k + 1] === t));
+    const other = doc.sections.findIndex((_, i) => i !== idx);
+    check('其它分区内容不变', JSON.stringify(doc.sections[other].items) === JSON.stringify(reread.sections[other].items));
     check('个人简介未被改写', /bio: >-/.test(after));
     restore(snap, rel);
     check('已还原导师页', readFile(rel) === before);

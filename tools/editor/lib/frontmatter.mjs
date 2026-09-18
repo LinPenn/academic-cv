@@ -327,20 +327,33 @@ function emitEntry(doc, value, oldNode, label, col, prefix) {
     const itemPad = ' '.repeat(childCol);
     const oldItems = refKind(oldNode) === 'seq' ? [...refNode(oldNode).items] : [];
     const used = new Array(oldItems.length).fill(false);
+    const match = new Array(value.length).fill(null);
     /**
-     * 为新条目挑一个「对应的旧条目」：
+     * 分两遍认领旧条目：
      *   1) 先按值精确匹配 —— 没变化的条目整段复用原文；
-     *   2) 匹配不上就退回同一位置 —— 这样即使某条内容变了，
-     *      它内部没变的键仍能沿用原文，diff 不会被无谓放大。
+     *   2) 剩下的（新增或被改动的）再按位置就近认领，这样即使某条内容变了，
+     *      它内部没变的键仍能沿用原文。
+     *
+     * 顺序不能颠倒：如果一边遍历一边按位置兜底，插入一条会把后面的对应关系全部错位，
+     * 于是所有旧条目都被重新生成（引号被去掉、diff 变成整段重写）。
      */
-    const pickOld = (item, idx) => {
-      let hit = oldItems.findIndex((it, k) => !used[k] && sameAsNode(it, item));
-      if (hit < 0 && idx < oldItems.length && !used[idx]) hit = idx;
-      if (hit >= 0) used[hit] = true;
-      return hit >= 0 ? oldItems[hit] : null;
-    };
     value.forEach((item, idx) => {
-      const old = pickOld(item, idx);
+      const hit = oldItems.findIndex((it, k) => !used[k] && sameAsNode(it, item));
+      if (hit >= 0) {
+        used[hit] = true;
+        match[idx] = oldItems[hit];
+      }
+    });
+    value.forEach((item, idx) => {
+      if (match[idx]) return;
+      const hit = (idx < oldItems.length && !used[idx]) ? idx : used.findIndex((u) => !u);
+      if (hit >= 0) {
+        used[hit] = true;
+        match[idx] = oldItems[hit];
+      }
+    });
+    value.forEach((item, idx) => {
+      const old = match[idx];
       if (old) {
         const raw = rawLinesOf(doc, old);
         if (raw?.length && indentMatches(raw[0], `${itemPad}- `) && sameAsNode(old, item)) {

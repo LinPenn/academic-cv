@@ -36,7 +36,8 @@ build:
 enableGitInfo: false
 summaryLength: 30
 pagination:
-  pagerSize: 10
+  # 论文有 90 多篇，一页显示完，不用翻页
+  pagerSize: 100
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>

@@ -399,11 +399,20 @@ function parseEntryValue(lines, keyLineIdx, limit, keyIndent, rest) {
 /** 键后面换行写块的情形：找缩进更深的子块 */
 function parseValueBlock(lines, start, limit, parentIndent) {
   const j = nextSignificant(lines, start, limit);
-  if (j >= limit || lines[j].indent <= parentIndent) {
-    return { node: { kind: 'scalar', value: null, start, end: nextSignificant(lines, start, limit) }, end: j };
+  const L = j < limit ? lines[j] : null;
+  /*
+   * YAML 允许「键下面顶格写序列」，这是很常见的写法（Hugo 模板生成的 front matter 就长这样）：
+   *     authors:
+   *     - me
+   *     - Robert Ford
+   * 此时序列项的缩进与键相同，不能当成「空值」，否则整个映射会在这一行提前结束，
+   * 后面的所有键（date、publication 等）都会被丢掉。
+   */
+  const isSeqLine = !!L && (L.content === '-' || L.content.startsWith('- '));
+  if (j >= limit || L.indent < parentIndent || (L.indent === parentIndent && !isSeqLine)) {
+    return { node: { kind: 'scalar', value: null, start, end: j }, end: j };
   }
-  const L = lines[j];
-  if (L.content === '-' || L.content.startsWith('- ')) {
+  if (isSeqLine) {
     const res = parseSeq(lines, { start: j, limit, indent: L.indent });
     return { node: res.node, end: res.end };
   }
