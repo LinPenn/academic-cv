@@ -32,6 +32,7 @@ groups:
         slug: "zhu-feng"
         title: "Associate Professor"
         email: fengzhu@cau.edu.cn
+        photo: uploads/zhu-feng.jpg
   - category: "Postdoc"
     members:
       - name: "Sun Dandan"
