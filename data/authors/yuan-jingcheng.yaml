@@ -1,0 +1,22 @@
+schema: hugoblox/author/v1
+slug: yuan-jingcheng
+is_owner: false
+name:
+  display: Yuan Jingcheng
+role: M.S. Student
+bio: A native of Zhejiang, China, and a 2026 master's student.
+interests:
+  - Genetics and Breeding
+links:
+  - icon: envelope
+    url: "mailto:1103254732@qq.com"
+    label: E-mail
+    display: 1103254732@qq.com
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Xinjiang Agricultural University
+    year: ""
+custom_sections: []

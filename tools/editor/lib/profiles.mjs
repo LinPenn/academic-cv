@@ -218,6 +218,16 @@ export function loadProfile(slug) {
 /* 保存                                                                */
 /* ------------------------------------------------------------------ */
 
+/**
+ * 成员个人页文件的内容。
+ * build.render 必须显式打开：content/authors/_index.md 里用 cascade 关掉了全部分类页，
+ * 只有本组成员的文件把它打开，论文里的外部作者才不会生成一堆空页面。
+ */
+function memberPageText(title) {
+  const safe = String(title).replace(/"/g, '\\"');
+  return `---\ntitle: "${safe}"\nbuild:\n  render: always\n  list: always\n---\n`;
+}
+
 export function saveProfile(input) {
   const { slug, dryRun = false } = input;
   if (!slug) throw new SaveError('缺少成员标识（slug）');
@@ -267,7 +277,7 @@ export function saveProfile(input) {
       if (input.pageTitle !== undefined) pageRes = saveDocument(pagePath, { keys: { title: wantTitle }, dryRun });
     } else if (!dryRun && input.createPage !== false) {
       ensureEditorDirs();
-      createText(pagePath, `---\ntitle: "${String(wantTitle).replace(/"/g, '\\"')}"\n---\n`);
+      createText(pagePath, memberPageText(String(wantTitle)));
       pageRes = { rel: pagePath, changed: true, created: true };
     }
   }
@@ -397,7 +407,7 @@ export function ensureProfiles(slugs, groups = []) {
       }
       if (!hasPage) {
         ensureEditorDirs();
-        createText(pagePath, `---\ntitle: "${String(name).replace(/"/g, '\\"')}"\n---\n`);
+        createText(pagePath, memberPageText(String(name)));
       }
       created.push(slug);
     } catch (err) {

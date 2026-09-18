@@ -164,6 +164,10 @@ groups:
         slug: chen-wanli
         title: M.S. Student
         photo: uploads/chenwanli.jpg
+      - name: "Yuan Jingcheng"
+        slug: "yuan-jingcheng"
+        title: M.S. Student
+        photo: uploads/yuanjingcheng.jpg
   - category: "Undergrad"
     members:
       - name: Tong Nianyi

@@ -1,0 +1,36 @@
+{{/*
+  论文 / 新闻 / 博客的作者列表（覆盖主题同名 partial）。
+  ------------------------------------------------------------------
+  与主题的区别：主题对每个作者都做 site.GetPage，名字碰巧存在分类项就生成 <a>，
+  外部合作者会连到空地址。这里改为先查「成员姓名映射表」：
+    · 本组成员 → 链接到个人页
+    · 其他作者（外部合作者、et al 等）→ 只显示文字
+*/}}
+{{- $authors := .Params.authors -}}
+{{- if $authors -}}
+  {{- if not (reflect.IsSlice $authors) -}}
+    {{- $authors = slice $authors -}}
+  {{- end -}}
+
+  {{- $map := partialCached "functions/member_page_map.html" . -}}
+
+  {{- range $index, $raw := $authors -}}
+    {{- if gt $index 0 }}, {{ end -}}
+    {{- $name := printf "%v" $raw -}}
+    {{- $url := index $map ($name | urlize) -}}
+    <span>
+      {{- if $url -}}
+        <a href="{{ $url }}">{{ $name }}</a>
+      {{- else -}}
+        {{ $name }}
+      {{- end -}}
+    </span>
+    {{- if isset $.Params "author_notes" -}}
+      {{- with (index $.Params.author_notes $index) -}}
+        <span class="relative inline-block ml-1">
+          <span class="author-notes text-primary-600 dark:text-primary-400" title="{{ . }}">*</span>
+        </span>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

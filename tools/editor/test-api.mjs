@@ -136,7 +136,12 @@ async function main() {
     const d = diffStat(before, after);
     check('diff 最小化：只新增该成员的 6 行、不重写其它内容', d.added === 6 && d.removed === 0, JSON.stringify(d));
     check('新成员已写入', after.includes('Test Student'));
-    check('原有成员仍在', after.includes('Canping Lin') && after.includes('Yin Zhongtao'));
+    /* 不写死姓名：用户会随时改名单，改为「新增 1 人、其余条目原样保留」 */
+    const namesOf = (txt) => (txt.match(/- name:/g) ?? []).length;
+    const keptOld = before.split(LF).filter((l) => l.includes('- name:') && !l.includes('Test Student'))
+      .every((l) => after.includes(l.trimEnd()));
+    check('原有成员仍在', namesOf(after) === namesOf(before) + 1 && keptOld,
+      `names ${namesOf(before)} -> ${namesOf(after)}, keptOld=${keptOld}`);
     check('行尾保持 CRLF', after.includes(CR + LF));
 
     restore(snap, rel, 'Test Student');
@@ -412,7 +417,9 @@ async function main() {
     const before = readFile(dataRel);
 
     const doc = (await api(`/api/profiles/doc?slug=${target}`)).data;
-    check('读取个人资料', doc.profile.display === 'Canping Lin' && doc.profile.links.length === 3,
+    // 不写死显示名（名单会变）：只要读到的人名确实出现在资料文件里即可
+    check('读取个人资料', doc.profile.display.length > 0 && before.includes(doc.profile.display)
+      && doc.profile.links.length === 3,
       JSON.stringify({ d: doc.profile.display, links: doc.profile.links.length }));
     check('识别出资料里的教育经历', doc.profile.education.length === 2, JSON.stringify(doc.profile.education));
 
@@ -608,7 +615,9 @@ async function main() {
     const broken = ['---', 'pi:', '  name: x', '   bad: indent', '---', ''].join(LF);
     const badYaml = await api('/api/raw', { method: 'POST', body: { path: 'content/people/_index.md', text: broken } });
     check('拒绝写入 front matter 坏掉的文件', badYaml.status === 400 && /解析失败/.test(badYaml.data.error ?? ''), JSON.stringify(badYaml.data).slice(0, 160));
-    check('被拒绝后文件未损坏', readFile('content/people/_index.md').includes('Canping Lin'));
+    const peopleNow = readFile('content/people/_index.md');
+    check('被拒绝后文件未损坏', /^---/.test(peopleNow) && peopleNow.includes('pi:') && peopleNow.includes('- name:'),
+      `len=${peopleNow.length}`);
   }
 
   /* ---------- 9. 备份 ---------- */

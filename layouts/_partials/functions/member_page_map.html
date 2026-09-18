@@ -1,0 +1,61 @@
+{{/*
+  作者名 → 本站成员个人页地址的映射表（构建期缓存一次）。
+  ------------------------------------------------------------------
+  为什么需要：
+    · 论文里 authors 写的是引用格式的人名（"Yin Z"、"Hou Z"），不是 slug；
+    · 以前靠 Hugo 的 author 分类法给每个出现过的名字都生成页面，导致外部合作者
+      也多出 /authors/erez-o/ 这类空页面（已改为默认不生成，见 content/authors/_index.md）。
+    现在：只有确实是本组成员、并且个人页真的渲染出来了，才给链接；其余只显示文字。
+
+  返回：dict{ 归一化后的姓名 -> 页面地址 }
+*/}}
+{{- $raw := dict -}}    {{/* key -> []url，用于检测重名 */}}
+
+{{- range $slug, $data := site.Data.authors -}}
+  {{- if $data -}}
+    {{- $url := "" -}}
+    {{- with site.GetPage (printf "/authors/%s" $slug) -}}
+      {{- if .RelPermalink }}{{ $url = .RelPermalink }}{{ end -}}
+    {{- end -}}
+
+    {{/* 只有真的存在个人页（RelPermalink 非空）才参与映射，避免连到 404 */}}
+    {{- if $url -}}
+      {{- $keys := slice $slug -}}
+
+      {{/* 姓名缩写：兼容「姓 名」与「名 姓」两种写法（Chen Shuai → chen-s / shuai-c） */}}
+      {{- $display := "" -}}
+      {{- with $data.name -}}
+        {{- $display = .display | default (printf "%s %s" (.given | default "") (.family | default "")) -}}
+      {{- end -}}
+      {{- $display = trim $display " " -}}
+      {{- if $display -}}
+        {{- $parts := split $display " " -}}
+        {{- if ge (len $parts) 2 -}}
+          {{- $a := index $parts 0 -}}
+          {{- $b := index $parts 1 -}}
+          {{- $keys = $keys | append (printf "%s-%s" $a (substr $b 0 1) | urlize) -}}
+          {{- $keys = $keys | append (printf "%s-%s" $b (substr $a 0 1) | urlize) -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- range $keys -}}
+        {{- $cur := index $raw . | default slice -}}
+        {{- $raw = merge $raw (dict . ($cur | append $url)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* 同一缩写指向多个成员时不做链接（宁可不链接，也不要连错人） */}}
+{{- $out := dict -}}
+{{- range $k, $urls := $raw -}}
+  {{- $uniq := $urls | uniq -}}
+  {{- if eq (len $uniq) 1 -}}
+    {{- $out = merge $out (dict $k (index $uniq 0)) -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* 导师的主页在 /faculty/ 下（不是作者页），单独挂上 */}}
+{{- $out = merge $out (dict "hou-z" "/faculty/zhuocheng-hou/" "zhuocheng-hou" "/faculty/zhuocheng-hou/") -}}
+
+{{- return $out -}}
