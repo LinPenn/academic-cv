@@ -5,6 +5,18 @@
 {{ $avatar := $profile.avatar }}
 {{ $avatar_shape := site.Params.hugoblox.layout.avatar_shape | default "circle" }}
 
+{{/*
+  头像的圆形裁剪位置。
+  以前是让 Hugo 直接裁成正方形（居中），脸偏上时额头会被切掉。
+  现在图片按原比例缩放，由 CSS 的 object-fit:cover + object-position 决定取哪一块，
+  于是可以在编辑器里上下左右自由拖动（存 data/authors/<slug>.yaml 的 avatar_position）。
+*/}}
+{{ $avatar_pos := "50% 50%" }}
+{{ with index (site.Data.authors | default dict) $slug }}
+  {{ with .avatar_position }}{{ $avatar_pos = printf "%v" . }}{{ end }}
+{{ end }}
+{{ $avatar_style := printf "object-fit:cover;object-position:%s" $avatar_pos }}
+
 <section class="max-w-5xl mx-auto px-6 py-10">
   <div class="flex flex-col sm:flex-row sm:items-center gap-6">
     <div class="flex-shrink-0">
@@ -12,6 +24,7 @@
         {{ if not (reflect.IsImageResourceProcessable $avatar) }}
         <img
           class="h-32 w-32 sm:h-40 sm:w-40 {{ if ne $avatar_shape "square" }}rounded-full{{ end }}"
+          style="{{ $avatar_style | safeCSS }}"
           src="{{ $avatar.RelPermalink }}"
           width="160"
           height="160"
@@ -21,13 +34,12 @@
         {{ else }}
         {{ $responsive := partial "functions/process_responsive_image.html" (dict
           "image" $avatar
-          "mode" "fill"
-          "aspect_ratio" "1:1"
-          "anchor" "Center"
+          "mode" "resize"
           "sizes" (slice 160 240 320 480)
         ) }}
         <img
           class="h-32 w-32 sm:h-40 sm:w-40 {{ if ne $avatar_shape "square" }}rounded-full{{ end }}"
+          style="{{ $avatar_style | safeCSS }}"
           srcset="{{ $responsive.srcset }}"
           sizes="160px"
           src="{{ $responsive.fallback.RelPermalink }}"

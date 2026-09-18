@@ -206,6 +206,8 @@ export function loadProfile(slug) {
       pronouns: base?.pronouns ?? '',
       weight: base?.weight ?? '',
       graduationYear: base?.graduation_year ?? '',
+      // 圆形头像的裁剪位置，形如 "50% 25%"（CSS object-position）
+      avatarPosition: base?.avatar_position ?? '50% 50%',
     },
     preservedFields: preserved,
     otherKeys: Object.keys(base ?? {}).filter((k) => !EDITABLE_FIELDS.includes(k)),
@@ -246,6 +248,14 @@ export function saveProfile(input) {
   if (p.pronouns) ops.push(['pronouns', p.pronouns]);
   if (p.graduationYear !== '' && p.graduationYear !== undefined) ops.push(['graduation_year', p.graduationYear]);
   if (p.weight !== '' && p.weight !== undefined) ops.push(['weight', Number(p.weight) || p.weight]);
+  if (p.avatarPosition !== undefined) {
+    // 只接受 "50% 25%" 这样的两段百分比，避免写进坏值后页面样式失效
+    const pos = String(p.avatarPosition).trim();
+    const value = /^\d{1,3}%\s+\d{1,3}%$/.test(pos) ? pos.replace(/\s+/, ' ') : '50% 50%';
+    // 居中（默认值）且文件里本来没有这个键时就不写，避免给所有成员都加一行无用配置
+    const cur = existing ? loadDoc(dataPath).fm?.avatar_position : undefined;
+    if (!(value === '50% 50%' && cur === undefined)) ops.push(['avatar_position', value]);
+  }
 
   const res = saveByPath(dataPath, ops, dryRun, { strict: false, createMissing: true });
 
