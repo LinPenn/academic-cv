@@ -5,7 +5,7 @@ type: landing
 sections:
   - block: markdown
     content:
-      title: Join HZ Lab
+      title: Join Hzc Lab
       text: |-
         We are always looking for motivated students and researchers to join our lab.
 

@@ -1,0 +1,23 @@
+schema: hugoblox/author/v1
+slug: chen-wanli
+is_owner: false
+name:
+  display: chenwanli
+role: M.S. Student
+bio: Passionate about research, passionate about life! Enjoys playing badminton.
+interests:
+  - Duck Breeding
+  - Genomics
+links: []
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Xinjiang Agricultural University
+    year: ""
+custom_sections:
+  - title: Practice & Internships
+    layout: list
+    items:
+      - title: Previously participated in a 45-day aerobic composting experiment on cattle manure at the Xinjiang Academy of Agricultural Sciences, focusing on its safe treatment and application as agricultural fertilizer.

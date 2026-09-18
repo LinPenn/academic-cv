@@ -6,8 +6,7 @@ sections:
   - block: research-areas
     content:
       title: Our Research
-      text: |-
-        HZ Lab focuses on waterfowl genetics, breeding, and molecular improvement, with research spanning genetic resources, genetic mechanisms, genomics, and precision breeding. Our work aims to elucidate the genetic basis of economically important traits and to develop innovative technologies and approaches for waterfowl breeding.
+      text: Hzc Lab focuses on waterfowl genetics, breeding, and molecular improvement, with research spanning genetic resources, genetic mechanisms, genomics, and precision breeding. Our work aims to elucidate the genetic basis of economically important traits and to develop innovative technologies and approaches for waterfowl breeding.
       items:
         - name: Functional Gene Research
           description: Identifying and functionally characterizing the genes, causal variants, and regulatory elements that underlie economically important traits in waterfowl, by combining multi-omics, genome editing, and functional assays to dissect how trait variation arises.

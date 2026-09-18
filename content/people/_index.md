@@ -24,16 +24,16 @@ pi:
 groups:
   - category: "Assoc. Prof."
     members:
-      - name: "Yin Zhongtao"
-        slug: "yin-zhongtao"
-        title: "Associate Professor"
-        email: yinzhongtao@cau.edu.cn
-        photo: uploads/yin-zhongtao.jpg
       - name: "Zhu Feng"
         slug: "zhu-feng"
         title: "Associate Professor"
         email: fengzhu@cau.edu.cn
         photo: uploads/zhu-feng.jpg
+      - name: "Yin Zhongtao"
+        slug: "yin-zhongtao"
+        title: "Associate Professor"
+        email: yinzhongtao@cau.edu.cn
+        photo: uploads/yin-zhongtao.jpg
   - category: "Postdoc"
     members:
       - name: "Sun Dandan"
@@ -73,7 +73,7 @@ groups:
         title: "Ph.D. Student"
         photo: uploads/people/yanghuanqi.jpg
         email: yanghq947@163.com
-      - name: "Canping Lin"
+      - name: Lin Canping
         slug: "lincanping"
         title: "Ph.D. Student"
         email: "penn0422@cau.edu.cn"
@@ -160,6 +160,10 @@ groups:
         title: M.S. Student
         email: 15290409395@163.com
         photo: uploads/people/chenxingchen.jpg
+      - name: Chen Wanli
+        slug: chen-wanli
+        title: M.S. Student
+        photo: uploads/chenwanli.jpg
   - category: "Undergrad"
     members:
       - name: Tong Nianyi
