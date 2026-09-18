@@ -158,7 +158,8 @@ export function push() {
     throw new GitError(
       `推送失败：\n${detail}\n\n`
       + '常见原因：\n'
-      + '· 网络无法访问 github.com（可稍后重试，或使用代理）\n'
+      + '· 网络无法访问 github.com（国内直连经常连不上，需走代理）\n'
+      + '  解决办法：git config http.proxy http://127.0.0.1:7890（换成本机代理端口；已在用的代理可在系统设置里看到）\n'
       + '· 尚未登录 GitHub（首次推送会弹出凭据窗口，登录一次即可）\n'
       + '· 远端有新提交，需要先拉取',
     );
