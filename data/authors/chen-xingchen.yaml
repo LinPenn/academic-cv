@@ -1,0 +1,61 @@
+schema: hugoblox/author/v1
+slug: chen-xingchen
+is_owner: false
+name:
+  display: Chen Xingchen
+role: M.S. Student
+bio: My name is Chen Xingchen. I received my bachelor's degree in Animal Science from Henan Agricultural University and have gained research experience in animal genetics and breeding, livestock and poultry production, and egg quality assessment. During my internship, I participated in research-related work including genomic DNA extraction from poultry, egg quality testing, and performance evaluation of broiler chickens, and developed familiarity with basic molecular laboratory techniques and the collection of livestock and poultry phenotypic data. I have a strong interest in animal genetics and breeding and livestock and poultry germplasm resource exploration, with a particular interest in research supporting the breeding of high-quality domestic livestock and poultry breeds. In addition, I have experience in campus new media and volunteer services, with strong skills in document organization, event coordination, and teamwork.
+interests:
+  - Duck genetics and breeding
+links:
+  - icon: envelope
+    url: "mailto:15290409395@163.com"
+    label: E-mail
+    display: 15290409395@163.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: Henan Agricultural University
+    year: 2022.09 - 2026.06
+  - degree: Master
+    institution: China Agricultural University
+    year: 2026.09 - present
+custom_sections:
+  - title: Research Internship
+    layout: timeline
+    items:
+      - title: Egg quality analysis
+        subtitle: Beijing Huadu Yukou Poultry Co., Ltd.
+        meta: 2025.06 - 2025.08
+        text: Measured egg weight, Haugh unit, albumen height and yolk color with digital egg scales and egg quality analyzers, and used candling equipment to screen for cracked shells and abnormal air cells, providing baseline data for egg quality assessment.
+      - title: Molecular experiments
+        subtitle: Beijing Huadu Yukou Poultry Co., Ltd.
+        meta: 2025.06 - 2025.08
+        text: Extracted genomic DNA from frozen poultry serum samples, becoming proficient in lysis, centrifugation and purification, to obtain high-purity DNA supporting downstream genotyping and population genetic diversity analysis.
+      - title: Livestock performance testing
+        subtitle: Shandong Smart Slaughterhouse
+        meta: 2025.06 - 2025.08
+        text: "Took part in performance testing of the domestic white-feathered broiler (Wode 188): body measurements, slaughter and cutting, viscera processing and weighing, collecting phenotypes at both the farm and slaughterhouse ends."
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: Municipal "Outstanding Volunteer"
+        meta: "2023.10"
+      - title: Two university-level "Outstanding Works in Youth League Publicity" and two university commendation letters
+        meta: "2024.01"
+      - title: Provincial "Outstanding Volunteer"
+        meta: "2024.03"
+      - title: College "Five Best and Ten Stars - Volunteer Service Star"; University Outstanding News Works (short video) Second Prize
+        meta: "2024.05"
+      - title: "\"Pu'ai\" Corporate Scholarship"
+        meta: "2024.12"
+  - title: Campus Activities
+    layout: list
+    items:
+      - title: Office Member, University Youth Volunteer Association
+        subtitle: Organized volunteer activities, procurement and archive statistics, and liaised with off-campus practice programs
+        meta: 2022.11 - 2024.06
+      - title: Imaging Technology Department, College New Media Studio
+        subtitle: Photography, video recording and live streaming for college events, poster design and post-production
+        meta: 2022.10 - 2024.06

@@ -1,5 +1,21 @@
 # [The Academic CV That Gets You Hired](https://github.com/HugoBlox/hugo-theme-academic-cv)
 
+> ## 📌 本仓库是实验室网站（基于 Hugo Blox 模板）
+>
+> - 线上地址：<https://linpenn.github.io/academic-cv/>（GitHub Pages 项目站点，路径带 `/academic-cv/`）
+> - 发布方式：推送到 `main` 分支后，由 `.github/workflows/deploy.yml` 自动构建并发布（约 1~2 分钟）
+>
+> ### ✏️ 修改网站内容请用可视化编辑器
+>
+> **Windows**：双击根目录的 `start-editor.bat`；**macOS/Linux**：运行 `./start-editor.sh`
+> 然后在浏览器打开 <http://127.0.0.1:7788/admin/>
+>
+> 可以在界面里直接改：成员名单、导师主页（含论文/软著/专利）、新闻动态、论文发表、
+> 首页与各页面文字、图片素材、站点名称与导航菜单，并一键提交推送到 GitHub。
+> 详细说明见 **[tools/editor/README.md](tools/editor/README.md)**。
+>
+> 下面是模板自带的说明文档，供需要深度定制时参考。
+
 [![Screenshot](.github/preview.webp)](https://hugoblox.com/templates/academic-cv?utm_source=github&utm_medium=readme&utm_content=preview)
 
 <!-- TODO: Replace with a short demo video showing Hugo Chat generating an academic profile page -->

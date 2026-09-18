@@ -1,0 +1,51 @@
+schema: hugoblox/author/v1
+slug: wang-wei
+is_owner: false
+name:
+  display: Wang Wei
+role: M.S. Student
+bio: |
+  A native of Hefei, Anhui, China, currently pursuing a master's degree in Animal Husbandry at China Agricultural University, specializing in Livestock and Poultry Genetics and Breeding Technology. During my undergraduate studies, I achieved a GPA of 3.19 and systematically studied courses including Animal Genetics and Breeding, Smart Farm Management, Data Analysis, and Deep Learning. I also actively participated in research training and practical activities in animal production. I am down-to-earth, conscientious, and curious, with strong communication skills and the ability to complete assigned tasks on time and to a high standard. I am also passionate about contributing to others and have been actively involved in volunteer services for many years. I hope to further develop my expertise in livestock and poultry genetics and breeding, integrate molecular breeding with smart animal husbandry technologies, and contribute to improving the quality and efficiency of the livestock industry
+interests:
+  - Livestock and poultry genetic breeding technology
+  - Association analysis between functional gene polymorphisms and production traits
+  - Smart animal husbandry and biostatistics data analysis
+links:
+  - icon: envelope
+    url: "mailto:2321448468@qq.com"
+    label: E-mail
+    display: 2321448468@qq.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: Northwest A&F University
+    year: 2022.09 - 2026.06
+  - degree: Master
+    institution: China Agricultural University
+    year: 2026.09 - present
+custom_sections:
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 第十届全国大学生生命科学竞赛（创新创业类）国家级三等奖
+        subtitle: Third Prize (national), 10th National College Student Life Sciences Competition (Innovation and Entrepreneurship)
+      - title: 第十六届全国大学生数学竞赛省级二等奖
+        text: Second Prize (provincial), 16th National College Student Mathematics Competition
+      - title: 2022-2023年度、2023-2024年度校级“爱心实践先进个人”荣誉称号
+        text: 2022-2023 and 2023-2024 Outstanding Individual in Caring Practice, university level
+      - title: 徐西湾村西苑社区“优秀志愿者”荣誉证书
+        text: Outstanding Volunteer, Xiyuan Community, Xuxiwan Village
+  - title: Practice & Internships
+    layout: timeline
+    items:
+      - title: Technical Intern, Production Department
+        subtitle: Ningxia Xiaoming Agriculture & Animal Husbandry Co., Ltd.
+        meta: 2025.03 - 2025.05
+        text: Feeding technology, poultry house feeding and environmental control equipment, layer breed characteristics, and daily management of the farm egg warehouse.
+      - title: Class Recreation and Sports Committee Member
+        subtitle: Organized classmates for sports meets, basketball and football games and arts performances
+        meta: 2022.09 - 2026.06
+      - title: Volunteer Teaching
+        subtitle: Tutored children in villages around the university and led group activities
+        meta: Multiple terms

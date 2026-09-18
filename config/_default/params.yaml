@@ -3,8 +3,8 @@ hugoblox:
   identity:
     name: hzclab
     type: organization
-    tagline: "AI and Computer Vision Research"
-    description: "HZ Lab is dedicated to cutting-edge research in AI, computer vision, and machine learning."
+    tagline: Waterfowl Genetics & Precision Breeding
+    description: We focus on waterfowl genetics, breeding, and molecular improvement, with research spanning genetic resources, genetic mechanisms, genomics, and precision breeding. Our work aims to elucidate the genetic basis of economically important traits and to develop innovative technologies and approaches for waterfowl breeding.
   theme:
     mode: light
     pack: contrast

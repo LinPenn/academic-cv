@@ -4,8 +4,36 @@ is_owner: false
 name:
   display: "Xing Yuxin"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Hope for the best and give it my all. I approach research with enthusiasm and perseverance, willing to invest time in deep exploration and often using holidays to reflect, learn, and grow. In my spare time, I enjoy swimming and reading, and I also love getting together with my lab mates to enjoy good food and good company, seeking a balance between research and life.
+interests:
+  - Avian Embryonic Stem Cell Culture, Establishment, and Gene Editing Applications
+  - Multi-Omics Integration for the Identification of Key Factors and Regulatory Mechanisms Underlying Early Avian Embryonic Development
+links:
+  - icon: envelope
+    url: xingyuxin@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: College of Veterinary Medicine, Henan Agricultural University
+    year: 2018.09-2022.06
+  - degree: Summer Study and Academic Exchange
+    institution: Massey University, New Zealand
+    year: 2024.08-2024.09
+  - degree: Master
+    institution: College of Animal Science and Technology, Henan Agricultural University
+    year: 2022.09-2025.06
+  - degree: Doctor
+    institution: College of Animal Science and Technology, China Agricultural University
+    year: 2025.09-Present
+custom_sections:
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: National Bronze Award, “Internet+” College Student Innovation and Entrepreneurship Competition
+        subtitle: 中国畜牧杂志
+      - title: First and Third Prizes at the Provincial Level, “Internet+” College Student Innovation and Entrepreneurship Competition
+      - title: Third Prize at the Provincial Level, “Challenge Cup” National College Student Entrepreneurship Competition

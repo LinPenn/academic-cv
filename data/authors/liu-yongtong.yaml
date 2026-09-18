@@ -5,7 +5,30 @@ name:
   display: "Liu Yongtong"
 role: "Ph.D. Student"
 bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+interests:
+  - Regulation of Lipid Metabolism in Adipocytes and Functional Divergence of Paralogous Genes, with a Focus on the Functional Network of the Avian Fatty Acid Desaturase (FADS) Gene Family and the Molecular Mechanisms Underlying FADS-Mediated Lipid Metabolism
+links:
+  - icon: envelope
+    url: lyt@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Northeast Forestry University
+    year: 2017-2021
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2021-Present
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: Transcriptional activity and variation analysis of genes critical for long-chain fatty acid (C≥16) elongation and desaturation in Pekin ducks
+        subtitle: Poultry Science 2024
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579124010150"
+      - title: "Research Note: Identification of core promoter region of the polyunsaturated fatty acid synthesis-related gene family in chicken"
+        subtitle: Poultry Science 2023
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579123003760"

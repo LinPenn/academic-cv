@@ -23,11 +23,12 @@ links:
     label: "ORCID"
     display: "0009-0009-2015-6460"
 affiliations:
-  - name: "College of Animal Science and Technology, China Agricultural University"
+  - name: China Agricultural University
 education:
-  - degree: "Bachelor of Agriculture"
+  - degree: Bachelor
     institution: "South China Agricultural University, College of Animal Science"
     year: "2019 - 2023"
-  - degree: "Ph.D."
+  - degree: Doctor
     institution: "China Agricultural University, College of Animal Science and Technology"
     year: "2024 - Present"
+custom_sections: []

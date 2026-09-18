@@ -9,14 +9,9 @@ sections:
       text: |-
         We would love to hear from you!
 
-        **Address:** HZ Lab, [University/Institution], [City, Country]
+        **Address:** China Agricultural University, Beijing, China
 
-        **Email:** contact@hzclab.org
-
-        **Follow Us:**
-        - [GitHub](https://github.com/hzclab)
-        - [Twitter/X](https://x.com/hzclab)
-        - [LinkedIn](https://linkedin.com/company/hzclab)
+        **Email:** houzc@cau.edu.cn
     design:
       columns: "2"
 ---

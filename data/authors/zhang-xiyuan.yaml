@@ -4,8 +4,28 @@ is_owner: false
 name:
   display: "Zhang Xiyuan"
 role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: |
+  2025 Master's Student. Enjoys growing flowers and plants, and currently maintains a planted aquarium.
+interests:
+  - Gene Editing Tool Development
+links:
+  - icon: envelope
+    url: z13580853621@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: China Agricultural University
+    year: 2021.9-2025.6
+  - degree: Master
+    institution: China Agricultural University
+    year: 2025.9-Present
+custom_sections:
+  - title: Interests
+    layout: markdown
+    text: |-
+      planted aquarium
+      ![A planted aquarium I maintain at home](uploads/people/planted-aquarium.jpg)

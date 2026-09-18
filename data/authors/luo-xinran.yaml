@@ -1,0 +1,23 @@
+schema: hugoblox/author/v1
+slug: luo-xinran
+is_owner: false
+name:
+  display: Luo Xinran
+role: M.S. Student
+bio: A native of Yuzhong, Chongqing, China, and a member of the Communist Youth League of China. Currently pursuing a bachelor's degree in Animal Science at Sichuan Agricultural University. Previously served in Unit 68216 of the Ground Force of the Western Theater Command of the Chinese People's Liberation Army. Possesses a foundation in animal genetics and breeding, population genetics, and bioinformatics analysis.
+interests:
+  - Phylogenetics
+  - Animal genetics and breeding
+  - Population genetics and bioinformatics
+links:
+  - icon: envelope
+    url: "mailto:615769857@qq.com"
+    label: E-mail
+    display: 615769857@qq.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: College of Animal Science and Technology， Sichuan Agricultural University,
+    year: 2020.09-2026.06
+custom_sections: []

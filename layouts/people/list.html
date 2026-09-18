@@ -59,7 +59,7 @@
       <article class="member-card flex flex-col items-center text-center rounded-xl border border-gray-200 dark:border-gray-700 p-4" data-cat="cat-{{ $gi }}">
         {{ if .photo }}
         <div class="w-full aspect-[4/5] overflow-hidden mb-3 rounded-sm border border-gray-200 dark:border-gray-700">
-          <img src="{{ .photo | absURL }}" alt="{{ .name }}" class="w-full h-full object-cover" />
+          <img src="{{ .photo | absURL }}" alt="{{ .name }}" class="w-full h-full object-cover" loading="lazy" decoding="async" />
         </div>
         {{ else }}
         <div class="w-full aspect-[4/5] mb-3 rounded-sm bg-gradient-to-br from-blue-300 to-purple-400 flex items-center justify-center">

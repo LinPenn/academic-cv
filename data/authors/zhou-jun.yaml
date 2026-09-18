@@ -4,8 +4,41 @@ is_owner: false
 name:
   display: "Zhou Jun"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Focusing on multi-strain, continuously bred Pekin duck populations, I investigate genome-wide genetic variation and the genetic architecture of complex economic traits through whole-genome sequencing. By integrating multi-tissue transcriptomics, regulatory genomics, and molecular quantitative genetics, I systematically characterize the genetic regulatory networks underlying important economic traits, including growth, body conformation, meat quality, and feed efficiency, and identify key candidate genes and functional variants. Building on these findings, I integrate multi-source omics information to optimize genomic prediction models, improve the accuracy and efficiency of genetic evaluation and breeding decisions for complex traits, and advance precision breeding and intelligent breeding systems in poultry.
+interests:
+  - Poultry Genomic Selection
+  - Intelligent Breeding
+links:
+  - icon: envelope
+    url: zhoujun138@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Northwest A&F University
+    year: 2017.09—2021.06
+  - degree: Master
+    institution: China Agricultural University
+    year: 2022.09—2025.06
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2025.09- Present
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: Genome-Wide Association Analysis and Genetic Parameters for Egg Production Traits in Peking Ducks
+        subtitle: Animals (Basel) 2024
+        url: "https://www.mdpi.com/2076-2615/14/13/1891"
+      - title: "Optimizing Breeding Strategies for Pekin Ducks Using Genomic Selection: Genetic Parameter Evaluation and Selection Progress Analysis in Reproductive Traits"
+        subtitle: Applied Sciences 2025
+        url: "https://www.mdpi.com/2076-3417/15/1/194"
+      - title: Genome-wide association analysis identifies candidate genes for carcass yields in Peking ducks
+        subtitle: Animal Genetics 2024
+        url: "https://onlinelibrary.wiley.com/doi/10.1111/age.13480"
+      - title: Genome-Wide Association Analysis Identifies Important Haplotypes and Candidate Gene XKR4 for Body Size Traits in Pekin Ducks
+        subtitle: Animals (Basel) 2024
+        url: "https://www.mdpi.com/2076-2615/14/16/2349"

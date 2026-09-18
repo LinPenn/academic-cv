@@ -4,8 +4,31 @@ is_owner: false
 name:
   display: "Yang Huanqi"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Harbin, Heilongjiang, China
+interests:
+  - Avian Influenza-Resistant Breeding
+links:
+  - icon: envelope
+    url: yanghq947@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Heilongjiang Bayi Agricultural University
+    year: ""
+  - degree: Master
+    institution: Hebei University of Engineering
+    year: ""
+  - degree: Doctor
+    institution: China Agricultural University
+    year: ""
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: CircGRB14 Inhibits Proliferation and Promotes Apoptosis of Granulosa Cells in Chicken Follicle Selection through Sponging miR-12264-3p and miR-6660-3p
+        subtitle: International Journal of Molecular Sciences 2025
+        url: "https://doi.org/10.3390/ijms26052214"

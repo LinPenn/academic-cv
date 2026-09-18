@@ -1,0 +1,54 @@
+schema: hugoblox/author/v1
+slug: xu-jiaqi
+is_owner: false
+name:
+  display: Xu Jiaqi
+  family: canping
+  given: Lin
+role: Ph.D. Student
+bio: Jiaqi Xu works on dairy cattle genetic breeding. His research uses mid-infrared spectra of milk to predict traits such as residual feed intake and feed conversion ratio, and to carry out genetic evaluation for faster genetic gain. During his graduate studies he served as head of the Outreach Department of the college graduate student association and has extensive on-farm experience with dairy and broiler operations.
+interests:
+  - Dairy cattle genetic breeding
+  - Predicting residual feed intake and feed conversion ratio from milk mid-infrared spectra
+  - Genetic evaluation of novel traits
+links:
+  - icon: envelope
+    url: "mailto:2060400458@qq.com"
+    label: E-mail
+    display: 2060400458@qq.com
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: M.S. in Animal Husbandry
+    institution: Shandong Agricultural University (joint training at Shandong Academy of Agricultural Sciences)
+    year: 2023.09 - present
+  - degree: B.S. in Animal Science
+    institution: Northwest Minzu University
+    year: 2019.09 - 2023.06
+custom_sections:
+  - title: Research Experience
+    layout: markdown
+    text: Research on dairy cattle genetic breeding at the Shandong Academy of Agricultural Sciences. Combining routine dairy herd improvement (DHI) testing with milk mid-infrared spectra to predict residual feed intake and feed conversion ratio, and to perform genetic evaluation of the related traits, aiming at rapid selection of high-quality dairy cattle and faster genetic progress. Participated in the National Dairy Cattle Industry Technology System, the 14th Five-Year National Key R&D Program, the Shandong Natural Science Foundation, the Shandong Improved Breed Project, and Shandong Key R&D programs. Also explored novel traits from AfiCollar sensor data on commercial farms, and has computed heritability and genetic variance estimates.
+  - title: Work Experience
+    layout: timeline
+    items:
+      - title: Research Assistant, Institute of Animal Husbandry and Veterinary Medicine & Dairy DHI Testing Center
+        subtitle: Shandong Academy of Agricultural Sciences
+        meta: 2024.03 - present
+        text: Farm sampling, FOSS instrument operation, and issuing test reports.
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: Intern, Breeding Department
+        subtitle: Shandong Aokesi Animal Husbandry Seed Industry Co., Ltd.
+        meta: 2024.08 - present
+        text: Follow-up of national key science and technology projects and modern agricultural industry system projects, work planning, and farm service. Familiar with the complete DHI sampling and testing workflow, type classification, frozen semen production and sales, data analysis, and pathogen testing workflows.
+        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+  - title: Publications, Awards & Skills
+    layout: list
+    items:
+      - title: Review article published in Chinese Journal of Animal and Veterinary Sciences
+      - title: First Prize, Shandong Provincial Graduate Student Healthy Breeding Innovation Practice Competition
+      - title: Skills
+        subtitle: R, Mix99, DMU, Python, MATLAB, WPS / Office; poster design, Photoshop, new media operations and photography
+      - title: Languages
+        subtitle: English CET-6; Mandarin Grade 1-B

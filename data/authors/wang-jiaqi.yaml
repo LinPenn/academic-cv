@@ -1,11 +1,24 @@
-schema: "hugoblox/author/v1"
-slug: "wang-jiaqi"
+schema: hugoblox/author/v1
+slug: wang-jiaqi
 is_owner: false
 name:
-  display: "Wang Jiaqi"
-role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+  display: Wang Jiaqi
+role: M.S. Student
+bio: Do my best to accomplish what I can, and seek answers to the questions that remain unresolved in my mind.
+interests:
+  - Molecular pedigree construction and molecular breeding marker mining in Baicheng Oil Chicken‌
+links:
+  - icon: envelope
+    url: "mailto:486183504@qq.com"
+    label: E-mail
+    display: 486183504@qq.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: Henan University of Science and Technology
+    year: 2021 - 2025
+  - degree: Master
+    institution: China Agricultural University
+    year: 2025 - Present
+custom_sections: []

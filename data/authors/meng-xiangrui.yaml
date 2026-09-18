@@ -1,0 +1,33 @@
+schema: hugoblox/author/v1
+slug: meng-xiangrui
+is_owner: false
+name:
+  display: Meng Xiangrui
+role: M.S. Student
+bio: ""
+interests: []
+links:
+  - icon: envelope
+    url: "mailto:m264603647@163.com"
+    label: E-mail
+    display: m264603647@163.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: College of Animal Science, Shanxi Agricultural University
+    year: 2022.09 - 2026.06
+custom_sections:
+  - title: Publications
+    layout: list
+    items:
+      - title: One paper published in Feed Industry during undergraduate study
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: First Prize (individual), Eco-Livestock Farm Planning and Design
+        subtitle: 5th National College Student Animal Science Skills Competition
+      - title: Second Prize (individual) and Second Prize (team), Rapid Identification and Adulteration Detection of Feed Ingredients
+        subtitle: 5th National College Student Animal Science Skills Competition
+      - title: First-Class Academic Scholarship, President's Scholarship, Outstanding Student, Merit Student
+        subtitle: Shanxi Agricultural University

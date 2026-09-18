@@ -1,11 +1,25 @@
-schema: "hugoblox/author/v1"
-slug: "wang-jialin"
+schema: hugoblox/author/v1
+slug: wang-jialin
 is_owner: false
 name:
-  display: "Wang Jialin"
-role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+  display: Wang Jialin
+role: M.S. Student
+bio: |
+  Currently focusing on intelligent phenotyping of livestock and poultry, combining computer vision and deep learning with practical needs in animal production to explore efficient and non-invasive methods for evaluating livestock and poultry growth performance. Outside of research, I enjoy trying different kinds of ball sports and tinkering with practical research tools and open-source projects. Feel free to reach out anytime if you are interested in exchanging ideas!
+interests:
+  - Intelligent phenotyping of livestock and poultry
+links:
+  - icon: envelope
+    url: "mailto:1647724202@qq.com"
+    label: E-mail
+    display: 1647724202@qq.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: College of Animal Science and Technology, Henan Agricultural University
+    year: 2021.09 - 2025.06
+  - degree: Master
+    institution: College of Animal Science and Technology, China Agricultural University
+    year: 2025.09 - present
+custom_sections: []

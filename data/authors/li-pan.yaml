@@ -4,8 +4,43 @@ is_owner: false
 name:
   display: "Li Pan"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Ph.D. student in Animal Genetics, Breeding and Reproduction at China Agricultural University, with a research focus on animal molecular quantitative genetics. Currently working primarily on the DuckGTEx project, integrating multi-tissue and multi-omics data to construct a gene expression regulatory atlas of Pekin ducks, elucidate the molecular mechanisms by which genetic variation regulates gene expression, and support molecular breeding research in Pekin ducks.
+interests:
+  - Animal Molecular Quantitative Genetics
+links:
+  - icon: envelope
+    url: ldpan528@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Master
+    institution: China Agricultural University
+    year: 2020.9-2023.6
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2024.09-Present
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: Comprehensive transcriptome analysis reveals MSTRG.19853.1/ssc-miR-361-3p/NPPA axis is related to hypoxic adaptation in Tibetan pigs
+        subtitle: BMC Genomics 2025
+        url: "https://link.springer.com/article/10.1186/s12864-025-11783-8"
+      - title: circRNA-Associated ceRNA Regulatory Networks in Cardiac Responses to High-Altitude Hypoxia in Tibetan Pigs (Sus scrofa)
+        subtitle: International Journal of Molecular Sciences 2026
+        url: "https://www.mdpi.com/1422-0067/27/10/4392"
+      - title: Breed-by-Altitude Interaction Reveals Cardiac miRNA–mRNA Regulatory Hubs Associated with Hypoxia Adaptation in Tibetan Pigs (Sus scrofa)
+        subtitle: International Journal of Molecular Sciences (Accepted)
+      - title: Genome-wide Association Study Identifies Significant Loci and Haplotypes Associated with Body Size Traits in Pekin Ducks
+        subtitle: 中国畜牧兽医学会动物遗传育种学分会.中国畜牧兽医学会动物遗传育种学分会第十一次会员代表大会暨第二十三次动物遗传育种学术讨论会论文集 2025
+      - title: 基于全基因组重测序筛选南阳黑猪脂肪沉积相关候选基因
+        subtitle: 中国农业大学学报 2023
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 2025 First-Class Academic Scholarship for Doctoral Students
+      - title: 2025 “Three Good Students” Award, China Agricultural University
+      - title: 2026 “Outstanding Communist Party Member” Award, China Agricultural University

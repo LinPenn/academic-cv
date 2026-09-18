@@ -3,9 +3,33 @@ slug: "chen-xingying"
 is_owner: false
 name:
   display: "Chen Xingying"
+  family: canping
+  given: Lin
 role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: A native of Yancheng, Jiangsu, China. Enjoys traveling and photography
+interests:
+  - Chicken Embryonic Stem Cells (cESCs)
+links:
+  - icon: envelope
+    url: cxy13485206233@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: Yangzhou University
+    year: ""
+  - degree: Master
+    institution: China Agricultural University
+    year: ""
+custom_sections:
+  - title: Patents
+    layout: list
+    items:
+      - title: 一种用于设施农业授粉的新型环保蜂箱
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 2023–2024 National Scholarship for Undergraduate Students

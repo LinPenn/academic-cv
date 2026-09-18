@@ -1,0 +1,39 @@
+schema: hugoblox/author/v1
+slug: li-shiwei
+is_owner: false
+name:
+  display: Li Shiwei
+role: Ph.D. Student
+bio: Shiwei Li is a Ph.D. student in Animal Genetics and Breeding at China Agricultural University. He describes himself as easy-going and sincere, friendly and optimistic, with a steady mindset for study and research. In his spare time he enjoys reading, chess, and occasional sports.
+interests:
+  - Poultry genetics and breeding
+  - Animal husbandry
+links:
+  - icon: envelope
+    url: "mailto:18439853374@163.com"
+    label: E-mail
+    display: 18439853374@163.com
+  - icon: orcid
+    url: "https://orcid.org/0009-0005-2514-964X"
+    label: ORCID
+    display: 0009-0005-2514-964X
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Ph.D. in Animal Genetics and Breeding
+    institution: China Agricultural University
+    year: 2026.09 - 2030.06
+  - degree: M.S. in Animal Husbandry
+    institution: Tibet Agricultural and Animal Husbandry University & Nanjing Agricultural University
+    year: 2023.09 - 2026.06
+  - degree: B.S. in Animal Science
+    institution: Henan University of Animal Husbandry and Economy
+    year: 2018.09 - 2022.06
+custom_sections:
+  - title: Publications
+    layout: list
+    items:
+      - title: "Li S, Wang S, Huang W, et al. Transcriptomics and metabolomics provide insights into meat flavor precursor differences between different duck lines. Poultry Science, 2026, 105(4): 106488."
+        subtitle: "doi:10.1016/j.psj.2026.106488"
+      - title: "Li S, Zheng S, Liu X, et al. Effects of different stocking densities under housed conditions on the production performance of off-season breeder geese. Feed Industry, 2025, 46(12): 156-160."
+        subtitle: "doi:10.13302/j.cnki.fi.2025.12.023"

@@ -4,8 +4,51 @@ is_owner: false
 name:
   display: "Fang Yingyan"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Even when fierce winds arise, never give up on the journey of life.
+interests:
+  - Genetic Association and Causal Regulatory Mechanisms Based on DuckGTEx
+  - Development and Application of a Genome-Wide 60K SNP Liquid-Phase Array in Pekin Ducks
+  - Bioinformatics and Multi-Omics Analysis in Pekin Ducks
+  - Molecular Design Breeding in Animals
+links:
+  - icon: envelope
+    url: 2022333020322@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: China Agricultural University
+    year: 2022-2026
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2026-Present
+custom_sections:
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 第十届北京市大学生生物学竞赛一等奖
+        subtitle: Gene 2025
+        text: First Prize, 10th Beijing College Student Biology Competition
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: CULSC第九届全国大学生生命科学竞赛（科学探究类）二等奖
+        subtitle: Animals 2023
+        text: Second Prize, 9th China Undergraduate Life Science Competition (Scientific Inquiry)
+        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+      - title: “强农杯”中国农业大学第五届创新创业大赛“种未来·创世界”前沿生物技术与育种技术专项赛二等奖
+        text: Second Prize, “Planting the Future · Creating the World” Frontier Biotechnology and Breeding Technology Competition, 5th Innovation and Entrepreneurship Competition of China Agricultural University
+      - title: “强农杯”中国农业大学第六届创新创业大赛创新竞赛三等奖（自然科学类学术论文赛道）
+        text: Third Prize, Innovation Competition (Natural Science Academic Paper Track), 6th Innovation and Entrepreneurship Competition of China Agricultural University
+      - title: 北京市大学生创新创业项目省部级项目优秀结题——项目负责人
+        text: Excellent Completion, Provincial/Ministerial-Level Beijing College Student Innovation and Entrepreneurship Program — Project Leader
+      - title: 2022届中国农业大学优秀本科毕业生
+        text: Outstanding Undergraduate Graduate, Class of 2022, China Agricultural University
+  - title: Interests & Hobbies
+    layout: markdown
+    text: |-
+      Jogging, reading, musicals
+      A veteran user of Archive of Our Own and Lofter
+
+      Often treating myself for no particular reason. Let’s all be people who truly savor life!

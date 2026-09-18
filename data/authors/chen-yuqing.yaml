@@ -3,9 +3,22 @@ slug: "chen-yuqing"
 is_owner: false
 name:
   display: "Chen Yuqing"
+  family: canping
+  given: Lin
 role: "M.S. Student"
-bio: ""
-interests: []
+bio: Primarily studying the accumulation patterns and genetic burden of deleterious mutations across global duck breeds, with a focus on the effects of domestication and artificial selection on genetic variation and its potential functional consequences.
+interests:
+  - Animal Genetics and Breeding
+  - Population Genomics
 links: []
-affiliations: []
-education: []
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Shandong Agricultural University
+    year: ""
+  - degree: Master
+    institution: China Agricultural University
+    year: ""
+custom_sections: []

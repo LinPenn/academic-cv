@@ -4,8 +4,22 @@ is_owner: false
 name:
   display: "Chen Shuai"
 role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: A native of Ganzhou, Jiangxi, China. Positive and optimistic. Know neither astronomy nor geography, but wish for world peace.
+interests:
+  - Evaluation of the Application Value of Associated Loci for Important Economic Traits in Ducks in Pekin Duck Breeding Populations
+links:
+  - icon: envelope
+    url: luxia0298@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Shanxi Datong University
+    year: 2021.09 - 2025.07
+  - degree: Master
+    institution: China Agricultural University
+    year: 2025.09-Present
+custom_sections: []

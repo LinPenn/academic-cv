@@ -4,8 +4,29 @@ is_owner: false
 name:
   display: "Wang Haojie"
 role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: |
+  Currently a second-year master's student in Animal Science at China Agricultural University. My research focuses on the similarities and differences in adipocyte formation and fat deposition between mammals and poultry, with the aim of understanding the conserved and species-specific cellular and molecular mechanisms underlying adipose tissue development from a cross-species comparative perspective. Outside of research, I enjoy working out and playing sports. Rather than living at an overly intense pace, I prefer to maintain a more relaxed state—taking research seriously while also enjoying life
+interests:
+  - Currently focusing on cross-species comparative studies of adipose tissue in mammals and poultry, with particular emphasis on the conserved and divergent mechanisms underlying adipocyte formation, differentiation, and fat deposition
+links:
+  - icon: envelope
+    url: 15929117911@163.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Northwest A&F University
+    year: ""
+  - degree: Master
+    institution: China Agricultural University
+    year: ""
+custom_sections:
+  - title: Personal Interests
+    layout: markdown
+    text: |-
+      Fitness, basketball, and other sports.
+
+      I hope to maintain curiosity and patience in research, while staying healthy, free, and relaxed in life.

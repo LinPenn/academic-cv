@@ -5,7 +5,93 @@ name:
   display: "Zhu Feng"
 role: "Associate Professor"
 bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+interests:
+  - Intelligent Breeding
+links:
+  - icon: envelope
+    url: " fengzhu@cau.edu.cn"
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor & Master
+    institution: Sichuan Agricultural University
+    year: 2008.09-2014.06
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2014.09-2018.06
+custom_sections:
+  - title: Research Projects
+    layout: list
+    items:
+      - title: National Natural Science Foundation of China, Young Scientists Fund (Category C)
+        meta: 2025–2027
+        text: Mechanistic Study of the Avian-Specific PLACL2 Gene in Preadipocyte Differentiation
+      - title: Beijing Changping District Science and Technology Commission Project
+        meta: 2025–2026
+        text: Research and Development of Intelligent Breeding Technologies for Pekin Ducks
+      - title: Subproject of the National Key Research and Development Program of China
+        meta: 2023–2027
+        text: Construction of Graph-Based Pangenomes and Genetic Variation Databases for Chickens and Ducks
+      - title: Joint Research Project of the Beijing Municipal Science and Technology Commission
+        meta: 2022–2025
+        text: Research on Genomic Selection Technologies for Pekin Ducks
+      - title: Major National Agricultural Science and Technology Project
+        meta: 2021–2026
+        text: Precision Measurement Technology for Feed Intake Efficiency in Broiler Chickens
+      - title: Subproject of the National Key Research and Development Program of China
+        meta: 2021–2024
+        text: Innovation and Demonstration of Key Technologies for Modern Yak Production Management and Control
+      - title: Beijing Municipal Science and Technology Commission “Open Competition for the Best Candidates” Project
+        meta: 2021–2024
+        text: Development and Industrial Application of an Automated Phenotyping System and Breeding Big Data Platform for Pekin Ducks
+  - title: Papers
+    layout: list
+    items:
+      - title: Three chromosome-level duck genome assemblies provide insights into genomic variation during domestication
+        subtitle: Nature Communications 2021
+        url: "https://www.nature.com/articles/s41467-021-26272-1"
+      - title: Chromosome-level genome assembly for the Silkie chicken resolves complete sequences for key chicken metabolic, reproductive, and immunity genes
+        subtitle: Communications Biology 2023
+        url: "https://www.nature.com/articles/s42003-023-05619-y"
+      - title: Genome-wide association analysis identifies candidate genes for carcass yields in Peking ducks
+        subtitle: Animal Genetics 2024
+        url: "https://onlinelibrary.wiley.com/doi/10.1111/age.13480"
+      - title: Genome-Wide Association Analysis Identifies Important Haplotypes and Candidate Gene XKR4 for Body Size Traits in Pekin Ducks.
+        subtitle: Animals (Basel) 2024
+        url: "https://doi.org/10.3390/ani14162349"
+      - title: Genome-Wide Association Analysis and Genetic Parameters for Egg Production Traits in Peking Ducks
+        subtitle: Animals (Basel) 2024
+        url: "https://www.mdpi.com/2076-2615/14/13/1891"
+      - title: "Optimizing Breeding Strategies for Pekin Ducks Using Genomic Selection: Genetic Parameter Evaluation and Selection Progress Analysis in Reproductive Traits."
+        subtitle: Applied Sciences
+        url: "https://doi.org/10.3390/app15010194"
+      - title: Genome-Wide Association Study of Growth and Feeding Traits in Pekin Ducks
+        subtitle: Frontiers in Genetics 2019
+        url: "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.00702/full"
+      - title: Genome-wide association study of the level of blood components in Pekin ducks
+        subtitle: Genomics 2020
+        url: "https://www.sciencedirect.com/science/article/pii/S0888754318306372"
+      - title: iTRAQ-Based Quantitative Proteomic Analysis of Duck Eggshell During Biomineralization
+        subtitle: Proteomics 2019
+  - title: Software Copyrights
+    layout: list
+    items:
+      - title: 基于CT影像的北京鸭胸肌及皮脂检测软件
+      - title: 北京鸭多组学和育种大数据管理分析平台
+      - title: 基于 SSM 框架的牦牛数字化管理系统V1.0
+      - title: 肉鸭体重自动估测系统
+  - title: Patents
+    layout: list
+    items:
+      - title: 北京鸭皮脂CLN8基因上游关键SNP及其育种应用
+      - title: 一种基于2D图像的肉禽体重估测方法及系统
+      - title: 一种基于两视图图像的肉鸡体重估测系统
+      - title: 基于GBS技术的北京鸭简化基因组测序方法
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 北京市昌平区科技副总
+        text: Deputy Chief Technology Officer of Changping District, Beijing

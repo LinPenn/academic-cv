@@ -4,8 +4,19 @@ is_owner: false
 name:
   display: "Guan Ping"
 role: "Ph.D. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Single-Cell Research Group Leader. Better and better
+interests:
+  - Focusing on the complete developmental lineage of poultry encompassing gametogenesis, embryonic development and individual morphogenesis, this study aims to decipher the regulatory mechanisms underlying poultry development and establish a digital model system for virtual intelligent poultry.
+links:
+  - icon: envelope
+    url: 1936476698@qq.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: China Agricultural University
+    year: ""
+custom_sections: []

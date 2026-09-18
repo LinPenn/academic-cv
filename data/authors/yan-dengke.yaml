@@ -4,8 +4,29 @@ is_owner: false
 name:
   display: "Yan Dengke"
 role: "M.S. Student"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: I’m Yan Dengke. I’m an outgoing, cheerful, and chubby guy. I have a wide range of interests—like singing, gaming, and playing with yo-yos—and I hope to make lots of new friends.
+interests:
+  - Poultry Molecular Identification and Breed Classification Based on Whole-Genome Sequencing
+  - Single-Cell Transcriptomic Analysis of Asymmetric Female Gonadal Development in Chickens
+links:
+  - icon: envelope
+    url: 1556701010@qq.com
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor of Agriculture
+    institution: China Agricultural University, College of Animal Science and Technology
+    year: 2020-2024
+  - degree: Master
+    institution: China Agricultural University, College of Animal Science and Technology
+    year: 2024 - Present
+custom_sections:
+  - title: Paper
+    layout: list
+    items:
+      - title: Comprehensive duck DNA fingerprinting based on machine learning for breed identification.
+        subtitle: 2025 · Poultry Science
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579125006029"

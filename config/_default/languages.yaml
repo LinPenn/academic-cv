@@ -5,7 +5,7 @@ en:
   locale: en-us
   title: "HZ Lab"
   params:
-    description: "HZ Lab is dedicated to cutting-edge research in AI, computer vision, and machine learning."
+    description: We focus on waterfowl genetics, breeding, and molecular improvement, with research spanning genetic resources, genetic mechanisms, genomics, and precision breeding. Our work aims to elucidate the genetic basis of economically important traits and to develop innovative technologies and approaches for waterfowl breeding.
   menu:
     main:
       - name: Home

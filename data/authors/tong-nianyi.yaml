@@ -1,0 +1,26 @@
+schema: hugoblox/author/v1
+slug: tong-nianyi
+is_owner: false
+name:
+  display: Tong Nianyi
+role: Undergraduate Student
+bio: 2023 Cohort, Biotechnology Breeding (Strong Foundation Program), China Agricultural University
+interests:
+  - Molecular design breeding
+links:
+  - icon: envelope
+    url: "mailto:2023333020206tny@cau.edu.cn"
+    label: E-mail
+    display: 2023333020206tny@cau.edu.cn
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: China Agricultural University
+    year: 2023 - present
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: 基于胚胎血管慢病毒注射的转基因芦丁鸡制备
+        subtitle: 中国畜牧杂志

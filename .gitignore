@@ -74,3 +74,6 @@ npm-debug.log*
 
 # Local design artifacts
 /design/
+
+# 网站编辑器的本地备份与回收站（勿提交）
+/.editor/

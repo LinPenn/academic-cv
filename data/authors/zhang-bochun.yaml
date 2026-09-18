@@ -1,0 +1,44 @@
+schema: hugoblox/author/v1
+slug: zhang-bochun
+is_owner: false
+name:
+  display: Zhang Bochun
+role: M.S. Student
+bio: Welcome to connect, exchange ideas, and share your insights.
+interests:
+  - Single-cell transcriptomics
+links:
+  - icon: envelope
+    url: "mailto:3103186904@qq.com"
+    label: E-mail
+    display: 3103186904@qq.com
+affiliations:
+  - name: China Agricultural University
+education:
+  - degree: Bachelor
+    institution: International Education College, Henan Agricultural University
+    year: 2022.09 - 2026.06
+  - degree: Master
+    institution: College of Animal Science and Technology, China Agricultural University
+    year: 2026.09 - present
+custom_sections:
+  - title: Papers
+    layout: list
+    items:
+      - title: MMP2 regulates proliferation and differentiation in chicken primary myoblasts, and RNA-seq screens for key genes
+        subtitle: Gene 2025
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+        subtitle: Animals 2023
+        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+  - title: Awards & Honors
+    layout: list
+    items:
+      - title: 第十届全国大学生生命科学竞赛(创新创业类) 三等奖
+        text: Third Prize, 10th National College Student Life Sciences Competition (Innovation and Entrepreneurship)
+      - title: 第十六届河南省大学生课外学术科技作品竞赛二等奖
+        text: Second Prize, 16th Henan Provincial College Student Extracurricular Academic Science and Technology Works Competition
+      - title: 第十六届河南省“挑战杯”大学生课外学术科技作品竟赛二等奖
+        text: Second Prize, 16th Henan Provincial "Challenge Cup" College Student Extracurricular Academic Science and Technology Works Competition
+      - title: 河南农业大学2023年“挑战杯”大学生课外学术科技作品竞赛一等奖
+        text: First Prize, Henan Agricultural University 2023 "Challenge Cup" College Student Extracurricular Academic Science and Technology Works Competition

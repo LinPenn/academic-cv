@@ -5,7 +5,56 @@ name:
   display: "Yin Zhongtao"
 role: "Associate Professor"
 bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+interests:
+  - Poultry Functional Genomics and Genetics & Breeding
+links:
+  - icon: envelope
+    url: yinzhongtao@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: Northeast Agricultural University
+    year: 2012.09-2016.06
+  - degree: Master
+    institution: China Agricultural University
+    year: 2016.09-2018.06
+  - degree: Doctor
+    institution: China Agricultural University
+    year: 2018.09-2021.06
+custom_sections:
+  - title: Research Projects
+    layout: list
+    items:
+      - title: Public Institution-Commissioned Science and Technology Project
+        meta: 2025.11.14–2026.01.31
+        text: Development of Technical Requirements for the Import of Breeding Ducks and Hatching Eggs
+      - title: National Natural Science Foundation of China (NSFC) Project
+        meta: 2025.09.22–2029.12.31
+        text: Mechanisms by Which Genomic Variants in Pekin Ducks Promote Fat Synthesis During Domestication
+      - title: Enterprise-Commissioned Science and Technology Project
+        meta: 2025.05.17–2026.12.31
+        text: Research and Development of Intelligent Breeding Technologies for Pekin Ducks
+      - title: Public Institution-Commissioned Science and Technology Project
+        meta: 2025.01.16–2025.10.31
+        text: |-
+          Genomic Selection and Disease-Resistant Breeding in Pekin Ducks
+          (2024 Beijing Agricultural Science and Technology Project for Rural Revitalization)
+      - title: Ministry of Education Project
+        meta: 2025.01.01–2025.11.30
+        text: Analysis of Important Traits in Agricultural Biological Systems and Applications of Molecular Design Breeding
+      - title: Ministry of Education Project
+        meta: 2024.06.20–2024.12.31
+        text: 2024 Modern Agricultural Industrial Technology System — Waterfowl Industry Technology System — Seed Production Technology Collaborative Project
+  - title: Software Copyrights
+    layout: list
+    items:
+      - title: 基于SAM2的鸭蛋精细分割系统
+        subtitle: 2025SR1145999
+        meta: "2025"
+      - title: 鸭编码区有害突变预测系统
+        subtitle: 2024SR1259198
+        meta: "2024"

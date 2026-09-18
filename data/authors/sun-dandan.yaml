@@ -4,8 +4,48 @@ is_owner: false
 name:
   display: "Sun Dandan"
 role: "Postdoctoral Researcher"
-bio: ""
-interests: []
-links: []
-affiliations: []
-education: []
+bio: Slowly understanding the world, slowly becoming myself.
+interests:
+  - Disease-Resistant Poultry Breeding
+links:
+  - icon: envelope
+    url: sundandan@cau.edu.cn
+    label: ""
+    display: ""
+affiliations:
+  - name: China Agricultural University
+    url: ""
+education:
+  - degree: Bachelor
+    institution: China Agricultural University, College of Animal Science and Technology
+    year: ""
+  - degree: Master
+    institution: China Agricultural University, College of Animal Science and Technology
+    year: ""
+  - degree: Doctor
+    institution: China Agricultural University, College of Animal Science and Technology
+    year: ""
+custom_sections:
+  - title: Paper
+    layout: list
+    items:
+      - title: Transcriptional activity and variation analysis of genes critical for long-chain fatty acid (C≥16) elongation and desaturation in Pekin ducks
+        subtitle: Poultry Science 2024
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579124010150"
+      - title: "Research Note: Identification of core promoter region of the polyunsaturated fatty acid synthesis-related gene family in chicken"
+        subtitle: Poultry Science 2023
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579123003760"
+      - title: The Full-Length Transcriptome Provides New Insights Into the Transcript Complexity of Abdominal Adipose and Subcutaneous Adipose in Pekin Ducks.
+        subtitle: Frontiers in Physiology 2021
+        url: "https://doi.org/10.3389/fphys.2021.767739"
+      - title: The Application of Duck Embryonic Fibroblasts CCL-141 as a Cell Model for Adipogenesis
+        subtitle: Animals 2024
+        url: "https://doi.org/10.3390/ani14202973"
+  - title: Patents
+    layout: list
+    items:
+      - title: MULTIPLEX GENE EDITING METHOD BASED ON CRISPR/Cas9
+        subtitle: PCT/CN2024/074584
+  - title: Research Reflections
+    layout: markdown
+    text: Research is a marathon, not a sprint. A healthy body and a resilient mind are the foundations for a lifelong journey of discovery. May you have the courage to explore the unknown, the wisdom to care for yourself, and the strength to go far in both research and life.

@@ -125,6 +125,9 @@
 </section>
 {{ end }}
 
+{{/* ============ 自定义模块（数据来自 data/authors/<slug>.yaml 的 custom_sections） ============ */}}
+{{ partial "author_custom_sections.html" (dict "slug" $slug "page" .) }}
+
 {{ $view := "card" }}
 {{ $block := . }}
 {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
