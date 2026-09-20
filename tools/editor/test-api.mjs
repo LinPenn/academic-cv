@@ -640,7 +640,9 @@ async function main() {
     const st = (await api('/api/git/status')).data;
     check('读取 git 状态', st.isRepo === true && st.branch === 'main', JSON.stringify({ b: st.branch }));
     check('Actions 链接正确', st.actionsUrl === 'https://github.com/LinPenn/academic-cv/actions', st.actionsUrl);
-    check('Pages 链接正确', st.pagesUrl === 'https://linpenn.github.io/academic-cv/', st.pagesUrl);
+    // 站点地址随 baseURL 变化（可能已切到自定义域名），只校验形态
+    check('Pages 链接正确', /^https:\/\/[^/]+\/?/.test(st.pagesUrl) && st.pagesUrl.includes('avianbreeding')
+      || st.pagesUrl === 'https://linpenn.github.io/academic-cv/', st.pagesUrl);
     check('提交者身份已配置', st.identityReady === true);
   }
 

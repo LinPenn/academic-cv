@@ -6,7 +6,7 @@
 # Website name (set in params.yaml under hugoblox.branding.name)
 title: "HZ Lab"
 # Website URL
-baseURL: "https://linpenn.github.io/academic-cv/"
+baseURL: "https://avianbreeding.cn/"
 
 ############################
 ## LANGUAGE
