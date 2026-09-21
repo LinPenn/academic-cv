@@ -9,8 +9,8 @@
 # Generated site output
 public/
 
-# Hugo resources (processed assets)
-resources/
+# Hugo resources (processed assets) —— 只忽略仓库根目录的缓存，不要吞掉 content/resources/
+/resources/
 
 # Hugo build lock
 .hugo_build.lock
