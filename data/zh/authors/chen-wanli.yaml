@@ -1,0 +1,20 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/chen-wanli.yaml
+
+name:
+  display: "陈万里"
+
+role: "硕士研究生"
+bio: "热爱科研，热爱生活！喜欢打羽毛球。"
+interests:
+  - "鸭育种"
+  - "基因组学"
+education:
+  - degree: "本科"
+    institution: "新疆农业大学"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "实习实践"
+    layout: list
+    items:
+      - title: "曾在新疆农业科学院参与为期 45 天的牛粪好氧堆肥试验，关注其安全处理与肥料化应用。"

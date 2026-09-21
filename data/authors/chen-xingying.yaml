@@ -11,12 +11,12 @@ interests:
   - Chicken Embryonic Stem Cells (cESCs)
 links:
   - icon: envelope
-    url: cxy13485206233@163.com
-    label: ""
-    display: ""
+    url: "mailto:cxy13485206233@163.com"
+    label: "E-mail"
+    display: "cxy13485206233@163.com"
 affiliations:
   - name: China Agricultural University
-    url: China Agricultural University
+    url: ""
 education:
   - degree: Bachelor
     institution: Yangzhou University

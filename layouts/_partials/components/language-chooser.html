@@ -1,0 +1,42 @@
+{{/*
+  语言切换按钮（覆盖主题同名 partial）
+  ------------------------------------------------------------------
+  主题原版是「点一下弹出下拉，再选语言」。这里改成**一下就切**：
+  直接跳到当前页面另一种语言的地址；如果当前页没有对应翻译，
+  就跳到另一种语言的首页（这样任何页面都能一键切换）。
+*/}}
+{{- $page := .page -}}
+{{- $class := .class -}}
+{{- $other := "" -}}
+{{- $otherName := "" -}}
+
+{{- range $page.Translations -}}
+  {{- if ne .Lang $page.Lang -}}
+    {{- $other = .RelPermalink -}}
+    {{- $otherName = index hugo.Data.languages .Lang | default .Lang -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $other -}}
+  {{- range site.Sites -}}
+    {{- if ne .Language.Lang $page.Lang -}}
+      {{- $other = .Home.RelPermalink -}}
+      {{- $otherName = index hugo.Data.languages .Language.Lang | default .Language.Lang -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $other -}}
+  <a
+    href="{{ $other }}"
+    class="lang-toggle {{ with $class }}{{ . | safeCSS }}{{ end }}"
+    title="{{ i18n "switch_language" | default "Switch language" }}"
+    aria-label="{{ i18n "switch_language" | default "Switch language" }}"
+    data-hb-language-toggle
+  >
+    <span class="capitalize" style="display:flex;align-items:center;gap:.4rem">
+      {{- partial "functions/get_icon" (dict "name" "globe-alt" "attributes" "height=18") -}}
+      <span>{{ $otherName }}</span>
+    </span>
+  </a>
+{{- end -}}

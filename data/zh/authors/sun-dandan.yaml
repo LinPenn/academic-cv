@@ -1,0 +1,48 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/sun-dandan.yaml
+
+name:
+  display: "孙丹丹"
+
+role: "博士后"
+bio: "慢慢理解世界，慢慢成为自己。"
+interests:
+  - "家禽抗病育种"
+education:
+  - degree: "本科"
+    institution: "中国农业大学动物科学技术学院"
+  - degree: "硕士"
+    institution: "中国农业大学动物科学技术学院"
+  - degree: "博士"
+    institution: "中国农业大学动物科学技术学院"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "Transcriptional activity and variation analysis of genes critical for long-chain fatty acid (C≥16) elongation and desaturation in Pekin ducks"
+        subtitle: "Poultry Science 2024"
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579124010150"
+      - title: "Research Note: Identification of core promoter region of the polyunsaturated fatty acid synthesis-related gene family in chicken"
+        subtitle: "Poultry Science 2023"
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579123003760"
+      - title: "The Full-Length Transcriptome Provides New Insights Into the Transcript Complexity of Abdominal Adipose and Subcutaneous Adipose in Pekin Ducks."
+        subtitle: "Frontiers in Physiology 2021"
+        url: "https://doi.org/10.3389/fphys.2021.767739"
+      - title: "The Application of Duck Embryonic Fibroblasts CCL-141 as a Cell Model for Adipogenesis"
+        subtitle: "Animals 2024"
+        url: "https://doi.org/10.3390/ani14202973"
+  - title: "发明专利"
+    layout: list
+    items:
+      - title: "基于 CRISPR/Cas9 的多重基因编辑方法"
+        subtitle: PCT/CN2024/074584
+  - title: "科研感悟"
+    layout: markdown
+    text: "科研是一场马拉松，而不是短跑。健康的身体与坚韧的心态，是终身探索的基础。"
+
+links:
+  - icon: "envelope"
+    url: "mailto:sundandan@cau.edu.cn"
+    label: "邮箱"
+    display: "sundandan@cau.edu.cn"

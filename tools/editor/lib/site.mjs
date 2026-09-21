@@ -259,6 +259,17 @@ export const PAGE_FILES = [
   { path: 'content/projects/_index.md', label: '项目列表' },
   { path: 'content/events/_index.md', label: '报告/活动' },
   { path: 'content/experience.md', label: '经历页' },
+  // 中文页面（第二语言，地址在 /zh/ 下）
+  { path: 'content/_index.zh.md', label: '首页（中文）' },
+  { path: 'content/research/_index.zh.md', label: '研究方向（中文）' },
+  { path: 'content/people/_index.zh.md', label: '团队成员（中文）' },
+  { path: 'content/join/_index.zh.md', label: '加入我们（中文）' },
+  { path: 'content/contact/_index.zh.md', label: '联系我们（中文）' },
+  { path: 'content/resources/_index.zh.md', label: '资源（中文）' },
+  { path: 'content/resources/duckgtex/index.md', label: '数据集 · DuckGTEx' },
+  { path: 'content/resources/duckgtex/index.zh.md', label: '数据集 · DuckGTEx（中文）' },
+  { path: 'content/resources/duckepimap/index.md', label: '数据集 · DuckEPIMap' },
+  { path: 'content/resources/duckepimap/index.zh.md', label: '数据集 · DuckEPIMap（中文）' },
 ];
 
 export function listPages() {
@@ -273,12 +284,15 @@ export function listPages() {
 }
 
 export function loadPage(rel) {
-  const { rel: r, doc, fm } = loadDoc(rel);
+  const { rel: r, doc, fm, body } = loadDoc(rel);
   const sections = Array.isArray(fm.sections) ? fm.sections : [];
   return {
     path: r,
     title: fm.title ?? '',
     parseError: doc.parseError ?? null,
+    // 没有 sections 的普通页面（例如数据集页）：直接编辑 Markdown 正文
+    body: sections.length === 0 ? (body ?? '') : '',
+    isPlain: sections.length === 0,
     blocks: sections.map((s, i) => ({
       index: i,
       block: s?.block ?? '',
@@ -386,7 +400,7 @@ function cleanPageItems(items) {
   }).filter((o) => o.name);
 }
 
-export function savePage({ path: rel, title, blocks = [], quick, dryRun = false }) {
+export function savePage({ path: rel, title, blocks = [], quick, body, dryRun = false }) {
   const loaded = loadPage(rel);
   const changes = [];
   for (const b of blocks) {
@@ -427,6 +441,13 @@ export function savePage({ path: rel, title, blocks = [], quick, dryRun = false 
     result = { text, doc, frontMatter: current };
   }
   let finalText = result.text;
+  if (typeof body === 'string' && loaded.isPlain) {
+    const beforeBody = getBody(parseFile(finalText));
+    const norm = (s) => String(s).split(String.fromCharCode(13)).join('').trim();
+    if (norm(beforeBody) !== norm(body)) {
+      finalText = applyBody(parseFile(finalText), body);
+    }
+  }
   const titleChanges = Object.entries(keys).filter(([k, v]) => !deepEqual(current[k], v));
   if (titleChanges.length) {
     finalText = buildVerifiedText(parseFile(finalText), titleChanges.map(([k, v]) => ({ path: [k], value: v }))).text;
@@ -723,6 +744,14 @@ function menuUrlOf(m) {
   return '';
 }
 
+/** 把一个菜单项投影成界面用的结构（保留下拉层级所需的键） */
+const menuEntry = (m) => {
+  const e = { name: m?.name ?? '', url: menuUrlOf(m), weight: m?.weight ?? 0 };
+  if (m?.identifier) e.identifier = m.identifier;
+  if (m?.parent) e.parent = m.parent;
+  return e;
+};
+
 export function loadSettings() {
   const hugo = loadYamlDoc('config/_default/hugo.yaml');
   const params = loadYamlDoc('config/_default/params.yaml');
@@ -769,8 +798,9 @@ export function loadSettings() {
       },
     },
     menus: {
-      en: mainMenu.map((m) => ({ name: m?.name ?? '', url: menuUrlOf(m), weight: m?.weight ?? 0 })),
-      zh: mainMenuZh.map((m) => ({ name: m?.name ?? '', url: menuUrlOf(m), weight: m?.weight ?? 0 })),
+      // 读菜单时也要带上 identifier / parent，否则界面回存会把下拉层级抹掉
+      en: mainMenu.map((m) => menuEntry(m)),
+      zh: mainMenuZh.map((m) => menuEntry(m)),
     },
     files: {
       hugo: hugo.rel,
@@ -834,7 +864,13 @@ export function saveSettings(payload) {
    */
   const cleanMenu = (list) => (list ?? [])
     .filter((m) => m && m.name && m.url)
-    .map((m, i) => ({ name: String(m.name), url: String(m.url), weight: Number(m.weight) || (i + 1) * 10 }));
+    .map((m, i) => {
+      const entry = { name: String(m.name), url: String(m.url), weight: Number(m.weight) || (i + 1) * 10 };
+      // 这两个键决定「下拉子菜单」的归属，漏掉会让子项跑到顶层，必须原样保留
+      if (m.identifier) entry.identifier = String(m.identifier);
+      if (m.parent) entry.parent = String(m.parent);
+      return entry;
+    });
 
   if (Array.isArray(menus.en)) {
     plans.push(planByPath('config/_default/menus.yaml', [['main', cleanMenu(menus.en)]]));

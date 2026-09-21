@@ -1,0 +1,80 @@
+{{/*
+  资源分组区块（block: resource-group）
+  ------------------------------------------------------------------
+  列出某个目录下的页面，做成带封面的卡片网格。用于资源页的
+  「Database」「Software & Tools」两组。
+
+  配置（front matter）：
+    content.title     分组标题
+    content.subtitle  分组说明（可选）
+    content.path      目录路径，例如 resources/database
+    content.count     最多显示几张（默认 24）
+    content.empty     该分组为空时显示的文字（可选）
+    design.columns    每行列数（默认 2）
+*/}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $design := $block.design }}
+{{ if not (reflect.IsMap $design) }}{{ $design = dict }}{{ end }}
+
+{{ $title := "" }}{{ with index $content "title" }}{{ $title = printf "%v" . }}{{ end }}
+{{ $subtitle := "" }}{{ with index $content "subtitle" }}{{ $subtitle = printf "%v" . }}{{ end }}
+{{ $path := "resources" }}{{ with index $content "path" }}{{ $path = printf "%v" . }}{{ end }}
+{{ $count := 24 }}{{ with index $content "count" }}{{ $count = int . }}{{ end }}
+{{ $empty := i18n "coming_soon" | default "Coming soon." }}{{ with index $content "empty" }}{{ $empty = printf "%v" . }}{{ end }}
+{{ $columns := 2 }}{{ with index $design "columns" }}{{ $columns = int . }}{{ end }}
+{{ $fill := true }}{{ if isset $design "fill_image" }}{{ $fill = index $design "fill_image" }}{{ end }}
+
+{{ $section := site.GetPage $path }}
+{{ $items := slice }}
+{{ with $section }}{{ $items = first $count .RegularPages.ByWeight }}{{ end }}
+
+{{ $gridClass := "grid grid-cols-1 md:grid-cols-2 gap-8" }}
+{{ if eq $columns 3 }}{{ $gridClass = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }}{{ end }}
+{{ if eq $columns 1 }}{{ $gridClass = "grid grid-cols-1 gap-8 max-w-3xl" }}{{ end }}
+
+<div class="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    {{ with $title }}
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">{{ . }}</h2>
+    {{ end }}
+    {{ with $subtitle }}
+    <p class="text-gray-600 dark:text-gray-400 mb-8">{{ . }}</p>
+    {{ end }}
+    {{ if not $subtitle }}<div class="mb-6"></div>{{ end }}
+
+    {{ if $items }}
+    <div class="{{ $gridClass }}">
+      {{ range $items }}
+        {{ $img := "" }}
+        {{ with .Resources.ByType "image" }}
+          {{ with .GetMatch "*featured*" }}
+            {{/* 压缩成 900px 宽的 webp，避免访客下载原始大图 */}}
+            {{ if reflect.IsImageResourceProcessable . }}{{ $img = .Resize "900x webp q82" }}{{ else }}{{ $img = . }}{{ end }}
+          {{ end }}
+        {{ end }}
+        <a href="{{ .RelPermalink }}" class="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="relative w-full h-44 bg-gray-100 dark:bg-gray-900 overflow-hidden">
+            {{ if $img }}
+            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}"
+                 class="w-full h-full {{ if $fill }}object-cover{{ else }}object-contain{{ end }} group-hover:scale-105 transition-transform duration-500">
+            {{ else }}
+            <div class="w-full h-full flex items-center justify-center text-gray-400 text-sm">{{ .Title }}</div>
+            {{ end }}
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{{ .Title }}</h3>
+            {{ with .Params.summary }}
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ . | plainify | truncate 160 }}</p>
+            {{ end }}
+          </div>
+        </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="text-gray-500 dark:text-gray-400 italic">{{ $empty }}</p>
+    {{ end }}
+  </div>
+</div>

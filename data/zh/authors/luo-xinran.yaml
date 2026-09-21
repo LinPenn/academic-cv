@@ -1,0 +1,23 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/luo-xinran.yaml
+
+name:
+  display: "罗欣然"
+
+role: "硕士研究生"
+bio: "重庆渝中人，共青团员。现于四川农业大学攻读动物科学本科；曾服役于中国人民解放军西部战区陆军 68216 部队。具备动物遗传育种、群体遗传学与生物信息学基础。"
+interests:
+  - "系统发育"
+  - "动物遗传育种"
+  - "群体遗传学与生物信息学"
+education:
+  - degree: "本科"
+    institution: "四川农业大学动物科学技术学院"
+    year: "2020.09-2026.06"
+affiliations:
+  - name: "中国农业大学"
+
+links:
+  - icon: "envelope"
+    url: "mailto:615769857@qq.com"
+    label: "邮箱"
+    display: "615769857@qq.com"

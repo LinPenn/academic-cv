@@ -1,0 +1,34 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/lincanping.yaml
+
+name:
+  display: "林灿坪"
+
+role: "博士研究生"
+bio: "研究生，研究方向为 AI 蛋白质设计、生物信息学与计算生物学。"
+interests:
+  - "AI 蛋白质设计"
+  - "生物信息学"
+  - "计算生物学"
+education:
+  - degree: "本科"
+    institution: "华南农业大学动物科学学院"
+    year: "2019 - 2023"
+  - degree: "博士"
+    institution: "中国农业大学动物科学技术学院"
+    year: "2024 - 至今"
+affiliations:
+  - name: "中国农业大学"
+
+links:
+  - icon: "envelope"
+    url: "mailto:penn0422@cau.edu.cn"
+    label: "邮箱"
+    display: "penn0422@cau.edu.cn"
+  - icon: "github"
+    url: "https://github.com/LinPenn"
+    label: "GitHub"
+    display: "https://github.com/LinPenn"
+  - icon: "orcid"
+    url: "https://orcid.org/0009-0009-2015-6460"
+    label: "ORCID"
+    display: "https://orcid.org/0009-0009-2015-6460"

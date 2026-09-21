@@ -10,9 +10,9 @@ interests:
   - Intelligent Breeding
 links:
   - icon: envelope
-    url: zhoujun138@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:zhoujun138@cau.edu.cn"
+    label: "E-mail"
+    display: "zhoujun138@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

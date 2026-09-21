@@ -25,7 +25,7 @@ hugoblox:
     sticky: true
     align: center
     search: true
-    theme_toggle: true
+    theme_toggle: false   # 已关闭夜晚模式切换按钮
   footer:
     style: minimal
   copyright:

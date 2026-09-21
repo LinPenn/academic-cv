@@ -11,8 +11,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:1647724202@qq.com"
-    label: E-mail
-    display: 1647724202@qq.com
+    label: "E-mail"
+    display: "1647724202@qq.com"
 affiliations:
   - name: China Agricultural University
 education:

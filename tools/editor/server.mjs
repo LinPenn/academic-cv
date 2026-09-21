@@ -15,6 +15,8 @@ import { fileURLToPath } from 'node:url';
 import * as site from './lib/site.mjs';
 import * as profiles from './lib/profiles.mjs';
 import * as layout from './lib/layout.mjs';
+import * as homephotos from './lib/homephotos.mjs';
+import * as resources from './lib/resources.mjs';
 import * as store from './lib/store.mjs';
 import * as git from './lib/git.mjs';
 import * as hugo from './lib/hugo.mjs';
@@ -177,6 +179,34 @@ const routes = {
     const res = site.saveFaculty({ path: rel, sections });
     return { ...res, imported: items.length };
   },
+
+  'GET /api/research-pages': () => ({ items: resources.listResources(resources.RESEARCH_DIR) }),
+  'POST /api/research-pages/save': async (req) => resources.saveResource(await readJson(req)),
+  'POST /api/research-pages/create': async (req) => resources.createResource({ base: resources.RESEARCH_DIR, ...(await readJson(req)) }),
+  'POST /api/research-pages/delete': async (req) => resources.deleteResource({ base: resources.RESEARCH_DIR, ...(await readJson(req)) }),
+  'POST /api/research-pages/cover': async (req, res, url) => {
+    const rel = url.searchParams.get('path');
+    if (url.searchParams.get('remove') === '1') return resources.setResourceCover({ rel, remove: true });
+    const filename = decodeURIComponent(req.headers['x-filename'] ?? 'cover.png');
+    const buf = await readBody(req);
+    return resources.setResourceCover({ rel, filename, buffer: buf });
+  },
+  'GET /api/resources': () => ({ items: resources.listResources() }),
+  'GET /api/resources/doc': (req, res, url) => resources.loadResource(url.searchParams.get('path')),
+  'POST /api/resources/save': async (req) => resources.saveResource(await readJson(req)),
+  'POST /api/resources/create': async (req) => resources.createResource(await readJson(req)),
+  'POST /api/resources/delete': async (req) => resources.deleteResource(await readJson(req)),
+  'POST /api/resources/cover': async (req, res, url) => {
+    const rel = url.searchParams.get('path');
+    if (url.searchParams.get('remove') === '1') return resources.setResourceCover({ rel, remove: true });
+    const filename = decodeURIComponent(req.headers['x-filename'] ?? 'cover.png');
+    const buf = await readBody(req);
+    return resources.setResourceCover({ rel, filename, buffer: buf });
+  },
+
+  'GET /api/home-photos': () => homephotos.listHomePhotos(),
+  'POST /api/home-photos/save': async (req) => homephotos.saveHomePhotos(await readJson(req)),
+  'POST /api/home-photos/delete': async (req) => homephotos.deleteHomePhoto(await readJson(req)),
 
   'GET /api/layout': () => layout.loadLayout(),
   'POST /api/layout/save': async (req) => layout.saveLayout(await readJson(req)),

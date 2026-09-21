@@ -1,0 +1,52 @@
+{{/*
+  站标（校徽）：把 data/layout.yaml 里的 logo 配置变成导航栏里的校徽。
+  ------------------------------------------------------------------
+  可配置项（编辑器「校徽」模块）：
+    logo.image           图片路径（相对 static/，例如 uploads/cau.png）
+    logo.height          高度 px
+    logo.position        left / right
+    logo.show_home       首页是否显示（1/0）
+    logo.show_all        其它页面是否也显示（1/0）
+    logo.hide_site_name  首页是否隐藏原来的站名文字（1/0）
+
+  为什么用脚本插入：导航栏是主题的 partial，直接改主题文件以后升级会被覆盖；
+  这里在页面底部用几行脚本把 <img> 插进导航栏，升级主题也不受影响。
+*/}}
+{{ $layout := site.Data.layout | default dict }}
+{{ $logo := index $layout "logo" | default dict }}
+{{ $img := partial "functions/layout_text.html" (dict "v" (index $logo "image") "def" "uploads/cau.png") }}
+{{ $img = strings.TrimPrefix "/" $img }}
+{{ $pos := partial "functions/layout_text.html" (dict "v" (index $logo "position") "def" "left") }}
+{{ $h := partial "functions/layout_num.html" (dict "v" (index $logo "height") "def" 40 "min" 16 "max" 96) }}
+{{ $onHome := eq (partial "functions/layout_num.html" (dict "v" (index $logo "show_home") "def" 1 "min" 0 "max" 1)) 1 }}
+{{ $onAll := eq (partial "functions/layout_num.html" (dict "v" (index $logo "show_all") "def" 0 "min" 0 "max" 1)) 1 }}
+{{ $hideName := eq (partial "functions/layout_num.html" (dict "v" (index $logo "hide_site_name") "def" 1 "min" 0 "max" 1)) 1 }}
+
+{{ $path := "" }}
+{{ with .File }}{{ $path = replace (.Path | default "") "\\" "/" }}{{ end }}
+{{ $isHome := in (slice "_index.md" "_index.zh.md") $path }}
+{{ $show := or (and $isHome $onHome) (and (not $isHome) $onAll) }}
+
+{{ if and $show (fileExists (printf "static/%s" $img)) }}
+<script>
+  (function () {
+    var nav = document.querySelector('.page-header nav.navbar');
+    if (!nav || nav.querySelector('.cau-logo')) return;
+    var img = document.createElement('img');
+    img.className = 'cau-logo';
+    img.src = {{ printf "/%s" $img | jsonify | safeJS }};
+    img.alt = {{ site.Title | default "Logo" | jsonify | safeJS }};
+    img.style.height = '{{ $h }}px';
+    img.loading = 'eager';
+    {{ if eq $pos "right" }}
+    var right = nav.querySelector('.ml-auto') || nav;
+    right.appendChild(img);
+    {{ else }}
+    nav.insertBefore(img, nav.firstChild);
+    {{ end }}
+  })();
+</script>
+{{ end }}
+{{ if and $isHome $onHome $hideName }}
+<style>body:has(.lab-hero) .navbar-brand { display: none !important; }</style>
+{{ end }}

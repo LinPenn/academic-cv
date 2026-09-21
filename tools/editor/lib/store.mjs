@@ -34,6 +34,7 @@ export const WRITABLE_ROOTS = [
   'static/uploads',
   'data/authors',
   'data/layout.yaml',
+  'data/home_photos.yaml',
   'assets/media/authors',
 ];
 /** 允许读取的目录前缀 */

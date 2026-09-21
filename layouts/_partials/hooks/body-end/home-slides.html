@@ -1,0 +1,48 @@
+{{/*
+  首页封面照片轮播（放在 body-end：此时 DOM 已经就绪）
+  ------------------------------------------------------------------
+  照片清单与切换间隔由 head-end/home-hero.html 通过 window.__labHeroSlides / __labHeroInterval 传进来，
+  它们来自 static/uploads/home/ 目录（在编辑器「图片素材」里上传到这个子目录即可自动加入轮播）。
+  为了在脚本失效时也能看到图，封面里本来就有一张基准 <img>，脚本生效后把它换成交替淡入淡出的多张。
+*/}}
+{{ $path := "" }}
+{{ with .File }}{{ $path = replace (.Path | default "") "\\" "/" }}{{ end }}
+{{ if in (slice "_index.md" "_index.zh.md") $path }}
+<script>
+  (function () {
+    var urls = window.__labHeroSlides || [];
+    var hero = document.querySelector('.lab-hero');
+    if (!hero || urls.length < 2) return;
+
+    var interval = (window.__labHeroInterval || 6) * 1000;
+    var box = document.createElement('div');
+    box.className = 'lab-hero-slides';
+
+    urls.forEach(function (it, i) {
+      var img = document.createElement('img');
+      img.className = 'lab-hero-slide' + (i === 0 ? ' is-active' : '');
+      img.src = it.u;
+      /* 每张照片各自的取景：水平/垂直位置 + 缩放 */
+      img.style.objectPosition = it.x + '% ' + it.y + '%';
+      img.style.transform = 'scale(' + (it.z / 100) + ')';
+      img.alt = '';
+      img.decoding = 'async';
+      if (i === 0) { img.fetchPriority = 'high'; } else { img.loading = 'lazy'; }
+      box.appendChild(img);
+    });
+
+    var base = hero.querySelector('.lab-hero-bg');
+    if (base) base.style.display = 'none';   /* 基准图退场，交给轮播 */
+    hero.insertBefore(box, hero.firstChild);
+
+    var i = 0;
+    setInterval(function () {
+      var slides = box.children;
+      if (!slides.length) return;
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, interval);
+  })();
+</script>
+{{ end }}

@@ -1,15 +1,33 @@
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-#     desired widget in your `content/home/` folder.
-#   The weight parameter defines the order that the links will appear in.
+# 导航菜单：含子项的写 identifier，子项用 parent 指向它（导航栏鼠标悬停展开）
 
 main:
   - name: Home
     url: /
     weight: 10
   - name: Research
+    identifier: research
     url: /research/
     weight: 20
+  - name: Functional Gene Research
+    url: /research/functional-gene-research/
+    weight: 21
+    parent: research
+  - name: Molecular Design
+    url: /research/molecular-design/
+    weight: 22
+    parent: research
+  - name: Single-cell Omics
+    url: /research/single-cell-omics/
+    weight: 23
+    parent: research
+  - name: Quantitative Genetics
+    url: /research/quantitative-genetics/
+    weight: 24
+    parent: research
+  - name: Intelligent Phenotyping
+    url: /research/intelligent-phenotyping/
+    weight: 25
+    parent: research
   - name: Publications
     url: /publications/
     weight: 30
@@ -17,8 +35,17 @@ main:
     url: /people/
     weight: 40
   - name: Resources
+    identifier: resources
     url: /resources/
     weight: 50
+  - name: Database
+    url: /resources/database/
+    weight: 51
+    parent: resources
+  - name: Software & Tools
+    url: /resources/software/
+    weight: 52
+    parent: resources
   - name: News
     url: /blog/
     weight: 60

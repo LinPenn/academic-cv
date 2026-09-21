@@ -1,0 +1,32 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/yan-dengke.yaml
+
+name:
+  display: "闫登科"
+
+role: "硕士研究生"
+bio: "我是闫登科，性格外向开朗，是个微胖的男生。兴趣广泛——喜欢唱歌、打游戏、玩悠悠球，希望认识更多新朋友。"
+interests:
+  - "基于全基因组测序的家禽分子鉴定与品种分类"
+  - "鸡不对称性腺发育的单细胞转录组分析"
+education:
+  - degree: "农学学士"
+    institution: "中国农业大学动物科学技术学院"
+    year: "2020-2024"
+  - degree: "硕士"
+    institution: "中国农业大学动物科学技术学院"
+    year: "2024 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "Comprehensive duck DNA fingerprinting based on machine learning for breed identification."
+        subtitle: "2025 · Poultry Science"
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579125006029"
+
+links:
+  - icon: "envelope"
+    url: "mailto:1556701010@qq.com"
+    label: "邮箱"
+    display: "1556701010@qq.com"

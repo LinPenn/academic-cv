@@ -10,8 +10,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:3103186904@qq.com"
-    label: E-mail
-    display: 3103186904@qq.com
+    label: "E-mail"
+    display: "3103186904@qq.com"
 affiliations:
   - name: China Agricultural University
 education:
@@ -30,7 +30,7 @@ custom_sections:
         url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
       - title: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
         subtitle: Animals 2023
-        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+        url: ""
   - title: Awards & Honors
     layout: list
     items:

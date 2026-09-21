@@ -1,0 +1,45 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/zhang-bochun.yaml
+
+name:
+  display: "张博淳"
+
+role: "硕士研究生"
+bio: "欢迎交流、探讨与分享。"
+interests:
+  - "单细胞转录组"
+education:
+  - degree: "本科"
+    institution: "河南农业大学国际教育学院"
+    year: "2022.09 - 2026.06"
+  - degree: "硕士"
+    institution: "中国农业大学动物科学技术学院"
+    year: "2026.09 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "MMP2 regulates proliferation and differentiation in chicken primary myoblasts, and RNA-seq screens for key genes"
+        subtitle: "Gene 2025"
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: "Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts"
+        subtitle: "Animals 2023"
+        url: ""
+  - title: "获奖荣誉"
+    layout: list
+    items:
+      - title: 第十届全国大学生生命科学竞赛(创新创业类) 三等奖
+        text: "第十届全国大学生生命科学竞赛（创新创业类）三等奖"
+      - title: 第十六届河南省大学生课外学术科技作品竞赛二等奖
+        text: "第十六届河南省大学生课外学术科技作品竞赛二等奖"
+      - title: 第十六届河南省“挑战杯”大学生课外学术科技作品竟赛二等奖
+        text: "第十六届河南省「挑战杯」大学生课外学术科技作品竞赛二等奖"
+      - title: 河南农业大学2023年“挑战杯”大学生课外学术科技作品竞赛一等奖
+        text: "河南农业大学 2023 年「挑战杯」大学生课外学术科技作品竞赛一等奖"
+
+links:
+  - icon: "envelope"
+    url: "mailto:3103186904@qq.com"
+    label: "邮箱"
+    display: "3103186904@qq.com"

@@ -1,0 +1,31 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/chen-xingying.yaml
+
+name:
+  display: "陈星颖"
+
+role: "硕士研究生"
+bio: "江苏盐城人，喜欢旅行和摄影。"
+interests:
+  - "鸡胚胎干细胞（cESCs）"
+education:
+  - degree: "本科"
+    institution: "扬州大学"
+  - degree: "硕士"
+    institution: "中国农业大学"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "发明专利"
+    layout: list
+    items:
+      - title: 一种用于设施农业授粉的新型环保蜂箱
+  - title: "获奖荣誉"
+    layout: list
+    items:
+      - title: "2023—2024 学年国家奖学金（本科生）"
+
+links:
+  - icon: "envelope"
+    url: "mailto:cxy13485206233@163.com"
+    label: "邮箱"
+    display: "cxy13485206233@163.com"

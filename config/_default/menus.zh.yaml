@@ -1,0 +1,57 @@
+# 中文导航菜单（结构同 menus.yaml）
+
+main:
+  - name: 首页
+    url: /
+    weight: 10
+  - name: 研究方向
+    identifier: research
+    url: /research/
+    weight: 20
+  - name: 功能基因研究
+    url: /research/functional-gene-research/
+    weight: 21
+    parent: research
+  - name: 分子设计
+    url: /research/molecular-design/
+    weight: 22
+    parent: research
+  - name: 单细胞组学
+    url: /research/single-cell-omics/
+    weight: 23
+    parent: research
+  - name: 数量遗传学
+    url: /research/quantitative-genetics/
+    weight: 24
+    parent: research
+  - name: 智能表型测定
+    url: /research/intelligent-phenotyping/
+    weight: 25
+    parent: research
+  - name: 论文发表
+    url: /publications/
+    weight: 30
+  - name: 团队成员
+    url: /people/
+    weight: 40
+  - name: 资源
+    identifier: resources
+    url: /resources/
+    weight: 50
+  - name: 数据库
+    url: /resources/database/
+    weight: 51
+    parent: resources
+  - name: 软件与工具
+    url: /resources/software/
+    weight: 52
+    parent: resources
+  - name: 新闻动态
+    url: /blog/
+    weight: 60
+  - name: 加入我们
+    url: /join/
+    weight: 70
+  - name: 联系我们
+    url: /contact/
+    weight: 80

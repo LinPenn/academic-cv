@@ -1,0 +1,59 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/yin-zhongtao.yaml
+
+name:
+  display: "尹忠涛"
+
+role: "副教授"
+interests:
+  - "家禽功能基因组学与遗传育种"
+education:
+  - degree: "本科"
+    institution: "东北农业大学"
+    year: "2012.09-2016.06"
+  - degree: "硕士"
+    institution: "中国农业大学"
+    year: "2016.09-2018.06"
+  - degree: "博士"
+    institution: "中国农业大学"
+    year: "2018.09-2021.06"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "科研项目"
+    layout: list
+    items:
+      - title: "事业单位委托科技项目"
+        meta: 2025.11.14–2026.01.31
+        text: "种鸭及种蛋引进技术要求制定"
+      - title: "国家自然科学基金项目"
+        meta: 2025.09.22–2029.12.31
+        text: "北京鸭基因组变异在驯化过程中促进脂肪合成的机制"
+      - title: "企业委托科技项目"
+        meta: 2025.05.17–2026.12.31
+        text: "北京鸭智能育种技术研发"
+      - title: "事业单位委托科技项目"
+        meta: 2025.01.16–2025.10.31
+        text: |-
+          北京鸭基因组选择与抗病育种
+          （2024 北京市乡村振兴农业科技项目）
+      - title: "教育部项目"
+        meta: 2025.01.01–2025.11.30
+        text: "农业生物系统重要性状解析与分子设计育种应用"
+      - title: "教育部项目"
+        meta: 2024.06.20–2024.12.31
+        text: "2024 现代农业产业技术体系——水禽产业技术体系——制种技术协作项目"
+  - title: "软件著作权"
+    layout: list
+    items:
+      - title: 基于SAM2的鸭蛋精细分割系统
+        subtitle: 2025SR1145999
+        meta: "2025"
+      - title: 鸭编码区有害突变预测系统
+        subtitle: 2024SR1259198
+        meta: "2024"
+
+links:
+  - icon: "envelope"
+    url: "mailto:yinzhongtao@cau.edu.cn"
+    label: "邮箱"
+    display: "yinzhongtao@cau.edu.cn"

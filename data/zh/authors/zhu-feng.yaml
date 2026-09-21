@@ -1,0 +1,96 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/zhu-feng.yaml
+
+name:
+  display: "朱峰"
+
+role: "副教授"
+interests:
+  - "智能育种"
+education:
+  - degree: "本硕连读"
+    institution: "四川农业大学"
+    year: "2008.09-2014.06"
+  - degree: "博士"
+    institution: "中国农业大学"
+    year: "2014.09-2018.06"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "科研项目"
+    layout: list
+    items:
+      - title: "国家自然科学基金青年科学基金项目（C 类）"
+        meta: 2025–2027
+        text: "禽类特有 PLACL2 基因在前脂肪细胞分化中的机制研究"
+      - title: "北京市昌平区科委项目"
+        meta: 2025–2026
+        text: "北京鸭智能育种技术研发"
+      - title: "国家重点研发计划子课题"
+        meta: 2023–2027
+        text: "鸡与鸭图形泛基因组及遗传变异数据库构建"
+      - title: "北京市科委联合研究项目"
+        meta: 2022–2025
+        text: "北京鸭基因组选择技术研究"
+      - title: "国家农业科技重大项目"
+        meta: 2021–2026
+        text: "肉鸡采食效率精准测定技术"
+      - title: "国家重点研发计划子课题"
+        meta: 2021–2024
+        text: "现代牦牛生产管控关键技术集成创新与示范"
+      - title: "北京市科委「揭榜挂帅」项目"
+        meta: 2021–2024
+        text: "北京鸭智能表型测定系统与育种大数据平台的开发及产业化应用"
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "Three chromosome-level duck genome assemblies provide insights into genomic variation during domestication"
+        subtitle: "Nature Communications 2021"
+        url: "https://www.nature.com/articles/s41467-021-26272-1"
+      - title: "Chromosome-level genome assembly for the Silkie chicken resolves complete sequences for key chicken metabolic, reproductive, and immunity genes"
+        subtitle: "Communications Biology 2023"
+        url: "https://www.nature.com/articles/s42003-023-05619-y"
+      - title: "Genome-wide association analysis identifies candidate genes for carcass yields in Peking ducks"
+        subtitle: "Animal Genetics 2024"
+        url: "https://onlinelibrary.wiley.com/doi/10.1111/age.13480"
+      - title: "Genome-Wide Association Analysis Identifies Important Haplotypes and Candidate Gene XKR4 for Body Size Traits in Pekin Ducks."
+        subtitle: "Animals (Basel) 2024"
+        url: "https://doi.org/10.3390/ani14162349"
+      - title: "Genome-Wide Association Analysis and Genetic Parameters for Egg Production Traits in Peking Ducks"
+        subtitle: "Animals (Basel) 2024"
+        url: "https://www.mdpi.com/2076-2615/14/13/1891"
+      - title: "Optimizing Breeding Strategies for Pekin Ducks Using Genomic Selection: Genetic Parameter Evaluation and Selection Progress Analysis in Reproductive Traits."
+        subtitle: "Applied Sciences"
+        url: "https://doi.org/10.3390/app15010194"
+      - title: "Genome-Wide Association Study of Growth and Feeding Traits in Pekin Ducks"
+        subtitle: "Frontiers in Genetics 2019"
+        url: "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.00702/full"
+      - title: "Genome-wide association study of the level of blood components in Pekin ducks"
+        subtitle: "Genomics 2020"
+        url: "https://www.sciencedirect.com/science/article/pii/S0888754318306372"
+      - title: "iTRAQ-Based Quantitative Proteomic Analysis of Duck Eggshell During Biomineralization"
+        subtitle: "Proteomics 2019"
+  - title: "软件著作权"
+    layout: list
+    items:
+      - title: 基于CT影像的北京鸭胸肌及皮脂检测软件
+      - title: 北京鸭多组学和育种大数据管理分析平台
+      - title: 基于 SSM 框架的牦牛数字化管理系统V1.0
+      - title: 肉鸭体重自动估测系统
+  - title: "发明专利"
+    layout: list
+    items:
+      - title: 北京鸭皮脂CLN8基因上游关键SNP及其育种应用
+      - title: 一种基于2D图像的肉禽体重估测方法及系统
+      - title: 一种基于两视图图像的肉鸡体重估测系统
+      - title: 基于GBS技术的北京鸭简化基因组测序方法
+  - title: "获奖荣誉"
+    layout: list
+    items:
+      - title: 北京市昌平区科技副总
+        text: "北京市昌平区科技副总"
+
+links:
+  - icon: "envelope"
+    url: "mailto:fengzhu@cau.edu.cn"
+    label: "邮箱"
+    display: "fengzhu@cau.edu.cn"

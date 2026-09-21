@@ -1,0 +1,31 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/yang-huanqi.yaml
+
+name:
+  display: "杨欢祺"
+
+role: "博士研究生"
+bio: "黑龙江哈尔滨人。"
+interests:
+  - "禽流感抗病育种"
+education:
+  - degree: "本科"
+    institution: "黑龙江八一农垦大学"
+  - degree: "硕士"
+    institution: "河北工程大学"
+  - degree: "博士"
+    institution: "中国农业大学"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "CircGRB14 Inhibits Proliferation and Promotes Apoptosis of Granulosa Cells in Chicken Follicle Selection through Sponging miR-12264-3p and miR-6660-3p"
+        subtitle: "International Journal of Molecular Sciences 2025"
+        url: "https://doi.org/10.3390/ijms26052214"
+
+links:
+  - icon: "envelope"
+    url: "mailto:yanghq947@163.com"
+    label: "邮箱"
+    display: "yanghq947@163.com"

@@ -12,9 +12,9 @@ interests:
   - Molecular Design Breeding in Animals
 links:
   - icon: envelope
-    url: 2022333020322@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:2022333020322@cau.edu.cn"
+    label: "E-mail"
+    display: "2022333020322@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""
@@ -36,7 +36,7 @@ custom_sections:
       - title: CULSC第九届全国大学生生命科学竞赛（科学探究类）二等奖
         subtitle: Animals 2023
         text: Second Prize, 9th China Undergraduate Life Science Competition (Scientific Inquiry)
-        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+        url: ""
       - title: “强农杯”中国农业大学第五届创新创业大赛“种未来·创世界”前沿生物技术与育种技术专项赛二等奖
         text: Second Prize, “Planting the Future · Creating the World” Frontier Biotechnology and Breeding Technology Competition, 5th Innovation and Entrepreneurship Competition of China Agricultural University
       - title: “强农杯”中国农业大学第六届创新创业大赛创新竞赛三等奖（自然科学类学术论文赛道）

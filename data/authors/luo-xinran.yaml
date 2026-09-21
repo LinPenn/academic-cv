@@ -12,8 +12,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:615769857@qq.com"
-    label: E-mail
-    display: 615769857@qq.com
+    label: "E-mail"
+    display: "615769857@qq.com"
 affiliations:
   - name: China Agricultural University
 education:

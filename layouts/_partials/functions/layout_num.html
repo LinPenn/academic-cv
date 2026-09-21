@@ -4,15 +4,17 @@
   用法：
     {{ $gap := partial "functions/layout_num.html" (dict "v" (index $home "top_gap") "def" 8 "min" 0 "max" 400) }}
 
-  为什么需要：这些数字来自 data/layout.yaml，用户可能在编辑器里填成空或乱字符，
-  模板里直接 int 转换会报错导致整站构建失败，所以统一走这里兜底。
+  注意：不能用 {{ with .v }} 判断有没有值 —— Go 模板里 0 是「假值」，
+  那样「关闭某项」的 0 会被当成没填而回退成默认值（曾经因此导致开关关不掉）。
+  所以这里显式与 nil 比较。
 */}}
 {{ $def := .def | default 0 }}
 {{ $min := .min | default 0 }}
 {{ $max := .max | default 100000 }}
 {{ $out := $def }}
-{{ with .v }}
-  {{ $r := try (int .) }}
+{{ $v := index . "v" }}
+{{ if ne $v nil }}
+  {{ $r := try (int $v) }}
   {{ if not $r.Err }}
     {{ $n := $r.Value }}
     {{ if and (ge $n $min) (le $n $max) }}{{ $out = $n }}{{ end }}

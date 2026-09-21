@@ -1,0 +1,53 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/fang-yingyan.yaml
+
+name:
+  display: "方颖妍"
+
+role: "博士研究生"
+bio: "纵有疾风起，人生不言弃。"
+interests:
+  - "基于 DuckGTEx 的遗传关联与因果调控机制"
+  - "北京鸭全基因组 60K SNP 液相芯片的开发与应用"
+  - "生物信息学与多组学"
+education:
+  - degree: "本科"
+    institution: "中国农业大学"
+    year: "2022-2026"
+  - degree: "博士"
+    institution: "中国农业大学"
+    year: "2026 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "获奖荣誉"
+    layout: list
+    items:
+      - title: 第十届北京市大学生生物学竞赛一等奖
+        subtitle: Gene 2025
+        text: "第十届北京市大学生生物学竞赛一等奖"
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: CULSC第九届全国大学生生命科学竞赛（科学探究类）二等奖
+        subtitle: Animals 2023
+        text: "第九届全国大学生生命科学竞赛（科学探究类）二等奖"
+        url: ""
+      - title: “强农杯”中国农业大学第五届创新创业大赛“种未来·创世界”前沿生物技术与育种技术专项赛二等奖
+        text: "「强农杯」中国农业大学第五届创新创业大赛「种未来·创世界」前沿生物技术与育种技术专项赛二等奖"
+      - title: “强农杯”中国农业大学第六届创新创业大赛创新竞赛三等奖（自然科学类学术论文赛道）
+        text: "中国农业大学第六届创新创业大赛创新竞赛（自然科学类学术论文赛道）三等奖"
+      - title: 北京市大学生创新创业项目省部级项目优秀结题——项目负责人
+        text: "北京市大学生创新创业项目（省部级）优秀结题——项目负责人"
+      - title: 2022届中国农业大学优秀本科毕业生
+        text: "2022 届中国农业大学优秀本科毕业生"
+  - title: "兴趣与爱好"
+    layout: markdown
+    text: |-
+      跑步、阅读、音乐剧
+      资深同人写作平台（AO3、Lofter）用户
+
+      喜欢时不时给自己一点小奖励。愿我们都成为真正会生活的人！
+
+links:
+  - icon: "envelope"
+    url: "mailto:2022333020322@cau.edu.cn"
+    label: "邮箱"
+    display: "2022333020322@cau.edu.cn"

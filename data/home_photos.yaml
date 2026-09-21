@@ -1,0 +1,25 @@
+photos:
+  - name: 2026.jpg
+    zoom: 100
+    x: 50
+    y: 55
+  - name: 2025.jpg
+    zoom: 100
+    x: 50
+    y: 80
+  - name: 2024.jpg
+    zoom: 100
+    x: 50
+    y: 67
+  - name: 2023.jpg
+    zoom: 100
+    x: 50
+    y: 45
+  - name: 2022.jpg
+    zoom: 100
+    x: 50
+    y: 59
+  - name: 2021.jpg
+    zoom: 100
+    x: 50
+    y: 51

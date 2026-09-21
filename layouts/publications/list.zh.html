@@ -1,0 +1,42 @@
+{{/*
+  中文的「论文发表」列表（layouts/publications/list.zh.html）
+  ------------------------------------------------------------------
+  98 篇论文只有英文版，中文站点下 .Pages 是空的。
+  这里改成读取默认语言（英文）的 publications 分区页面，
+  这样中文页面也能列出全部论文，链接指向英文的论文详情页（不会 404）。
+*/}}
+{{ define "main" }}
+
+<div class="max-w-prose mx-auto flex justify-center">
+  <article class="prose prose-slate lg:prose-xl dark:prose-invert">
+    <h1 class="lg:text-6xl">{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</div>
+
+{{ $enSection := site.Sites.Default.GetPage "/publications" }}
+{{ $pages := slice }}
+{{ with $enSection }}{{ $pages = .Pages.ByDate.Reverse }}{{ end }}
+
+{{ $view := .Params.view | default "citation" }}
+{{ $block := . }}
+{{ $paginator := .Paginate $pages }}
+{{ $config := dict
+  "columns" (.Params.columns | default 2)
+  "len" (len $paginator.Pages)
+  "fill_image" false
+  "show_date" (.Params.show_date | default true)
+  "show_read_time" false
+  "show_read_more" false
+}}
+
+<div class="flex flex-col items-center">
+  {{ partial "functions/render_view" (dict "fragment" "start" "page" $block "item" . "view" $view "config" $config) }}
+  {{ range $index, $item := $paginator.Pages }}
+    {{ partial "functions/render_view" (dict "page" . "item" . "index" $index "view" $view "config" $config) }}
+  {{ end }}
+  {{ partial "functions/render_view" (dict "fragment" "end" "page" $block "item" . "view" $view) }}
+  {{ partial "components/paginator" . }}
+</div>
+
+{{ end }}

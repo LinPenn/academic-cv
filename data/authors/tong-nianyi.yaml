@@ -10,8 +10,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:2023333020206tny@cau.edu.cn"
-    label: E-mail
-    display: 2023333020206tny@cau.edu.cn
+    label: "E-mail"
+    display: "2023333020206tny@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
 education:

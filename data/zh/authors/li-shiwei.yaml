@@ -1,0 +1,40 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/li-shiwei.yaml
+
+name:
+  display: "李世维"
+
+role: "博士研究生"
+bio: "李世维，中国农业大学动物遗传育种专业博士研究生。性格随和真诚、友善乐观，学习和科研心态平稳。业余时间喜欢阅读、下棋，偶尔运动。"
+interests:
+  - "家禽遗传育种"
+  - "畜牧"
+education:
+  - degree: "动物遗传育种与繁殖博士"
+    institution: "中国农业大学"
+    year: "2026.09 - 2030.06"
+  - degree: "畜牧学硕士"
+    institution: "西藏农牧学院 & 南京农业大学"
+    year: "2023.09 - 2026.06"
+  - degree: "动物科学学士"
+    institution: "河南牧业经济学院"
+    year: "2018.09 - 2022.06"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "Li S, Wang S, Huang W, et al. Transcriptomics and metabolomics provide insights into meat flavor precursor differences between different duck lines. Poultry Science, 2026, 105(4): 106488."
+        subtitle: "doi:10.1016/j.psj.2026.106488"
+      - title: "Li S, Zheng S, Liu X, et al. Effects of different stocking densities under housed conditions on the production performance of off-season breeder geese. Feed Industry, 2025, 46(12): 156-160."
+        subtitle: "doi:10.13302/j.cnki.fi.2025.12.023"
+
+links:
+  - icon: "envelope"
+    url: "mailto:18439853374@163.com"
+    label: "邮箱"
+    display: "18439853374@163.com"
+  - icon: "orcid"
+    url: "https://orcid.org/0009-0005-2514-964X"
+    label: "ORCID"
+    display: "https://orcid.org/0009-0005-2514-964X"

@@ -1,0 +1,27 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/tong-nianyi.yaml
+
+name:
+  display: "仝念诒"
+
+role: "本科生"
+bio: "中国农业大学 2023 级生物技术育种（强基计划）。"
+interests:
+  - "分子设计育种"
+education:
+  - degree: "本科"
+    institution: "中国农业大学"
+    year: "2023 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "基于胚胎血管慢病毒注射的转基因芦丁鸡制备"
+        subtitle: "中国畜牧杂志"
+
+links:
+  - icon: "envelope"
+    url: "mailto:2023333020206tny@cau.edu.cn"
+    label: "邮箱"
+    display: "2023333020206tny@cau.edu.cn"

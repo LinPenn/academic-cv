@@ -24,7 +24,11 @@
 {{ $path := "" }}
 {{ with .File }}{{ $path = replace (.Path | default "") "\\" "/" }}{{ end }}
 
-{{ if eq $path "_index.md" }}
+{{/* 中英文首页/研究页都要生效（中文文件是 _index.zh.md） */}}
+{{ $isHome := in (slice "_index.md" "_index.zh.md") $path }}
+{{ $isResearch := in (slice "research/_index.md" "research/_index.zh.md") $path }}
+
+{{ if $isHome }}
 <style>
   /* 首页（数值来自 data/layout.yaml → 编辑器「页面布局」） */
   .page-body > .hbb-section { padding-top: {{ $homeTop }}px; }
@@ -32,7 +36,7 @@
   .home-hero-image { width: min(92vw, {{ $imgMax }}px); }
   .home-hero-text { width: min(92vw, {{ $textMax }}px); padding-top: {{ $imgTextGap }}px; padding-bottom: 2rem; }
 </style>
-{{ else if eq $path "research/_index.md" }}
+{{ else if $isResearch }}
 <style>
   /* 研究页（数值来自 data/layout.yaml → 编辑器「页面布局」） */
   .page-body > .hbb-section { padding-top: {{ $resTop }}px; }

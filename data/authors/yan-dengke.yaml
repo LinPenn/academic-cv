@@ -10,9 +10,9 @@ interests:
   - Single-Cell Transcriptomic Analysis of Asymmetric Female Gonadal Development in Chickens
 links:
   - icon: envelope
-    url: 1556701010@qq.com
-    label: ""
-    display: ""
+    url: "mailto:1556701010@qq.com"
+    label: "E-mail"
+    display: "1556701010@qq.com"
 affiliations:
   - name: China Agricultural University
     url: ""

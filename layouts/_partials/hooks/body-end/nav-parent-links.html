@@ -1,0 +1,33 @@
+{{/*
+  让「带子菜单的导航项」本身也能点
+  ------------------------------------------------------------------
+  主题里带子项的菜单项渲染成 <span role="button">，只能悬停展开、点不进页面。
+  这里在页面底部把这些 span 换成指向自身页面的链接：
+    · Research  → /research/     （研究方向总览页）
+    · Resources → /resources/    （资源总览页）
+  悬停下拉完全由 CSS 控制，换成 <a> 不影响；手机上也能直接点进总览页。
+*/}}
+{{ $map := dict }}
+{{ range site.Menus.main }}
+  {{ if .HasChildren }}
+    {{ $map = merge $map (dict .Name (.URL | relLangURL)) }}
+  {{ end }}
+{{ end }}
+{{ if $map }}
+<script>
+  (function () {
+    var map = {{ $map | jsonify | safeJS }};
+    var spans = document.querySelectorAll('.page-header .nav-dropdown > span[role="button"]');
+    Array.prototype.forEach.call(spans, function (span) {
+      var label = (span.textContent || '').replace(/\s+/g, ' ').trim();
+      var url = map[label];
+      if (!url) return;
+      var a = document.createElement('a');
+      a.className = span.className.replace(/\bcursor-pointer\b/g, '').trim();
+      a.href = url;
+      a.innerHTML = span.innerHTML;
+      span.replaceWith(a);
+    });
+  })();
+</script>
+{{ end }}

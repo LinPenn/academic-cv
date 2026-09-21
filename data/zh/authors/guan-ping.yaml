@@ -1,0 +1,20 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/guan-ping.yaml
+
+name:
+  display: "关平"
+
+role: "博士研究生"
+bio: "单细胞研究组组长。越来越好。"
+interests:
+  - "聚焦家禽从配子发生、胚胎发育到个体形态建成的完整发育谱系，解析其调控机制"
+education:
+  - degree: "本科"
+    institution: "中国农业大学"
+affiliations:
+  - name: "中国农业大学"
+
+links:
+  - icon: "envelope"
+    url: "mailto:1936476698@qq.com"
+    label: "邮箱"
+    display: "1936476698@qq.com"

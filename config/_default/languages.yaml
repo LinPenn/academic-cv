@@ -6,29 +6,10 @@ en:
   title: "HZ Lab"
   params:
     description: We focus on waterfowl genetics, breeding, and molecular improvement, with research spanning genetic resources, genetic mechanisms, genomics, and precision breeding. Our work aims to elucidate the genetic basis of economically important traits and to develop innovative technologies and approaches for waterfowl breeding.
-  menu:
-    main:
-      - name: Home
-        url: /
-        weight: 10
-      - name: Research
-        url: /research/
-        weight: 20
-      - name: Publications
-        url: /publications/
-        weight: 30
-      - name: People
-        url: /people/
-        weight: 40
-      - name: Resources
-        url: /resources/
-        weight: 50
-      - name: News
-        url: /blog/
-        weight: 60
-      - name: Join Us
-        url: /join/
-        weight: 70
-      - name: Contact
-        url: /contact/
-        weight: 80
+# 中文（第二语言）：页面在 /zh/ 下，导航按钮由主题自动生成
+zh:
+  locale: zh-cn
+  title: "HZ Lab"
+  weight: 2
+  params:
+    description: 聚焦水禽遗传、育种与分子改良，研究覆盖遗传资源、遗传机制、基因组学与精准育种。

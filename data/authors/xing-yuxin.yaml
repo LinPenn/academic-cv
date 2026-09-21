@@ -10,9 +10,9 @@ interests:
   - Multi-Omics Integration for the Identification of Key Factors and Regulatory Mechanisms Underlying Early Avian Embryonic Development
 links:
   - icon: envelope
-    url: xingyuxin@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:xingyuxin@cau.edu.cn"
+    label: "E-mail"
+    display: "xingyuxin@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

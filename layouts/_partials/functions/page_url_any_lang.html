@@ -1,0 +1,20 @@
+{{/*
+  取一个页面的地址，并在「当前语言没有这一页」时回退到默认语言（英文）版本。
+  ------------------------------------------------------------------
+  为什么需要：
+    · 成员个人页、导师页这些只有英文版（中文站点下 /zh/authors/xxx/ 并不存在）；
+    · 中文页面上如果直接用 relLangURL 生成链接，就会得到 /zh/authors/xxx/ 这种 404 地址。
+  用法：
+    {{ $url := partial "functions/page_url_any_lang.html" (dict "page" $ "path" (printf "/authors/%s" .slug)) }}
+*/}}
+{{- $path := .path -}}
+{{- $page := .page -}}
+{{- $url := "" -}}
+{{- with $page.Site.GetPage $path -}}
+  {{- $url = .RelPermalink -}}
+{{- else -}}
+  {{- with site.Sites.Default.GetPage $path -}}
+    {{- $url = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

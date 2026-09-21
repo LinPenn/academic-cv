@@ -1,0 +1,33 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/liu-yongtong.yaml
+
+name:
+  display: "刘泳彤"
+
+role: "博士研究生"
+interests:
+  - "脂肪细胞脂质代谢调控与旁系同源基因功能分化，重点关注禽类脂肪酸去饱和酶（FADS）基因家族的功能网络与分子机制"
+education:
+  - degree: "本科"
+    institution: "东北林业大学"
+    year: "2017-2021"
+  - degree: "博士"
+    institution: "中国农业大学"
+    year: "2021 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "论文发表"
+    layout: list
+    items:
+      - title: "Transcriptional activity and variation analysis of genes critical for long-chain fatty acid (C≥16) elongation and desaturation in Pekin ducks"
+        subtitle: "Poultry Science 2024"
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579124010150"
+      - title: "Research Note: Identification of core promoter region of the polyunsaturated fatty acid synthesis-related gene family in chicken"
+        subtitle: "Poultry Science 2023"
+        url: "https://www.sciencedirect.com/science/article/pii/S0032579123003760"
+
+links:
+  - icon: "envelope"
+    url: "mailto:lyt@cau.edu.cn"
+    label: "邮箱"
+    display: "lyt@cau.edu.cn"

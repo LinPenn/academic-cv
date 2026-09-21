@@ -1,0 +1,20 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/yuan-jingcheng.yaml
+
+name:
+  display: "袁景成"
+
+role: "硕士研究生"
+bio: "浙江人，2026 级硕士研究生。"
+interests:
+  - "遗传育种"
+education:
+  - degree: "本科"
+    institution: "新疆农业大学"
+affiliations:
+  - name: "中国农业大学"
+
+links:
+  - icon: "envelope"
+    url: "mailto:1103254732@qq.com"
+    label: "邮箱"
+    display: "1103254732@qq.com"

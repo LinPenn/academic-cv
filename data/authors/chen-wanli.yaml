@@ -2,7 +2,7 @@ schema: hugoblox/author/v1
 slug: chen-wanli
 is_owner: false
 name:
-  display: chenwanli
+  display: "Chen Wanli"
 role: M.S. Student
 bio: Passionate about research, passionate about life! Enjoys playing badminton.
 interests:

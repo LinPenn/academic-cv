@@ -9,9 +9,9 @@ interests:
   - Poultry Functional Genomics and Genetics & Breeding
 links:
   - icon: envelope
-    url: yinzhongtao@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:yinzhongtao@cau.edu.cn"
+    label: "E-mail"
+    display: "yinzhongtao@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

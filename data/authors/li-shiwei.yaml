@@ -11,8 +11,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:18439853374@163.com"
-    label: E-mail
-    display: 18439853374@163.com
+    label: "E-mail"
+    display: "18439853374@163.com"
   - icon: orcid
     url: "https://orcid.org/0009-0005-2514-964X"
     label: ORCID

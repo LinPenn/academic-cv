@@ -88,7 +88,7 @@
       {{ if $profile.links }}
         <div class="pt-4 flex flex-col gap-2">
           {{ range $profile.links }}
-            {{ $display := .display | default .label | default .url }}
+            {{ $display := .display | default .label | default .url | replaceRE "^mailto:" "" }}
             <a href="{{ .url | safeURL }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-300 hover:text-primary-700 dark:hover:text-primary-400 transition">
               {{ if eq .icon "github" }}
                 <img src="{{ "uploads/people/github-mark.webp" | absURL }}" alt="GitHub" class="h-5 w-5" />
@@ -111,7 +111,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
     {{ with $profile.interests }}
     <div>
-      <h2 class="text-xl font-semibold mb-4">Research Interests</h2>
+      <h2 class="text-xl font-semibold mb-4">{{ i18n "research_interests" | default "Research Interests" }}</h2>
       <ul class="space-y-1 text-neutral-700 dark:text-neutral-300">
         {{ range . }}
         <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500 flex-shrink-0"></span>{{ . }}</li>
@@ -121,7 +121,7 @@
     {{ end }}
     {{ with $profile.education }}
     <div>
-      <h2 class="text-xl font-semibold mb-4">Education</h2>
+      <h2 class="text-xl font-semibold mb-4">{{ i18n "education" | default "Education" }}</h2>
       <ul class="space-y-3 text-neutral-700 dark:text-neutral-300">
         {{ range . }}
         <li>

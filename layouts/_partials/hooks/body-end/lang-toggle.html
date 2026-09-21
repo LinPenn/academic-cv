@@ -1,0 +1,46 @@
+{{/*
+  语言切换按钮的兜底注入
+  ------------------------------------------------------------------
+  主题的导航栏只在「当前页有对应翻译」时才渲染语言切换
+  （{{ if .IsTranslated }}），所以像论文详情页这种只有英文的页面就没有切换入口。
+  这里在页面底部兜底：如果导航栏里没有切换按钮，就补一个 ——
+  有翻译就跳到该翻译，没有就跳到另一种语言的首页。
+*/}}
+{{ $page := . }}
+{{ $other := "" }}
+{{ $otherName := "" }}
+
+{{ range $page.Translations }}
+  {{ if ne .Lang $page.Lang }}
+    {{ $other = .RelPermalink }}
+    {{ $otherName = index hugo.Data.languages .Lang | default .Lang }}
+  {{ end }}
+{{ end }}
+
+{{ if not $other }}
+  {{ range site.Sites }}
+    {{ if ne .Language.Lang $page.Lang }}
+      {{ $other = .Home.RelPermalink }}
+      {{ $otherName = index hugo.Data.languages .Language.Lang | default .Language.Lang }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $other }}
+  {{ $svg := partial "functions/get_icon" (dict "name" "globe-alt" "attributes" "height=18") }}
+  <script>
+    (function () {
+      var nav = document.querySelector('.page-header nav.navbar');
+      if (!nav || nav.querySelector('.lang-toggle')) return;
+      var a = document.createElement('a');
+      a.className = 'lang-toggle';
+      a.href = {{ $other | jsonify | safeJS }};
+      a.title = {{ (i18n "switch_language" | default "Switch language") | jsonify | safeJS }};
+      a.setAttribute('aria-label', a.title);
+      a.style.cssText = 'cursor:pointer';
+      a.innerHTML = {{ (printf "%s<span>%s</span>" $svg $otherName) | jsonify | safeJS }};
+      var right = nav.querySelector('.ml-auto') || nav;
+      right.appendChild(a);
+    })();
+  </script>
+{{ end }}

@@ -9,9 +9,9 @@ interests:
   - Regulation of Lipid Metabolism in Adipocytes and Functional Divergence of Paralogous Genes, with a Focus on the Functional Network of the Avian Fatty Acid Desaturase (FADS) Gene Family and the Molecular Mechanisms Underlying FADS-Mediated Lipid Metabolism
 links:
   - icon: envelope
-    url: lyt@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:lyt@cau.edu.cn"
+    label: "E-mail"
+    display: "lyt@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

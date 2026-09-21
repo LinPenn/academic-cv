@@ -1,0 +1,53 @@
+{{/*
+  导航栏下拉菜单（研究 / 资源等含子项的菜单）
+  ------------------------------------------------------------------
+  主题的 navbar 给下拉列表用的是 Tailwind 的 `lg:group-hover:visible` 这类工具类，
+  但项目实际生成的 CSS 里并没有这些类，结果就是「悬停没反应、子项露不出来」。
+  这里用普通 CSS 把下拉做出来：
+    · 桌面端：鼠标悬停在「研究方向 / 资源」上时弹出，淡入 + 轻微下移
+    · 窄屏（<1024px）：直接展开成缩进的列表，方便手机上点
+*/}}
+<style>
+  .nav-dropdown { position: relative; }
+  .navbar .nav-dropdown-list {
+    display: block !important;
+    position: absolute !important;
+    top: 100%; left: 0; z-index: 40;
+    min-width: 200px;
+    margin: .35rem 0 0; padding: .4rem 0;
+    list-style: none;
+    border-radius: .6rem;
+    background: var(--hb-color-header-bg, #0f172a);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, .38);
+    visibility: hidden; opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
+  }
+  .nav-dropdown:hover .nav-dropdown-list,
+  .nav-dropdown:focus-within .nav-dropdown-list {
+    visibility: visible; opacity: 1; transform: translateY(0);
+  }
+  .navbar .nav-dropdown-item { padding: 0; margin: 0 !important; }
+  .navbar .nav-dropdown-link {
+    display: block; padding: .5rem 1rem; white-space: nowrap;
+    color: var(--hb-color-header-fg, #fff); font-weight: 500;
+    text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+  }
+  .navbar .nav-dropdown-link:hover {
+    background: rgba(255, 255, 255, .14);
+    color: #fff;
+  }
+  .navbar .nav-dropdown-link.active { background: rgba(255, 255, 255, .1); }
+
+  /* 窄屏：不靠悬停，直接把子项展开成缩进列表 */
+  @media (max-width: 1023px) {
+    .navbar .nav-dropdown-list {
+      position: static !important;
+      visibility: visible; opacity: 1; transform: none;
+      background: transparent; box-shadow: none;
+      padding: 0 0 0 1rem; margin: 0;
+      min-width: 0;
+    }
+  }
+</style>

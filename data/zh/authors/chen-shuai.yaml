@@ -1,0 +1,24 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/chen-shuai.yaml
+
+name:
+  display: "陈帅"
+
+role: "硕士研究生"
+bio: "江西赣州人，性格积极乐观。上不知天文、下不知地理，但愿世界和平。"
+interests:
+  - "北京鸭育种群体中重要经济性状关联位点的应用价值评估"
+education:
+  - degree: "本科"
+    institution: "山西大同大学"
+    year: "2021.09 - 2025.07"
+  - degree: "硕士"
+    institution: "中国农业大学"
+    year: "2025.09 - 至今"
+affiliations:
+  - name: "中国农业大学"
+
+links:
+  - icon: "envelope"
+    url: "mailto:luxia0298@163.com"
+    label: "邮箱"
+    display: "luxia0298@163.com"

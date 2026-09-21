@@ -9,9 +9,9 @@ interests:
   - Animal Molecular Quantitative Genetics
 links:
   - icon: envelope
-    url: ldpan528@163.com
-    label: ""
-    display: ""
+    url: "mailto:ldpan528@163.com"
+    label: "E-mail"
+    display: "ldpan528@163.com"
 affiliations:
   - name: China Agricultural University
     url: ""

@@ -208,7 +208,8 @@ async function main() {
     const after = readFile(rel);
     check('首页大标题已替换', after.includes('Poultry Breeding Innovation Team'));
     check('首页简介已替换', after.includes('Test intro sentence.'));
-    check('图片标签仍在', after.includes('lab-photo.jpg'));
+    // 不写死文件名（首页大图会换、也可能改成轮播）
+    check('图片标签仍在', /<img[^>]+src="[^"]+"/.test(after));
     restore(snap, rel);
     check('已还原首页', readFile(rel) === before);
   }
@@ -261,6 +262,18 @@ async function main() {
     check('英文菜单调整保存成功', mSaved.status === 200 && mSaved.data.changed, JSON.stringify(mSaved.data).slice(0, 200));
     const menusAfter = strip(readFile('config/_default/menus.yaml'));
     check('menus.yaml 首项已变为 Research', /main:[\s\S]*?name: '?Research'?/.test(menusAfter), menusAfter.split('main:')[1]?.slice(0, 90));
+    /*
+     * 下拉菜单靠 identifier / parent 维持层级。编辑器以前保存设置时只写 name/url/weight，
+     * 会把这两个键抹掉，导航栏里的子项就全跑到顶层了。这里守住这条线。
+     */
+    const countParents = (txt) => (txt.match(/^\s*parent:/gm) ?? []).length;
+    const countIdent = (txt) => (txt.match(/^\s*identifier:/gm) ?? []).length;
+    check('保存设置不会丢掉下拉菜单结构（parent）',
+      countParents(menusAfter) === countParents(strip(before['config/_default/menus.yaml'])),
+      `${countParents(strip(before['config/_default/menus.yaml']))} -> ${countParents(menusAfter)}`);
+    check('保存设置不会丢掉下拉菜单结构（identifier）',
+      countIdent(menusAfter) === countIdent(strip(before['config/_default/menus.yaml'])),
+      `${countIdent(strip(before['config/_default/menus.yaml']))} -> ${countIdent(menusAfter)}`);
     // 保存菜单不应再改 languages.yaml（旧实现会把菜单同时写进这里，导致配置两处不一致）
     check('languages.yaml 未被菜单操作改动',
       readFile('config/_default/languages.yaml') === langBeforeMenu);
@@ -383,6 +396,78 @@ async function main() {
 
     restore(snap, rel);
     check('已还原布局文件', readFile(rel) === before);
+  }
+
+  /* ---------- 6.6 首页照片（封面轮播） ---------- */
+  {
+    const rel = 'data/layout.yaml';
+    const snap = snapshot(rel);
+    const before = readFile(rel);
+
+    const d = (await api('/api/home-photos')).data;
+    check('读取首页照片', Array.isArray(d.photos) && d.photos.length > 0, `photos=${d.photos?.length}`);
+    check('照片带轮播参数', typeof d.values['home.slide_interval'] === 'number', JSON.stringify(d.values));
+    check('照片顺序完整', d.order.length === d.photos.length, `order=${d.order?.length}`);
+
+    const photoFile = 'data/home_photos.yaml';
+    const snapPhotos = existsIn(photoFile) ? snapshot(photoFile) : null;
+    const beforePhotos = existsIn(photoFile) ? readFile(photoFile) : '';
+
+    const rev = [...d.photos].reverse().map((p) => ({ name: p.name, zoom: 150, x: 20, y: 80 }));
+    const r = await api('/api/home-photos/save', { method: 'POST', body: { photos: rev } });
+    check('保存照片顺序与取景', r.status === 200 && r.data.changed, JSON.stringify(r.data).slice(0, 140));
+    const afterPhotos = readFile(photoFile);
+    check('取景写入 data/home_photos.yaml', /zoom:\s*150/.test(afterPhotos) && afterPhotos.includes(rev[0].name),
+      afterPhotos.split(LF).slice(0, 4).join(' | '));
+
+    if (snapPhotos) {
+      restore(snapPhotos, photoFile, 'zoom: 150');
+      check('已还原照片配置', readFile(photoFile) === beforePhotos);
+    }
+  }
+
+  /* ---------- 6.6b 研究方向页面 ---------- */
+  {
+    const data = (await api('/api/research-pages')).data;
+    check('读取研究方向页面', Array.isArray(data.items) && data.items.length >= 5, `items=${data.items?.length}`);
+    const one = data.items[0];
+    const doc = (await api(`/api/resources/doc?path=${encodeURIComponent(one.path)}`)).data;
+    check('读取方向页面详情', doc.title === one.title && typeof doc.body === 'string', `title=${doc.title}`);
+    const dry = await api('/api/research-pages/save', {
+      method: 'POST',
+      body: { path: one.path, title: doc.title, summary: doc.summary, weight: doc.weight, body: doc.body, dryRun: true },
+    });
+    check('方向页面保存 dry-run 幂等', dry.status === 200 && dry.data.changed === false, JSON.stringify(dry.data).slice(0, 120));
+    check('方向页面路径在 content/research 下', one.dir.startsWith('content/research/'), one.dir);
+  }
+
+  /* ---------- 6.7 资源条目（数据库 / 软件工具） ---------- */
+  {
+    const data = (await api('/api/resources')).data;
+    check('读取数据集列表', Array.isArray(data.items) && data.items.length >= 2, `items=${data.items?.length}`);
+    const one = data.items[0];
+    check('资源条目带封面与路径', !!one.path && !!one.dir, JSON.stringify(one).slice(0, 140));
+    check('资源条目带分组', typeof one.group === 'string' && one.group.length > 0, `group=${one.group}`);
+
+    const doc = (await api(`/api/resources/doc?path=${encodeURIComponent(one.path)}`)).data;
+    check('读取数据集详情', doc.title === one.title && typeof doc.body === 'string', `title=${doc.title}`);
+
+    const dry = await api('/api/resources/save', {
+      method: 'POST',
+      body: { path: one.path, title: doc.title, summary: doc.summary, weight: doc.weight, body: doc.body, dryRun: true },
+    });
+    check('数据集保存 dry-run 幂等', dry.status === 200 && dry.data.changed === false, JSON.stringify(dry.data).slice(0, 120));
+
+    const snap = snapshot(one.path);
+    const before = readFile(one.path);
+    const saved = await api('/api/resources/save', {
+      method: 'POST',
+      body: { path: one.path, summary: `${doc.summary} `.trim() + ' [test]' },
+    });
+    check('数据集简介可保存', saved.status === 200 && saved.data.changed, JSON.stringify(saved.data).slice(0, 120));
+    check('简介已写入文件', readFile(one.path).includes('[test]'));
+    restore(snap, one.path, '[test]');
+    check('已还原数据集文件', readFile(one.path) === before);
   }
 
   /* ---------- 7. 图片上传（GitHub 文件名规范化） ---------- */

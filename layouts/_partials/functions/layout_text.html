@@ -1,0 +1,11 @@
+{{/*
+  读取一个文本型布局参数，空值时回退默认值。
+  用法： {{ $v := partial "functions/layout_text.html" (dict "v" (index $home "name") "def" "x") }}
+*/}}
+{{ $def := .def | default "" }}
+{{ $out := $def }}
+{{ with .v }}
+  {{ $s := trim (printf "%v" .) " " }}
+  {{ if $s }}{{ $out = $s }}{{ end }}
+{{ end }}
+{{ return $out }}

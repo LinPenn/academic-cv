@@ -1,0 +1,201 @@
+{{/*
+  首页样式：满屏封面 + 简介 + 研究方向胶囊 + 最新论文
+  ------------------------------------------------------------------
+  参考 Baker Lab（bakerlab.org）的首页做法：
+    全宽大图铺满 → 深色渐变遮罩 → 大标题/一句话简介压在图上 → 两个按钮
+    下面依次是简介段落、研究方向胶囊按钮、最新论文列表。
+  只作用在首页（.lab-* 类只在首页的 HTML 里出现），不影响其它页面。
+*/}}
+{{ $path := "" }}
+{{ with .File }}{{ $path = replace (.Path | default "") "\\" "/" }}{{ end }}
+{{ if in (slice "_index.md" "_index.zh.md") $path }}
+{{ $home := index (site.Data.layout | default dict) "home" | default dict }}
+{{ $pZoom := partial "functions/layout_num.html" (dict "v" (index $home "photo_zoom") "def" 100 "min" 100 "max" 220) }}
+{{ $pX := partial "functions/layout_num.html" (dict "v" (index $home "photo_pos_x") "def" 50 "min" 0 "max" 100) }}
+{{ $pY := partial "functions/layout_num.html" (dict "v" (index $home "photo_pos_y") "def" 35 "min" 0 "max" 100) }}
+{{ $slideSec := partial "functions/layout_num.html" (dict "v" (index $home "slide_interval") "def" 6 "min" 2 "max" 60) }}
+{{ $fadeRaw := index $home "slide_fade" }}
+{{ $fade := 1.6 }}{{ if ne $fadeRaw nil }}{{ $f := float $fadeRaw }}{{ if and (ge $f 0) (le $f 6) }}{{ $fade = $f }}{{ end }}{{ end }}
+{{ $all := slice }}
+{{ with (os.ReadDir "static/uploads/home") }}
+  {{ range . }}
+    {{ if not .IsDir }}
+      {{ $ext := lower (path.Ext .Name) }}
+      {{ if in (slice ".jpg" ".jpeg" ".png" ".webp" ".avif" ".gif") $ext }}
+        {{ $all = $all | append .Name }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{/* 顺序与每张照片的取景都来自 data/home_photos.yaml（编辑器「首页照片」模块维护）；不在表里的新照片排在后面用默认取景 */}}
+{{ $saved := slice }}
+{{ with site.Data.home_photos }}{{ with .photos }}{{ $saved = . }}{{ end }}{{ end }}
+{{ $slides := slice }}
+{{ $seen := slice }}
+{{ range $saved }}
+  {{ $n := .name }}
+  {{ if in $all $n }}
+    {{ $x := 50 }}{{ $y := 35 }}{{ $z := 100 }}
+    {{ if isset . "x" }}{{ $x = .x }}{{ end }}
+    {{ if isset . "y" }}{{ $y = .y }}{{ end }}
+    {{ if isset . "zoom" }}{{ $z = .zoom }}{{ end }}
+    {{ $slides = $slides | append (dict "u" (printf "/uploads/home/%s" $n) "x" $x "y" $y "z" $z) }}
+    {{ $seen = $seen | append $n }}
+  {{ end }}
+{{ end }}
+{{ range $all }}
+  {{ if not (in $seen .) }}
+    {{ $slides = $slides | append (dict "u" (printf "/uploads/home/%s" .) "x" 50 "y" 35 "z" 100) }}
+  {{ end }}
+{{ end }}
+{{ $heroVh := partial "functions/layout_num.html" (dict "v" (index $home "hero_height") "def" 100 "min" 40 "max" 130) }}
+<style>
+  /* ---------- ① 让第一个区块（封面）真正占满宽度 ---------- */
+  .page-body > .hbb-section:first-child { padding-top: 0 !important; padding-bottom: 0 !important; }
+  .page-body > .hbb-section:first-child > div:not(.home-section-bg) {
+    max-width: none !important; width: 100% !important; display: block !important;
+    padding-left: 0 !important; padding-right: 0 !important; margin: 0 !important; gap: 0 !important;
+  }
+  .page-body > .hbb-section:first-child .prose { max-width: none !important; margin: 0 !important; }
+  .page-body > .hbb-section:first-child .prose { max-width: none !important; }
+
+  /* 封面之后的区块：上下留白（不受「页面布局」里的顶部留白影响） */
+  .page-body > .hbb-section:not(:first-child) { padding-top: 3rem !important; padding-bottom: 4rem !important; }
+
+
+  /* ---------- ①.5 首页：导航栏透明，浮在封面上 ---------- */
+  body:has(.lab-hero) .page-header {
+    position: absolute !important; top: 0; left: 0; right: 0; z-index: 50;
+    background: transparent !important; box-shadow: none !important;
+  }
+  body:has(.lab-hero) .page-header .header {
+    background: transparent !important; box-shadow: none !important;
+    /* 顶部加一层淡淡的暗色渐变，白字在任何照片上都清楚 */
+    background-image: linear-gradient(180deg, rgba(15,23,42,.55) 0%, rgba(15,23,42,0) 100%) !important;
+  }
+
+  /* ---------- ①.8 封面照片轮播（照片放在 static/uploads/home/） ---------- */
+  .lab-hero-slides { position: absolute; inset: 0; z-index: 0; }
+  .lab-hero-slide {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: {{ $pX }}% {{ $pY }}%; transform: scale({{ div (float $pZoom) 100.0 }}); transform-origin: center;
+    opacity: 0; transition: opacity {{ $fade }}s ease-in-out; margin: 0;
+  }
+  .lab-hero-slide.is-active { opacity: 1; }
+  .lab-hero-shade { z-index: 1; }
+
+  /* ---------- ② 封面 ---------- */
+  .lab-hero {
+    position: relative; width: 100%;
+    /* 封面高度 = 视口高度的 {{ $heroVh }}%（默认 67% ≈ 2/3 屏）；导航栏浮在封面上，不占高度 */
+    min-height: {{ $heroVh }}svh;
+    min-height: {{ $heroVh }}vh;
+    display: flex; align-items: stretch; justify-content: center;
+    overflow: hidden; margin: 0;
+  }
+  .lab-hero-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: {{ $pX }}% {{ $pY }}%; margin: 0; border-radius: 0;
+  }
+  .lab-hero-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,23,42,.72) 0%, rgba(15,23,42,.55) 32%, rgba(15,23,42,.6) 68%, rgba(15,23,42,.86) 100%);
+  }
+  .lab-hero-inner {
+    position: relative; z-index: 2; text-align: center; color: #fff;
+    width: 100%; max-width: 68rem; margin: 0 auto;
+    padding: 6rem 1.5rem 2rem;  /* 顶部让开浮动的导航栏 */
+    /* 上：标题 / 中：介绍 / 下：按钮 —— 三段落分别贴住上下两端，介绍居中 */
+    display: flex; flex-direction: column; justify-content: center; gap: .5rem;
+  }
+
+  /* ---------- ②.5 图下的介绍 + 按钮 ---------- */
+  .lab-lead {
+    /* 更宽：最多 94vw / 84rem */
+    max-width: min(94vw, 84rem); margin: 0 auto; padding: 1rem 1.5rem 1rem;
+    text-align: center; font-size: clamp(.97rem, 1.1vw, 1.06rem); line-height: 1.7;
+    color: var(--hb-color-foreground, #111827);
+    /* 撑满「封面以下到首屏底部」的空间，好把按钮压到最下边 */
+    min-height: calc(100svh - {{ $heroVh }}svh);
+    min-height: calc(100vh - {{ $heroVh }}vh);
+    display: flex; flex-direction: column;
+  }
+  /* 介绍夹在「照片」和「按钮」中间：上下 auto 外边距 → 在剩余空间里垂直居中 */
+  .lab-lead-intro { margin: auto 0; }
+  .lab-lead p { margin: 0 0 .7rem; }
+  .lab-lead p:last-of-type { margin-bottom: 0; }
+  .lab-lead-cta { font-weight: 600; color: var(--color-primary-700, #1d4ed8) !important; }
+  .lab-lead-actions {
+    display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center;
+    /* 不再用 margin-top:auto —— 让 .lab-lead-intro 的上下 auto 平分空间，
+       介绍就落在照片与按钮的正中间，按钮仍在最下边 */
+  }
+  /* 窄屏：封面矮一点，保证介绍和按钮仍在首屏内 */
+  @media (max-width: 640px) {
+    .lab-hero { min-height: 50svh !important; min-height: 50vh !important; }
+    .lab-lead {
+      padding-top: 1.25rem; font-size: .95rem;
+      min-height: calc(100svh - 50svh); min-height: calc(100vh - 50vh);
+    }
+    .lab-lead p { margin-bottom: .5rem; }
+  }
+  /* 第二个按钮：实心灰色（白底上也看得清） */
+  .lab-btn-ghost {
+    background: #6b7280; border: 1px solid #6b7280;
+    color: #fff !important; box-shadow: 0 6px 18px rgba(107, 114, 128, .28);
+  }
+  .lab-btn-ghost:hover { background: #4b5563; border-color: #4b5563; opacity: 1; }
+  .lab-hero-title {
+    font-size: clamp(1.9rem, 4.6vw, 3.4rem); font-weight: 900; line-height: 1.15;
+    letter-spacing: -0.01em; margin: 0 0 1rem !important; color: #fff;
+  }
+  .lab-hero-sub {
+    font-size: clamp(1rem, 1.7vw, 1.3rem); color: rgba(255,255,255,.9);
+    margin: 0 0 2.2rem; font-weight: 400;
+  }
+  .lab-hero-buttons { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+  .lab-btn {
+    display: inline-block; padding: .75rem 1.8rem; border-radius: 999px;
+    background: #2563eb; color: #fff !important; font-weight: 600; font-size: 1rem;
+    text-decoration: none !important; box-shadow: 0 6px 18px rgba(37,99,235,.35);
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  .lab-btn:hover { transform: translateY(-1px); opacity: .92; }
+
+  /* ---------- ③ 简介段落（已并入封面，保留兼容旧内容） ---------- */
+  .lab-intro {
+    max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.5rem 1rem;
+    text-align: center; font-size: 1.06rem; line-height: 1.85;
+    color: var(--hb-color-foreground, #111827);
+  }
+  .lab-intro p { margin: 0 0 1.2rem; }
+  .lab-intro-cta {
+    margin-top: 2rem !important; font-weight: 600;
+    color: var(--color-primary-600, #2563eb);
+  }
+
+  /* ---------- ④ 研究方向胶囊 ---------- */
+  .lab-areas { max-width: 62rem; margin: 0 auto; padding: 1.5rem 1.5rem 3rem; text-align: center; }
+  .lab-areas-title {
+    font-size: 1.5rem; font-weight: 800; margin-bottom: 1.4rem;
+    color: var(--hb-color-foreground, #111827);
+  }
+  .lab-pills { display: flex; flex-wrap: wrap; gap: .65rem; justify-content: center; }
+  .lab-pill {
+    display: inline-block; padding: .6rem 1.25rem; border-radius: 999px;
+    border: 1px solid var(--color-primary-200, #c7d2fe);
+    background: var(--color-primary-50, #eef2ff);
+    color: var(--color-primary-700, #1d4ed8) !important;
+    font-weight: 600; font-size: .95rem; text-decoration: none !important;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .lab-pill:hover { background: var(--color-primary-100, #e0e7ff); transform: translateY(-1px); }
+
+</style>
+{{ if gt (len $slides) 1 }}
+<script>
+  window.__labHeroSlides = {{ $slides | jsonify | safeJS }};
+  window.__labHeroInterval = {{ $slideSec }};
+</script>
+{{ end }}
+{{ end }}

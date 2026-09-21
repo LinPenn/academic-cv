@@ -1,0 +1,39 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/xing-yuxin.yaml
+
+name:
+  display: "邢雨欣"
+
+role: "博士研究生"
+bio: "抱最好的希望，尽最大的努力。科研上热情而坚持，愿意花时间深入探索，也常在假期反思、学习与成长。业余喜欢游泳和阅读，也爱和同门一起享受美食与相聚，追求科研与生活的平衡。"
+interests:
+  - "禽类胚胎干细胞培养、建系与基因编辑应用"
+  - "多组学整合解析禽类早期胚胎发育的关键因子与调控机制"
+education:
+  - degree: "本科"
+    institution: "河南农业大学动物医学院"
+    year: "2018.09-2022.06"
+  - degree: "暑期学习与学术交流"
+    institution: "新西兰梅西大学"
+    year: "2024.08-2024.09"
+  - degree: "硕士"
+    institution: "河南农业大学动物科学技术学院"
+    year: "2022.09-2025.06"
+  - degree: "博士"
+    institution: "中国农业大学动物科学技术学院"
+    year: "2025.09 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "获奖荣誉"
+    layout: list
+    items:
+      - title: "「互联网+」大学生创新创业大赛国家级铜奖"
+        subtitle: 中国畜牧杂志
+      - title: "「互联网+」大学生创新创业大赛省级一等奖、三等奖"
+      - title: "「挑战杯」全国大学生创业大赛省级三等奖"
+
+links:
+  - icon: "envelope"
+    url: "mailto:xingyuxin@cau.edu.cn"
+    label: "邮箱"
+    display: "xingyuxin@cau.edu.cn"

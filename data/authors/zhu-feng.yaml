@@ -9,9 +9,9 @@ interests:
   - Intelligent Breeding
 links:
   - icon: envelope
-    url: " fengzhu@cau.edu.cn"
-    label: ""
-    display: ""
+    url: "mailto:fengzhu@cau.edu.cn"
+    label: "E-mail"
+    display: "fengzhu@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

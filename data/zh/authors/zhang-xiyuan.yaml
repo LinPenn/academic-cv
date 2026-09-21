@@ -1,0 +1,30 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/zhang-xiyuan.yaml
+
+name:
+  display: "张曦元"
+
+role: "硕士研究生"
+bio: "2025 级硕士研究生。喜欢养花种草，目前维护着一个水草缸。"
+interests:
+  - "基因编辑工具开发"
+education:
+  - degree: "本科"
+    institution: "中国农业大学"
+    year: "2021.9-2025.6"
+  - degree: "硕士"
+    institution: "中国农业大学"
+    year: "2025.9 - 至今"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "研究兴趣"
+    layout: markdown
+    text: |-
+      我养的水草缸
+      ![我家里维护的水草缸](uploads/people/planted-aquarium.jpg)
+
+links:
+  - icon: "envelope"
+    url: "mailto:z13580853621@163.com"
+    label: "邮箱"
+    display: "z13580853621@163.com"

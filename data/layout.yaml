@@ -7,6 +7,16 @@
 # ============================================================================
 
 home:
+  # 封面（首页那张满屏大图）高度：按视口高度百分比算，100 = 满屏
+  hero_height: 67
+  # 封面照片的显示区域：缩放 % 与取景位置（0-100，50 为居中）
+  photo_zoom: 100
+  photo_pos_x: 50
+  photo_pos_y: 76
+  # 封面照片轮播间隔（秒）；照片放在 static/uploads/home/ 里，按文件名排序轮播
+  slide_interval: 6
+  # 每张照片淡入淡出的过渡时长（秒）
+  slide_fade: 1.6
   # 首页最顶部的留白（导航栏与标题之间）
   top_gap: 0
   # 大标题：上方留白 / 与下方主图之间的距离
@@ -18,9 +28,25 @@ home:
   image_text_gap: 24
   # 正文最大宽度
   text_max_width: 1100
+  slides:
+    - 2025.jpg
+    - 2024.jpg
+    - 2023.jpg
+    - 2022.jpg
+    - 2021.jpg
+    - 2026.jpg
 
 research:
   # 研究页最顶部的留白
   top_gap: 24
   # 方向卡片区自身的顶部留白
   cards_gap_top: 8
+
+# 左上角校徽（编辑器「校徽」模块维护）
+logo:
+  image: uploads/cau.png
+  height: 68
+  position: left
+  show_home: 1
+  show_all: 0
+  hide_site_name: 1

@@ -14,8 +14,8 @@ interests:
 links:
   - icon: envelope
     url: "mailto:2060400458@qq.com"
-    label: E-mail
-    display: 2060400458@qq.com
+    label: "E-mail"
+    display: "2060400458@qq.com"
 affiliations:
   - name: China Agricultural University
     url: ""
@@ -42,7 +42,7 @@ custom_sections:
         subtitle: Shandong Aokesi Animal Husbandry Seed Industry Co., Ltd.
         meta: 2024.08 - present
         text: Follow-up of national key science and technology projects and modern agricultural industry system projects, work planning, and farm service. Familiar with the complete DHI sampling and testing workflow, type classification, frozen semen production and sales, data analysis, and pathogen testing workflows.
-        url: Transcriptome-Based Identification of the Muscle Tissue-Specific Expression Gene CKM and Its Regulation of Proliferation, Apoptosis and Differentiation in Chicken Primary Myoblasts
+        url: ""
   - title: Publications, Awards & Skills
     layout: list
     items:

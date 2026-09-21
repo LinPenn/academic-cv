@@ -9,9 +9,9 @@ interests:
   - Disease-Resistant Poultry Breeding
 links:
   - icon: envelope
-    url: sundandan@cau.edu.cn
-    label: ""
-    display: ""
+    url: "mailto:sundandan@cau.edu.cn"
+    label: "E-mail"
+    display: "sundandan@cau.edu.cn"
 affiliations:
   - name: China Agricultural University
     url: ""

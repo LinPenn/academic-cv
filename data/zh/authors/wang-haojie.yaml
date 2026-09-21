@@ -1,0 +1,29 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/wang-haojie.yaml
+
+name:
+  display: "王豪杰"
+
+role: "硕士研究生"
+bio: "中国农业大学动物科学专业二年级硕士研究生，研究聚焦哺乳动物与家禽脂肪细胞形成与脂肪沉积的异同，从跨物种比较的角度理解脂肪组织发育中保守与物种特异的细胞与分子机制。"
+interests:
+  - "哺乳动物与家禽脂肪组织的跨物种比较研究，重点关注脂肪细胞形成中保守与分化的机制"
+education:
+  - degree: "本科"
+    institution: "西北农林科技大学"
+  - degree: "硕士"
+    institution: "中国农业大学"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "个人兴趣"
+    layout: markdown
+    text: |-
+      健身、篮球等各类运动。
+
+      希望在科研中保持好奇与耐心，在生活中保持健康、自由与松弛。
+
+links:
+  - icon: "envelope"
+    url: "mailto:15929117911@163.com"
+    label: "邮箱"
+    display: "15929117911@163.com"

@@ -1,0 +1,54 @@
+{{/*
+  最新论文区块（项目自定义，block: latest-papers）
+  ------------------------------------------------------------------
+  为什么不用主题自带的 collection 区块：
+    论文内容只有英文版，中文站点里没有 publications 页面，
+    collection 区块查的是「当前语言」的页面，于是中文首页会是空的。
+  这个区块统一从「默认语言（英文）」的 publications 分区取最新的若干篇，
+  中英文首页都能正常显示；论文条目本身仍链接到英文详情页。
+*/}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $title := "" }}
+{{ with index $content "title" }}{{ $title = printf "%v" . }}{{ end }}
+{{ $count := 6 }}
+{{ with index $content "count" }}{{ $count = int . }}{{ end }}
+{{ $folder := "publications" }}
+{{ with index $content "folder" }}{{ $folder = printf "%v" . }}{{ end }}
+
+{{ $enSection := site.Sites.Default.GetPage (printf "/%s" $folder) }}
+{{ $items := slice }}
+{{ with $enSection }}{{ $items = first $count .Pages.ByDate.Reverse }}{{ end }}
+
+{{/* 「查看全部」优先指向当前语言的列表页，没有就指向英文的 */}}
+{{ $link := "" }}
+{{ with site.GetPage (printf "/%s" $folder) }}{{ $link = .RelPermalink }}{{ end }}
+{{ if not $link }}{{ with $enSection }}{{ $link = .RelPermalink }}{{ end }}{{ end }}
+
+<div class="py-14 sm:py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-5xl mx-auto">
+    {{ with $title }}
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 text-gray-900 dark:text-white">{{ . }}</h2>
+    {{ end }}
+
+    <div class="flex flex-col">
+      {{ range $items }}
+        {{ partial "views/citation.html" (dict "item" .) }}
+      {{ end }}
+      {{ if not $items }}
+        <p class="text-center text-gray-500">{{ i18n "no_publications" | default "No publications yet." }}</p>
+      {{ end }}
+    </div>
+
+    {{ with $link }}
+    <div class="text-center mt-10">
+      <a href="{{ . }}" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition">
+        {{ i18n "all_publications" | default "All publications" }}
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</div>

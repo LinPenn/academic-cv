@@ -10,9 +10,9 @@ interests:
   - Gene Editing Tool Development
 links:
   - icon: envelope
-    url: z13580853621@163.com
-    label: ""
-    display: ""
+    url: "mailto:z13580853621@163.com"
+    label: "E-mail"
+    display: "z13580853621@163.com"
 affiliations:
   - name: China Agricultural University
     url: ""

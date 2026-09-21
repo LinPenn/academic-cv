@@ -1,0 +1,52 @@
+# 中文覆盖层：只写需要翻译的字段，其余自动沿用 data/authors/xu-jiaqi.yaml
+
+name:
+  display: "徐家棋"
+
+role: "博士研究生"
+bio: "徐家棋，从事奶牛遗传育种研究，利用牛奶中红外光谱预测剩余采食量、饲料转化率等性状，并开展遗传评估以加快遗传进展。研究生期间担任学院研究生会外联部部长，具有丰富的奶牛场实践经验。"
+interests:
+  - "奶牛遗传育种"
+  - "基于牛奶中红外光谱预测剩余采食量与饲料转化率"
+  - "新性状的遗传评估"
+education:
+  - degree: "畜牧学硕士"
+    institution: "山东农业大学（与山东省农业科学院联合培养）"
+    year: "2023.09 - 至今"
+  - degree: "动物科学学士"
+    institution: "西北民族大学"
+    year: "2019.09 - 2023.06"
+affiliations:
+  - name: "中国农业大学"
+custom_sections:
+  - title: "科研经历"
+    layout: markdown
+    text: "在山东省农业科学院从事奶牛遗传育种研究，把常规奶牛生产性能测定（DHI）与分子育种结合，开展遗传评估与选育工作。"
+  - title: "工作经历"
+    layout: timeline
+    items:
+      - title: "畜牧兽医研究所 & 奶牛 DHI 测定中心 科研助理"
+        subtitle: "山东省农业科学院"
+        meta: 2024.03 - present
+        text: "牧场采样、FOSS 仪器操作与检测报告出具。"
+        url: "https://www.sciencedirect.com/science/article/pii/S0378111925000563"
+      - title: "育种部 实习生"
+        subtitle: "山东奥克斯畜牧种业有限公司"
+        meta: 2024.08 - present
+        text: "负责国家重点科技项目与现代农业产业体系项目的跟进、工作规划与牧场服务；熟悉 DHI 采样检测全流程、体型鉴定、冻精生产与销售、数据分析与病原检测流程。"
+        url: ""
+  - title: "论文、获奖与技能"
+    layout: list
+    items:
+      - title: "在《中国畜牧兽医》发表综述 1 篇"
+      - title: "山东省研究生健康养殖创新实践大赛一等奖"
+      - title: "技能"
+        subtitle: "R、Mix99、DMU、Python、MATLAB、WPS/Office；海报设计、Photoshop、新媒体运营与摄影"
+      - title: "语言能力"
+        subtitle: "英语六级；普通话一级乙等"
+
+links:
+  - icon: "envelope"
+    url: "mailto:2060400458@qq.com"
+    label: "邮箱"
+    display: "2060400458@qq.com"
