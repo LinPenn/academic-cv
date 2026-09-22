@@ -266,10 +266,10 @@ export const PAGE_FILES = [
   { path: 'content/join/_index.zh.md', label: '加入我们（中文）' },
   { path: 'content/contact/_index.zh.md', label: '联系我们（中文）' },
   { path: 'content/resources/_index.zh.md', label: '资源（中文）' },
-  { path: 'content/resources/duckgtex/index.md', label: '数据集 · DuckGTEx' },
-  { path: 'content/resources/duckgtex/index.zh.md', label: '数据集 · DuckGTEx（中文）' },
-  { path: 'content/resources/duckepimap/index.md', label: '数据集 · DuckEPIMap' },
-  { path: 'content/resources/duckepimap/index.zh.md', label: '数据集 · DuckEPIMap（中文）' },
+  { path: 'content/resources/database/duckgtex/index.md', label: '数据集 · DuckGTEx' },
+  { path: 'content/resources/database/duckgtex/index.zh.md', label: '数据集 · DuckGTEx（中文）' },
+  { path: 'content/resources/database/duckepimap/index.md', label: '数据集 · DuckEPIMap' },
+  { path: 'content/resources/database/duckepimap/index.zh.md', label: '数据集 · DuckEPIMap（中文）' },
 ];
 
 export function listPages() {
@@ -467,29 +467,57 @@ export function savePage({ path: rel, title, blocks = [], quick, body, dryRun = 
 
 const BLOG_DIR = 'content/blog';
 
+/**
+ * 新闻是双语的：index.md = 英文（站点默认语言），index.zh.md = 中文（/zh/ 下）。
+ * 两个文件放在同一个文章目录里，Hugo 会把它们识别为彼此的翻译版本，语言切换按钮自动生效。
+ */
+export const NEWS_LANGS = [
+  { lang: 'en', file: 'index.md', label: 'English' },
+  { lang: 'zh', file: 'index.zh.md', label: '中文' },
+];
+
+function newsLangMeta(lang) {
+  const meta = NEWS_LANGS.find((l) => l.lang === lang);
+  if (!meta) throw new SaveError(`不支持的语言：${lang}（可用 en / zh）`);
+  return meta;
+}
+
+function newsUrl(lang, dir) {
+  const slug = path.basename(dir);
+  return lang === 'zh' ? `/zh/blog/${slug}/` : `/blog/${slug}/`;
+}
+
 export function listNews() {
-  return listDirs(BLOG_DIR).map((dir) => {
-    const rel = `${dir}/index.md`;
-    if (!exists(rel)) return null;
-    const { fm } = loadDoc(rel);
+  const out = [];
+  for (const dir of listDirs(BLOG_DIR)) {
     const cover = ['featured.jpg', 'featured.png', 'featured.webp', 'cover.jpg', 'cover.png']
       .map((f) => `${dir}/${f}`)
       .find((f) => exists(f)) ?? '';
-    return {
-      dir,
-      path: rel,
-      slug: path.basename(dir),
-      title: fm.title ?? path.basename(dir),
-      date: normalizeDate(fm.date),
-      summary: fm.summary ?? '',
-      authors: Array.isArray(fm.authors) ? fm.authors : (fm.authors ? [fm.authors] : []),
-      tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
-      draft: fm.draft === true,
-      featured: fm.featured === true,
-      cover,
-      url: `/blog/${path.basename(dir)}/`,
-    };
-  }).filter(Boolean).sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    for (const { lang, file } of NEWS_LANGS) {
+      const rel = `${dir}/${file}`;
+      if (!exists(rel)) continue;
+      const { fm } = loadDoc(rel);
+      out.push({
+        dir,
+        path: rel,
+        lang,
+        slug: path.basename(dir),
+        title: fm.title ?? path.basename(dir),
+        date: normalizeDate(fm.date),
+        summary: fm.summary ?? '',
+        authors: Array.isArray(fm.authors) ? fm.authors : (fm.authors ? [fm.authors] : []),
+        tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
+        draft: fm.draft === true,
+        featured: fm.featured === true,
+        cover,
+        url: newsUrl(lang, dir),
+      });
+    }
+  }
+  return out.sort((a, b) =>
+    String(b.date).localeCompare(String(a.date))
+    || String(a.slug).localeCompare(String(b.slug))
+    || String(a.lang).localeCompare(String(b.lang)));
 }
 
 function normalizeDate(d) {
@@ -501,9 +529,12 @@ function normalizeDate(d) {
 export function loadNews(rel) {
   const { rel: r, doc, fm, body } = loadDoc(rel);
   const dir = path.dirname(r).replace(/\\/g, '/');
+  const lang = NEWS_LANGS.find((l) => `${dir}/${l.file}` === r)?.lang ?? 'en';
   return {
     path: r,
     dir,
+    lang,
+    url: newsUrl(lang, dir),
     title: fm.title ?? '',
     date: normalizeDate(fm.date),
     summary: fm.summary ?? '',
@@ -542,13 +573,14 @@ export function slugifyAscii(input) {
   return s.slice(0, 60);
 }
 
-export function createNews({ title, slug, date, summary = '', body = '', tags = [], authors = [], draft = true }) {
+export function createNews({ title, slug, date, summary = '', body = '', tags = [], authors = [], draft = true, lang = 'en' }) {
+  const { file } = newsLangMeta(lang);
   const finalSlug = (slug ?? '').trim() || slugifyAscii(date ? `${date}-${title}` : title) || `news-${Date.now()}`;
   if (!/^[a-z0-9][a-z0-9-]*$/.test(finalSlug)) {
     throw new SaveError('目录名只能是「小写字母、数字、连字符」，例如 duck-genome-2026');
   }
   const dir = `${BLOG_DIR}/${finalSlug}`;
-  const rel = `${dir}/index.md`;
+  const rel = `${dir}/${file}`;
   if (exists(rel)) throw new SaveError(`已存在同名新闻：${rel}`);
   const fmKeys = {
     title: title ?? '未命名',
@@ -561,7 +593,39 @@ export function createNews({ title, slug, date, summary = '', body = '', tags = 
   const text = `---\n${dumpFrontMatter(fmKeys)}---\n\n${body || ''}\n`;
   ensureEditorDirs();
   createText(rel, text);
-  return { path: rel, dir, slug: finalSlug };
+  return { path: rel, dir, slug: finalSlug, lang };
+}
+
+/**
+ * 给已有新闻补另一语言版本（例如中文新闻补一篇英文的）。
+ * 复制原文件的 front matter（标题、日期、标签、作者），正文留空，默认仍是草稿，
+ * 避免半成品直接上线。两个文件同目录即为彼此的翻译版本。
+ */
+export function createNewsTranslation({ path: rel }) {
+  const src = String(rel ?? '').replace(/\\/g, '/');
+  if (!src.startsWith(`${BLOG_DIR}/`)) throw new SaveError('只能给新闻生成译文');
+  const dir = path.dirname(src).replace(/\\/g, '/');
+  const srcLang = NEWS_LANGS.find((l) => `${dir}/${l.file}` === src);
+  if (!srcLang) throw new SaveError(`无法识别语言版本：${src}`);
+  const target = NEWS_LANGS.find((l) => l.lang !== srcLang.lang);
+  const targetRel = `${dir}/${target.file}`;
+  if (exists(targetRel)) throw new SaveError(`已经存在${target.label}版本：${targetRel}`);
+  const { fm } = loadDoc(src);
+  const fmKeys = {
+    title: fm.title ?? '',
+    date: normalizeDate(fm.date) || new Date().toISOString().slice(0, 10),
+  };
+  if (fm.summary) fmKeys.summary = fm.summary;
+  if (Array.isArray(fm.authors) && fm.authors.length) fmKeys.authors = fm.authors;
+  if (Array.isArray(fm.tags) && fm.tags.length) fmKeys.tags = fm.tags;
+  fmKeys.draft = true;
+  const placeholder = target.lang === 'zh'
+    ? '（在这里写中文正文，写好后把「草稿」取消勾选即可上线。）'
+    : '(Write the English text here. Uncheck "draft" when it is ready to go live.)';
+  const text = `---\n${dumpFrontMatter(fmKeys)}---\n\n${placeholder}\n`;
+  ensureEditorDirs();
+  createText(targetRel, text);
+  return { path: targetRel, dir, lang: target.lang, slug: path.basename(dir) };
 }
 
 export function deleteContent(rel, note) {

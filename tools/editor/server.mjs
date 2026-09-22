@@ -219,6 +219,7 @@ const routes = {
   'GET /api/news/doc': (req, res, url) => site.loadNews(url.searchParams.get('path')),
   'POST /api/news/save': async (req) => site.saveNews(await readJson(req)),
   'POST /api/news/create': async (req) => site.createNews(await readJson(req)),
+  'POST /api/news/translate': async (req) => site.createNewsTranslation(await readJson(req)),
   'POST /api/news/delete': async (req) => {
     const { path: rel } = await readJson(req);
     const dir = path.dirname(rel).replace(/\\/g, '/');
