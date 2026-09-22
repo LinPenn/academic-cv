@@ -42,7 +42,7 @@ sections:
         - url: "/research/quantitative-genetics/"
           image: research/quantitative-genetics.webp
           name: 数量遗传学
-          description: 运用统计与数量遗传学方法估计遗传参数、解析复杂性状的遗传结构，并优化基因组选择与育种方案。
+          description: 聚焦畜禽重要经济性状的遗传基础，利用数量遗传学、统计基因组学和大规模群体数据，解析复杂性状的遗传变异与调控机制，评估遗传参数与育种价值，为基因组选择和高效精准育种提供理论依据与技术支撑。
           icon: hero/chart-bar
           gradient: from-amber-400 to-orange-500
           topics:
