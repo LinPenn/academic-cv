@@ -6,8 +6,8 @@
 # Hugo Build Artifacts
 # ============================================================================
 
-# Generated site output
-public/
+# Generated site output —— 锚定根目录，否则会连 tools/editor/public/（编辑器前端）一起吞掉
+/public/
 
 # Hugo resources (processed assets) —— 只忽略仓库根目录的缓存，不要吞掉 content/resources/
 /resources/

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>实验室网站编辑器</title>
+  <link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span id="brand-name">实验室网站编辑器</span>
+        <small id="brand-site"></small>
+      </div>
+      <span id="status-chips" class="row small"></span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost btn-sm" id="btn-check" title="运行 hugo 构建，确认改动没有把站点改坏（约 10 秒）">校验构建</button>
+      <button class="btn btn-ghost btn-sm" id="btn-open-site" title="在新标签页打开线上站点">线上站点</button>
+      <button class="btn btn-ghost btn-sm" id="btn-toggle-preview" title="显示/隐藏右侧预览">预览</button>
+      <button class="btn btn-primary btn-sm" id="btn-publish">发布到 GitHub</button>
+    </header>
+
+    <nav class="sidebar" id="sidebar"></nav>
+
+    <main class="main" id="main">
+      <div class="content" id="content">
+        <p class="muted" id="boot-hint">正在载入编辑器…</p>
+      </div>
+    </main>
+  </div>
+
+  <div id="toasts"></div>
+
+  <noscript>
+    <div class="boot-error">
+      <h2>浏览器禁用了 JavaScript</h2>
+      <p>这个编辑器需要 JavaScript 才能运行，请在浏览器设置里允许本站运行脚本后刷新页面。</p>
+    </div>
+  </noscript>
+
+  <div id="boot-error" class="boot-error" hidden>
+    <h2>编辑器载入失败</h2>
+    <p id="boot-error-msg"></p>
+    <p class="muted small">
+      请把上面的错误信息截图反馈。常见原因：<br>
+      · 直接双击打开的是 HTML 文件，而不是通过 <code>start-editor.bat</code> 启动的服务（地址必须是 http://127.0.0.1:7788/admin/ ）<br>
+      · 编辑器服务没有启动或已关闭：重新双击项目根目录的 <code>start-editor.bat</code><br>
+      · 浏览器插件（广告拦截/脚本拦截）阻止了本站脚本
+    </p>
+    <p><button class="btn btn-primary" onclick="location.reload()">重新载入</button></p>
+  </div>
+
+  <script>
+    /* 兜底：任何脚本错误都直接显示在页面上，避免出现「白屏但不知道原因」 */
+    (function () {
+      var shown = false;
+      function showError(msg) {
+        if (shown) return;
+        shown = true;
+        var box = document.getElementById('boot-error');
+        document.getElementById('boot-error-msg').textContent = msg;
+        box.hidden = false;
+      }
+      window.__editorShowError = showError;
+      window.addEventListener('error', function (e) {
+        if (e && e.message) showError('脚本错误：' + e.message + (e.filename ? '（' + e.filename + ':' + e.lineno + '）' : ''));
+      });
+      window.addEventListener('unhandledrejection', function (e) {
+        var r = e && e.reason;
+        showError('请求或脚本异常：' + ((r && (r.message || r)) || '未知原因'));
+      });
+      setTimeout(function () {
+        if (!window.__editorReady) {
+          showError('编辑器在 8 秒内没有完成载入，可能是服务未启动或被浏览器拦截。当前地址：' + location.href);
+        }
+      }, 8000);
+    })();
+  </script>
+  <script type="module" src="/admin/js/app.js"></script>
+</body>
+</html>
