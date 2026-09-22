@@ -10,5 +10,3 @@ image:
 **Intelligent Phenotyping**
 
 Building automated, high-throughput phenotyping systems that combine imaging and sensors with machine learning and computer vision to measure traits accurately, objectively, and at scale.
-
-> **To be completed：** details, representative results, related papers and data.

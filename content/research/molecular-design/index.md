@@ -10,5 +10,3 @@ image:
 **Molecular Design**
 
 Integrating structural biology, computational design, and genome engineering to create designed proteins and molecular tools, and translating them into new strategies for waterfowl improvement.
-
-> **To be completed：** details, representative results, related papers and data.
