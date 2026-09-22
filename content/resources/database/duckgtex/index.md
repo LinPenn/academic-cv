@@ -12,5 +12,3 @@ summary: "A multi-tissue expression and regulatory atlas of the Pekin duck, buil
 - Multi-tissue transcriptomes of the Pekin duck
 - Genetic variants associated with gene expression
 - Regulatory annotations of candidate genes and causal variants
-
-> **To be completed:** download link, version number, and how to cite.

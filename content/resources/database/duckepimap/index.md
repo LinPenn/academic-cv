@@ -16,5 +16,3 @@ website: "https://duckepimap.farmgtex.org/"
 </div>
 
 **Access:** <https://duckepimap.farmgtex.org/>
-
-> **To be completed:** data types covered, tissues and developmental stages, version number, and how to cite.

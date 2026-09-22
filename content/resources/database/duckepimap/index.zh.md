@@ -16,5 +16,3 @@ website: "https://duckepimap.farmgtex.org/"
 </div>
 
 **访问地址：** <https://duckepimap.farmgtex.org/>
-
-> **待补充：** 覆盖的数据类型、组织与发育阶段、版本号、引用方式。
