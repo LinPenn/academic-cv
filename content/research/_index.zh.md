@@ -22,7 +22,7 @@ sections:
         - url: "/research/molecular-design/"
           image: research/molecular-design.webp
           name: 分子设计
-          description: 融合结构生物学、计算设计与基因组工程，设计蛋白质与分子工具，并转化为水禽遗传改良的新策略。
+          description: 融合结构生物学、计算设计与基因编辑技术，解析重要性状相关蛋白质的结构与功能机制，开展面向特定生物学功能的蛋白质理性设计与精准改造，并通过基因编辑将设计方案转化为可遗传的分子变异，实现从蛋白质设计、分子机制解析到表型优化的跨尺度研究，进一步形成面向水禽遗传改良与精准育种的新技术与新策略。
           icon: hero/cube-transparent
           gradient: from-sky-400 to-indigo-600
           topics:

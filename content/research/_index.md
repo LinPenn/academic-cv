@@ -21,7 +21,7 @@ sections:
         - url: "/research/molecular-design/"
           image: research/molecular-design.webp
           name: Molecular Design
-          description: Integrating structural biology, computational design, and genome engineering to create designed proteins and molecular tools, and translating them into new strategies for waterfowl improvement.
+          description: Integrating structural biology, computational design, and gene editing to dissect the structural and functional mechanisms of proteins underlying important traits, carrying out rational design and precise engineering of proteins for specific biological functions, and translating design schemes into heritable molecular variants through gene editing, thereby enabling cross-scale research from protein design and molecular mechanism dissection to phenotypic optimization and forming new technologies and strategies for waterfowl genetic improvement and precision breeding.
           icon: hero/cube-transparent
           gradient: from-sky-400 to-indigo-600
           topics:
