@@ -2,13 +2,13 @@
 title: "Quantitative Genetics"
 date: "2025-01-01"
 weight: 40
-summary: "Applying statistical and quantitative genetics to estimate genetic parameters, dissect the genetic architecture of complex traits, and optimize genomic selection and breeding schemes."
+summary: "Dissecting the genetic basis of economically important traits in livestock and poultry using quantitative genetics, statistical genomics, and large-scale population data, to reveal the genetic variation and regulatory mechanisms of complex traits, evaluate genetic parameters and breeding values, and provide the theory and technology for genomic selection and efficient precision breeding."
 image:
   filename: research/quantitative-genetics.webp
 ---
 
 **Quantitative Genetics**
 
-Applying statistical and quantitative genetics to estimate genetic parameters, dissect the genetic architecture of complex traits, and optimize genomic selection and breeding schemes.
+Dissecting the genetic basis of economically important traits in livestock and poultry using quantitative genetics, statistical genomics, and large-scale population data, to reveal the genetic variation and regulatory mechanisms of complex traits, evaluate genetic parameters and breeding values, and provide the theory and technology for genomic selection and efficient precision breeding.
 
 > **To be completed：** details, representative results, related papers and data.
