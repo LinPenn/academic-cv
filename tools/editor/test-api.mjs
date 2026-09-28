@@ -470,6 +470,24 @@ async function main() {
     check('已还原数据集文件', readFile(one.path) === before);
   }
 
+  /* ---------- 6.8 网站图标（favicon） ---------- */
+  {
+    const f = (await api('/api/favicon')).data;
+    check('读取网站图标状态', f && typeof f === 'object', JSON.stringify(f).slice(0, 120));
+    check('图标状态含文件路径字段', typeof f.rel === 'string', `rel=${JSON.stringify(f.rel)}`);
+    if (f.rel) {
+      check('图标存放在 assets/media/ 下', /^assets\/media\/icon\.(png|svg)$/.test(f.rel), f.rel);
+      check('自定义图标带体积信息', Number(f.size) > 0, `size=${f.size}`);
+    } else {
+      check('未设置图标时标记为主题默认', f.isThemeDefault === true, JSON.stringify(f));
+    }
+    // 安全校验：扩展名不合法要拒绝，不能借这个接口写别的地方
+    const bad = await api('/api/favicon', {
+      method: 'POST', raw: Buffer.from('x'), filename: 'not-an-image.txt',
+    });
+    check('图标上传拒绝非法扩展名', bad.status >= 400, `status=${bad.status}`);
+  }
+
   /* ---------- 7. 图片上传（GitHub 文件名规范化） ---------- */
   {
     const png = Buffer.from(

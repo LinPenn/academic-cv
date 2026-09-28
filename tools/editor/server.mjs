@@ -17,6 +17,7 @@ import * as profiles from './lib/profiles.mjs';
 import * as layout from './lib/layout.mjs';
 import * as homephotos from './lib/homephotos.mjs';
 import * as resources from './lib/resources.mjs';
+import * as favicon from './lib/favicon.mjs';
 import * as store from './lib/store.mjs';
 import * as git from './lib/git.mjs';
 import * as hugo from './lib/hugo.mjs';
@@ -232,6 +233,14 @@ const routes = {
     const filename = decodeURIComponent(req.headers['x-filename'] ?? 'cover.jpg');
     const buf = await readBody(req);
     return site.setPostCover({ path: rel, filename, buffer: buf });
+  },
+
+  'GET /api/favicon': () => favicon.getFavicon(),
+  'POST /api/favicon': async (req, res, url) => {
+    if (url.searchParams.get('remove') === '1') return favicon.setFavicon({ remove: true });
+    const filename = decodeURIComponent(req.headers['x-filename'] ?? 'icon.png');
+    const buf = await readBody(req);
+    return favicon.setFavicon({ filename, buffer: buf });
   },
 
   'GET /api/publications': () => ({ items: site.listPublications() }),

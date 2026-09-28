@@ -36,6 +36,9 @@ export const WRITABLE_ROOTS = [
   'data/layout.yaml',
   'data/home_photos.yaml',
   'assets/media/authors',
+  // 网站图标（favicon）：主题只会读取这两个文件名，所以精确放行这两条
+  'assets/media/icon.png',
+  'assets/media/icon.svg',
 ];
 /** 允许读取的目录前缀 */
 export const READABLE_ROOTS = ['content', 'config', 'static/uploads', 'data', 'layouts', 'assets/media'];
