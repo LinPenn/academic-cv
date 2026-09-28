@@ -19,3 +19,10 @@ Professor Hou explained that the standard consists of three core elements. First
 
 Professor Hou noted that implementing this standard will improve the batch, continuous and non-invasive measurement of key data traits, reduce the stress caused to animals by handling such as capture, raise the level of animal welfare, promote the translation of intelligent phenotyping technology from the laboratory stage to industrial scale, and drive industrial upgrading. Intelligent breeding truly begins with intelligent phenotyping: this standard is a common language that brings together all the technologies involved, and a data foundation for the rapid development of the industry. He expressed the hope that the release of the standard will provide support for industry and enterprises and a starting point for peers, on which the community can continue to improve and develop together, jointly advancing research on intelligent phenotyping in livestock and poultry and the revitalisation of the seed industry.
 ![Photo](/uploads/wafi-2.jpg)
+
+### Media coverage
+
+- [China News Service: WAFI International Intelligent Breeding Forum releases group standards for intelligent phenotyping data collection in livestock and poultry](https://m.chinanews.com/wap/detail/chs/zw/10699472.shtml)
+- [Toutiao](https://www.toutiao.com/article/7687531697377755658/)
+- [China Business Herald](https://www.zgswcn.com/news.html?aid=372214)
+- [WeChat official account](https://mp.weixin.qq.com/s?__biz=MzI5NTUwMDc3Mw==&mid=2247971943&idx=4&sn=5b925abf34f831e9a2a40c645059f780)
