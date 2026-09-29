@@ -12,7 +12,7 @@ sections:
         - url: "/research/functional-gene-research/"
           image: research/functional-gene-research.webp
           name: 功能基因研究
-          description: 结合多组学、基因编辑与功能验证，挖掘并解析决定水禽重要经济性状的基因、因果变异与调控元件，阐明性状变异的分子机制。
+          description: 结合多组学、基因编辑与功能验证，挖掘并解析决定家禽重要经济性状的基因、因果变异与调控元件，阐明性状变异的分子机制。
           icon: hero/beaker
           gradient: from-emerald-400 to-teal-600
           topics:
@@ -52,7 +52,7 @@ sections:
         - url: "/research/intelligent-phenotyping/"
           image: research/intelligent-phenotyping.webp
           name: 智能表型测定
-          description: 构建自动化、高通量的表型测定系统，把成像与传感技术同机器学习、计算机视觉结合，实现准确、客观、规模化的性状测定。
+          description: 面向畜禽育种与养殖场景，构建自动化、高通量智能表型测定系统；集成多模态感知与物联网传感技术，结合计算机视觉与深度学习算法，实现畜禽生长、体况、繁殖，健康等核心性状的无接触、精准检测，支撑畜禽产业数字化升级。
           icon: hero/eye
           gradient: from-rose-400 to-pink-600
           topics:

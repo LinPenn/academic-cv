@@ -11,7 +11,7 @@ sections:
         - url: "/research/functional-gene-research/"
           image: research/functional-gene-research.webp
           name: Functional Gene Research
-          description: Identifying and functionally characterizing the genes, causal variants, and regulatory elements that underlie economically important traits in waterfowl, by combining multi-omics, genome editing, and functional assays to dissect how trait variation arises.
+          description: Identifying and functionally characterizing the genes, causal variants, and regulatory elements that underlie economically important traits in poultry, by combining multi-omics, genome editing, and functional assays to dissect how trait variation arises.
           icon: hero/beaker
           gradient: from-emerald-400 to-teal-600
           topics:
@@ -51,7 +51,7 @@ sections:
         - url: "/research/intelligent-phenotyping/"
           image: research/intelligent-phenotyping.webp
           name: Intelligent Phenotyping
-          description: Building automated, high-throughput phenotyping systems that combine imaging and sensors with machine learning and computer vision to measure traits accurately, objectively, and at scale.
+          description: Focusing on livestock and poultry breeding and production, we develop automated, high-throughput intelligent phenotyping systems. By integrating multimodal sensing, Internet of Things technologies, computer vision, and deep learning algorithms, we enable contactless and precise assessment of key traits, including growth, body condition, reproduction, and health. These technologies provide data-driven support for the digital transformation and intelligent upgrading of the livestock and poultry industry.
           icon: hero/eye
           gradient: from-rose-400 to-pink-600
           topics:
